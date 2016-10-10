@@ -1,0 +1,1103 @@
+---
+title:
+  type: markdown
+  label: Title
+  placeholder: Title
+  required: true
+  description: 'The title of your dashboard.'
+slug:
+  type: text
+  label: Slug
+  placeholder: Slug
+  required: true
+  description: 'The url for the dasboard such as http://geodash.io/dashboard/<slug>.'
+description:
+  type: markdown
+  label: Description
+  placeholder: Description
+  multiline: true
+  required: true
+  description: 'The generic description for the dashboard.  This is mostly used internally.  Use about or welcome for user descriptions.'
+about:
+  title:
+    type: markdown
+    label: 'About / Title'
+    placeholder: title
+    multiline: false
+    required: true
+    description: 'The title for the about modal.'
+welcome:
+  title:
+    type: markdown
+    label: 'Welcome / Title'
+    placeholder: Title
+    multiline: false
+    required: true
+    description: 'The title for the welcome modal.'
+  intro:
+    type: markdown
+    label: 'Welcome / Introduction'
+    placeholder: Introduction
+    multiline: true
+    required: true
+    description: 'The text (in markdown) for the default intro tab of the welcome modal.'
+  about:
+    type: markdown
+    label: 'Welcome / About'
+    placeholder: About
+    multiline: true
+    required: true
+    description: 'The text (in markdown) for the about tab of the welcome modal.'
+download: null
+baselayers:
+  type: objectarray
+  label: 'Base Layers'
+  placeholder: 'Base Layers'
+  required: true
+  description: 'Base layers available.'
+  schema:
+    verbose_singular: 'Base Layer'
+    verbose_plural: 'Base Layers'
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your base layer.'
+      -
+        id: title
+        type: text
+        label: Title
+        placeholder: title
+        required: true
+        description: 'The title of your base layer.'
+      -
+        id: description
+        type: text
+        label: Description
+        placeholder: description
+        required: true
+        description: 'The description of your base layer.'
+      -
+        id: source.name
+        type: text
+        label: 'Source Name'
+        placeholder: 'source name'
+        required: true
+        description: 'The name of the source of your base layer.'
+      -
+        id: source.attribution
+        type: text
+        label: 'Source Attribution'
+        placeholder: 'source attribution'
+        required: true
+        description: 'The attribution of the source of base layer.'
+      -
+        id: legend.label
+        type: text
+        label: 'Legend Label'
+        placeholder: 'legend label'
+        required: true
+        description: 'The label for the legend.'
+      -
+        id: source.type
+        type: text
+        label: 'Source Type'
+        placeholder: 'tiles, mapbox, gwc'
+        required: false
+        description: 'The type of the feature layer (tiles,mapbox).'
+        options:
+          - tiles
+          - mapbox
+          - gwc
+      -
+        id: source.tile.url
+        type: text
+        label: 'Tile URL'
+        placeholder: 'Tile URL'
+        required: true
+        description: 'The tile url of the source of base layer.'
+        when:
+          field: source.type
+          values:
+            - tile
+            - tiles
+      -
+        id: source.mapbox.access_token
+        type: text
+        label: 'Public MapBox Access Token'
+        placeholder: pk.XYZ
+        required: false
+        description: 'Your public MapBox access token.'
+        when:
+          field: source.type
+          values:
+            - mapbox
+      -
+        id: source.mapbox.layers
+        type: text
+        label: 'MapBox Layers'
+        placeholder: mapbox.streets
+        required: false
+        description: 'MapBox layers'
+        when:
+          field: source.type
+          values:
+            - mapbox
+      -
+        id: source.gwc.url
+        type: text
+        label: 'GWC URL'
+        placeholder: 'http://example.com/geoserver/gwc'
+        required: false
+        description: 'GWC URL'
+        when:
+          field: source.type
+          values:
+            - gwc
+      -
+        id: source.gwc.layers
+        type: text
+        label: 'GWC Layers'
+        placeholder: 'GWC Layers'
+        required: false
+        description: 'GWC layers'
+        when:
+          field: source.type
+          values:
+            - gwc
+assets:
+  type: objectarray
+  label: Assets
+  placeholder: Assets
+  required: true
+  description: 'Known assets available.  Can be then referenced by name'
+  schema:
+    verbose_singular: Asset
+    verbose_plural: Assets
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your asset.'
+      -
+        id: title
+        type: text
+        label: Title
+        placeholder: Title
+        required: true
+        description: 'The title of your asset.'
+      -
+        id: type
+        type: text
+        label: Type
+        placeholder: 'image, svg, font'
+        required: false
+        description: 'The type of the asset (image, svg, font).'
+        options:
+          - image
+          - svg
+          - font
+      -
+        id: url
+        type: text
+        label: URL
+        placeholder: url
+        required: true
+        description: 'The url of the asset.'
+featurelayers:
+  type: objectarray
+  label: 'Available Feature Layers'
+  placeholder: 'Available Feature Layers'
+  required: true
+  description: 'Feature layers available.'
+  search:
+    output: obj
+    templates:
+      suggestion: WMSLayer
+    datasets: WMSServers
+  schema:
+    verbose_singular: 'Available Feature Layer'
+    verbose_plural: 'Available Feature Layers'
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your base layer.'
+      -
+        id: title
+        type: text
+        label: Title
+        placeholder: title
+        required: true
+        description: 'The title of your base layer.'
+      -
+        id: description
+        type: text
+        label: Description
+        placeholder: description
+        required: true
+        description: 'The description of your base layer.'
+      -
+        id: auth
+        type: text
+        label: Authentication
+        placeholder: 'none, basic'
+        required: false
+        description: 'The type of authentication for this layer.'
+        options:
+          - none
+          - basic
+      -
+        id: type
+        type: text
+        label: Type
+        placeholder: 'wms, wmts, geojson, tegola'
+        required: false
+        description: 'The type of the feature layer (wms, wmts, geojson, tegola).'
+        options:
+          - wms
+          - wmts
+          - geojson
+          - tegola
+      -
+        id: view.minZoom
+        type: int
+        label: 'View / Minimum Zoom'
+        placeholder: 0
+        minValue: 0
+        maxValue: 18
+        description: 'The maximum a user can zoom out.'
+        when:
+          field: type
+          values:
+            - wms
+            - wmts
+      -
+        id: view.maxZoom
+        type: int
+        label: 'View / Maximum Zoom'
+        placeholder: 18
+        minValue: 0
+        maxValue: 18
+        description: 'The maximum a user can zoom in.'
+        when:
+          field: type
+          values:
+            - wms
+            - wmts
+      -
+        id: source
+        type: object
+        label: Source
+        placeholder: source
+        required: false
+        description: 'Source configuration.'
+        schema:
+          verbose_singular: Source
+          fields:
+            -
+              id: name
+              type: text
+              label: 'Source / Name'
+              placeholder: 'source name'
+              required: true
+              description: 'The name of the source of your feature layer.'
+            -
+              id: attribution
+              type: text
+              label: 'Source / Attribution'
+              placeholder: 'source attribution'
+              required: true
+              description: 'The attribution of the source of feature layer.'
+            -
+              id: maxZoom
+              type: int
+              label: 'Source / Maximum Zoom'
+              placeholder: 18
+              minValue: 0
+              maxValue: 18
+              description: 'The maximum zoom level provided by the source.'
+      -
+        id: wms
+        type: object
+        label: WMS
+        placeholder: wms
+        required: false
+        description: 'WMS configuration.'
+        when:
+          field: type
+          values:
+            - wms
+        schema:
+          verbose_singular: WMS
+          fields:
+            -
+              id: layers
+              type: text
+              label: 'WMS Layers'
+              placeholder: layers
+              required: false
+              description: 'The wms layers of the feature layer.'
+            -
+              id: cql_filter
+              type: text
+              label: 'CQL Filter'
+              placeholder: 'PERSONS > 15000000'
+              required: false
+              description: 'The CQL Filter to apply to the WMS GetMap requests.'
+            -
+              id: url
+              type: text
+              label: 'WMS URL'
+              placeholder: 'http://geonode.wfp.org/geoserver/geonode/wms'
+              required: false
+              description: 'The url of the WMS server.'
+              typeahead: {local: wms}
+      -
+        id: wmts.layers
+        type: text
+        label: 'WMTS Layers'
+        placeholder: layers
+        required: false
+        description: 'The wmts layers of the feature layer.'
+        when:
+          field: type
+          values:
+            - wmts
+      -
+        id: wmts.url
+        type: text
+        label: 'WMTS URL'
+        placeholder: 'http://geonode.wfp.org/geoserver/geonode/wms'
+        required: false
+        description: 'The url of the WMTS server.'
+        when:
+          field: type
+          values:
+            - wmts
+      -
+        id: wfs
+        type: object
+        label: WFS
+        placeholder: wfs
+        required: false
+        description: 'WFS configuration.'
+        when:
+          field: type
+          values:
+            - wms
+        schema:
+          verbose_singular: WFS
+          fields:
+            -
+              id: version
+              type: text
+              label: 'WFS Version'
+              placeholder: 1.0.0
+              required: false
+              description: 'The version of the WFS server.'
+              options: [1.0.0, 1.1.0, '2.0', 2.0.2]
+            -
+              id: url
+              type: text
+              label: 'WFS URL'
+              placeholder: 'http://geonode.wfp.org/cors/geoserver/wfs'
+              required: false
+              description: 'The url of the WFS server.'
+      -
+        id: geojson.url
+        type: text
+        label: 'GeoJSON URL'
+        placeholder: 'http://example.com/data.geojson'
+        required: false
+        description: 'The url of the geojson service/file.'
+        when:
+          field: type
+          values:
+            - geojson
+      -
+        id: tegola
+        type: object
+        label: Tegola
+        placeholder: Tegola
+        required: false
+        description: 'Tegola configuration.'
+        when:
+          field: type
+          values:
+            - tegola
+        schema:
+          verbose_singular: Tegola
+          fields:
+            -
+              id: map
+              type: text
+              label: Map
+              placeholder: map
+              required: false
+              description: 'The tegola map to show.'
+            -
+              id: url
+              type: text
+              label: 'Tegola Server URL'
+              placeholder: 'http://localhost:9090'
+              required: false
+              description: 'The url of the tegola server.'
+              typeahead: {local: tegola}
+            -
+              id: debug
+              type: text
+              label: Debug
+              placeholder: debug
+              required: false
+              description: 'Debug.  If yes, will return border of each tile as vectors.'
+      -
+        id: carto
+        type: object
+        label: Cartography
+        placeholder: 'Cartography (styles, etc.).'
+        required: false
+        description: 'Cartography (styles, etc.).'
+        when:
+          field: type
+          values:
+            - geojson
+        schema:
+          verbose_singular: Cartography
+          fields:
+            -
+              id: styles
+              type: objectarray
+              label: Styles
+              placeholder: styles
+              required: false
+              description: styles
+              schema: {verbose_singular: Style, verbose_plural: Style, fields: [{id: id, type: text, label: 'Style ID', placeholder: id, required: true, description: 'The id of the style.'}, {id: title, type: text, label: 'Style Title', placeholder: title, required: true, description: 'The title of the style.'}, {id: description, type: text, label: 'Style Description', placeholder: description, required: true, description: 'The description of the style.'}, {id: legend, type: object, label: Legend, placeholder: legend, required: false, description: Legend, schema: {verbose_singular: Legend, fields: [{id: type, type: text, label: 'Legend type', placeholder: type, required: false, description: type, options: [default, graduated]}]}}, {id: symbolizers, type: objectarray, label: Symbolizers, placeholder: symbolizers, required: false, description: symbolizers, schema: {verbose_singular: Symbolizer, verbose_plural: Symbolizers, fields: [{id: id, type: text, label: 'Symbolizer ID', placeholder: id, required: true, description: 'The id of the symbolizer.'}, {id: title, type: text, label: 'Symbolizer Title', placeholder: title, required: true, description: 'The title of the symbolizer.'}, {id: type, type: text, label: 'Symbolizer Type', placeholder: title, required: true, description: 'The type of the symbolizer.', options: [point, line, polygon]}, {id: static, type: object, label: 'Symbolizer Static', placeholder: 'Symbolizer Static', required: false, description: 'Symbolizer Static', schema: {verbose_singular: Static, fields: [{id: properties, type: objectarray, label: 'Symbolizer Static Properties', placeholder: properties, required: false, description: properties, schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.', options: [radius, fillColor, fillOpacity, strokeWidth, strokeColor, strokeOpacity]}, {id: value, type: text, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}}, {id: dynamic, type: object, label: 'Symbolizer Dynamic', placeholder: 'Symbolizer Dynamic', required: false, description: 'Symbolizer Dynamic', schema: {verbose_singular: Dynamic, fields: [{id: func, type: template, label: 'Symbolizer Dynamic Function Name', placeholder: 'function name', required: false, description: 'Symbolizer Dynamic Function Name', search: {local: {name: reflect, args: {locations: [dynamicStyleFn]}}}}]}}]}}]}
+      -
+        id: heatmap
+        type: object
+        label: Heatmap
+        placeholder: Heatmap
+        required: false
+        description: 'Heatmap configuration.'
+        when:
+          field: type
+          values:
+            - wms
+            - geojson
+        schema:
+          verbose_singular: Heatmap
+          fields:
+            -
+              id: blur
+              type: int
+              label: 'Heatmap Blur'
+              placeholder: 15
+              required: false
+              description: 'heatmap blur'
+            -
+              id: radius
+              type: int
+              label: 'Heatmap Radius'
+              placeholder: 5
+              required: false
+              description: 'heatmap radius'
+            -
+              id: weight
+              type: text
+              label: 'Heatmap Weight Attribute'
+              placeholder: none
+              required: false
+              description: 'Name of the attribute that is used as the weight. If not included, everything is given weight of 1.'
+      -
+        id: popup
+        type: object
+        label: Popup
+        placeholder: popup
+        required: false
+        description: 'Popup displayed when clicked on map.'
+        schema:
+          verbose_singular: Popup
+          fields:
+            -
+              id: title
+              type: text
+              label: 'Popup Title'
+              placeholder: 'popup title'
+              required: false
+              description: 'The title of the layer''s popup.  Can use angular variables and filters.'
+            -
+              id: maxWidth
+              type: text
+              label: 'Popup Maximum Width'
+              placeholder: '550'
+              required: false
+              description: 'The maximum width of the layer''s popup.'
+            -
+              id: panes
+              type: objectarray
+              label: Panes
+              placeholder: Panes
+              required: false
+              description: Panes
+              schema: {verbose_singular: Pane, verbose_plural: Panes, fields: [{id: id, type: text, label: 'Pane ID', placeholder: id, required: true, description: 'The id of the pane.'}, {id: tab.label, type: text, label: 'Tab Label', placeholder: 'tab label', required: true, description: 'The label of the pane''s tab.'}, {id: fields, type: objectarray, label: Fields, placeholder: Fields, required: false, description: Fields, schema: {verbose_singular: Field, verbose_plural: Fields, fields: [{id: type, type: text, label: Type, placeholder: type, required: false, description: 'Type (text, link).', options: [text, template, link, date]}, {id: attribute, type: text, label: 'Field Attribute', placeholder: 'Field Attribute', required: false, description: 'The attribute name (use when input & output are the same).'}, {id: inputs, type: stringarray, label: Inputs, placeholder: 'Input arributes', required: true, description: 'Will coalesce when provided with multiple attribute names.'}, {id: value, type: template, label: Value, placeholder: 'Value (eg., {{ feature.geometry.lat | number :4 }}, {{ feature.geometry.lng | number: 4}})', required: false, description: 'Custom value to show.'}, {id: url, type: template, label: URL, placeholder: URL, required: false, description: 'When you want to hyperlink the value field.'}, {id: label, type: template, label: 'Field Label', placeholder: 'Field label', required: false, description: 'The label of the field.'}, {id: when, type: text, label: 'Field When', placeholder: 'Field When', required: false, description: 'When to display the field (always, defined, etc.).', options: [always, defined]}]}}]}
+      -
+        id: metadata
+        type: object
+        label: Metadata
+        placeholder: 'metadata (keywords, etc.)'
+        required: false
+        description: 'Metadata (keywords, etc.).'
+        schema:
+          verbose_singular: Metadata
+          fields:
+            -
+              id: keywords
+              type: stringarray
+              label: Keywords
+              placeholder: keywords
+              required: true
+              description: Keywords
+controls:
+  attribution:
+    order: 0
+    type: boolean
+    label: Attribution
+  calendar:
+    order: 1
+    type: boolean
+    label: Calendar
+  filters:
+    order: 2
+    type: boolean
+    label: Filters
+  legend:
+    order: 3
+    type: boolean
+    label: Legend
+  sidebar:
+    order: 4
+    type: boolean
+    label: Sidebar
+  zoom:
+    order: 5
+    type: boolean
+    label: Zoom
+view:
+  latitude:
+    order: 0
+    type: int
+    label: Latitude
+    placeholder: Latitude
+    description: 'The default latitude when opening the dashboard.'
+  longitude:
+    order: 1
+    type: int
+    label: Longitude
+    placeholder: Longitude
+    description: 'The default longitude when opening the dashboard.'
+  zoom:
+    order: 2
+    type: int
+    label: Zoom
+    placeholder: Zoom
+    minValue: 0
+    maxValue: 18
+    description: 'The default zoom when opening the dashboard.'
+  minZoom:
+    order: 3
+    type: int
+    label: 'Minimum Zoom'
+    placeholder: 'Minimum Zoom'
+    minValue: 0
+    maxValue: 18
+    description: 'The minimum a user can zoom out.'
+  maxZoom:
+    order: 4
+    type: int
+    label: 'Maximum Zoom'
+    placeholder: 'Maximum Zoom'
+    minValue: 0
+    maxValue: 18
+    description: 'The maximum a user can zoom in.'
+  baselayer:
+    type: text
+    label: 'Selected Base Layer'
+    placeholder: osm
+    required: true
+    description: 'The selected base layer to show on page load.'
+    typeahead:
+      local: baselayers
+  featurelayers:
+    type: stringarray
+    label: 'Selected Feature Layers'
+    placeholder: 'Selected Feature Layers'
+    required: true
+    description: 'The selected feature layers to show on page load.'
+    search:
+      local: featurelayers
+      templates:
+        suggestion: GeoDashLayer
+renderlayers:
+  type: stringarray
+  label: 'Render Layers'
+  placeholder: 'Render Layers'
+  required: true
+  description: 'The layers in stack order to render; the first is on top; the last is on the bottom.'
+  search:
+    local: layers
+    templates:
+      suggestion: GeoDashLayer
+servers:
+  type: objectarray
+  label: Servers
+  placeholder: Servers
+  required: true
+  description: 'Known servers available.'
+  schema:
+    verbose_singular: Server
+    verbose_plural: Servers
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your server.'
+      -
+        id: title
+        type: text
+        label: Title
+        placeholder: title
+        required: true
+        description: 'The title of your server.'
+      -
+        id: description
+        type: text
+        label: Description
+        placeholder: description
+        required: true
+        description: 'The description of your server.'
+      -
+        id: type
+        type: text
+        label: Type
+        placeholder: 'wms, mapbox, tegola'
+        required: false
+        description: 'The type of the server (wms, mapbox, tegola).'
+        options:
+          - wms
+          - mapbox
+          - tegola
+      -
+        id: wms
+        type: object
+        label: WMS
+        placeholder: wms
+        required: false
+        description: 'WMS configuration.'
+        when:
+          field: type
+          values:
+            - wms
+        schema:
+          verbose_singular: WMS
+          fields:
+            -
+              id: url
+              type: text
+              label: 'WMS URL'
+              placeholder: 'http://geonode.wfp.org/geoserver/geonode/wms'
+              required: false
+              description: 'The url of the WMS server.'
+      -
+        id: wfs
+        type: object
+        label: WFS
+        placeholder: wfs
+        required: false
+        description: 'WFS configuration.'
+        when:
+          field: type
+          values:
+            - wms
+        schema:
+          verbose_singular: WFS
+          fields:
+            -
+              id: version
+              type: text
+              label: 'WFS Version'
+              placeholder: 1.0.0
+              required: false
+              description: 'The version of the WFS server.'
+              options: [1.0.0, 1.1.0, '2.0', 2.0.2]
+            -
+              id: url
+              type: text
+              label: 'WFS URL'
+              placeholder: 'http://geonode.wfp.org/cors/geoserver/wfs'
+              required: false
+              description: 'The url of the WFS server.'
+      -
+        id: tegola
+        type: object
+        label: Tegola
+        placeholder: tegola
+        required: false
+        description: 'Tegola configuration.'
+        when:
+          field: type
+          values:
+            - tegola
+        schema:
+          verbose_singular: Tegola
+          fields:
+            -
+              id: url
+              type: text
+              label: 'Tegola URL'
+              placeholder: 'http://localhost:9090'
+              required: false
+              description: 'The url of the Tegola server.'
+pages:
+  type: objectarray
+  label: Pages
+  placeholder: Pages
+  required: true
+  description: 'Pages.  Used for templating links to this and other systems.'
+  schema:
+    verbose_singular: Pages
+    verbose_plural: Pages
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your page.'
+      -
+        id: url
+        type: text
+        label: URL
+        placeholder: url
+        required: true
+        description: 'The url of your page.  Can use Angular interpolation and filters.'
+legend:
+  type: object
+  label: Legend
+  placeholder: Legend
+  required: false
+  description: Legend
+  schema:
+    verbose_singular: Legend
+    fields:
+      -
+        id: position
+        type: object
+        label: Position
+        placeholder: position
+        required: false
+        description: 'Position of the legend.'
+        schema:
+          verbose_singular: Position
+          fields:
+            -
+              id: top
+              type: text
+              label: 'Position / Top'
+              placeholder: auto
+              required: true
+              description: 'The top position of the legend (in pixels or percentage).'
+            -
+              id: bottom
+              type: text
+              label: 'Position / Bottom'
+              placeholder: auto
+              required: true
+              description: 'The bottom position of the legend (in pixels or percentage).'
+            -
+              id: left
+              type: text
+              label: 'Position / Left'
+              placeholder: auto
+              required: true
+              description: 'The left position of the legend (in pixels or percentage).'
+            -
+              id: right
+              type: text
+              label: 'Position / Right'
+              placeholder: auto
+              required: true
+              description: 'The right position of the legend (in pixels or percentage).'
+      -
+        id: width
+        type: text
+        label: Width
+        placeholder: width
+        required: true
+        description: 'The width of the legend (in pixels or percentage).'
+      -
+        id: height
+        type: text
+        label: Height
+        placeholder: height
+        required: true
+        description: 'The height of the legend (in pixels or percentage).'
+      -
+        id: css
+        type: object
+        label: CSS
+        placeholder: css
+        required: false
+        description: 'Additional CSS for the legend.'
+        schema:
+          verbose_singular: CSS
+          fields:
+            -
+              id: properties
+              type: objectarray
+              label: 'Legend Additional CSS Properties'
+              placeholder: properties
+              required: false
+              description: 'The additional css properties of the legend, such as margin, padding, border, etc.'
+              schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+overlays:
+  type: objectarray
+  label: 'Static Overlays'
+  placeholder: 'Static Overlays'
+  required: true
+  description: 'Static Overlays available.'
+  schema:
+    verbose_singular: 'Static Overlay'
+    verbose_plural: 'Static Overlays'
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your static overlay.'
+      -
+        id: type
+        type: text
+        label: Type
+        placeholder: 'text or image'
+        required: true
+        description: 'The type of your static overlay (text or image).'
+        options:
+          - text
+          - image
+      -
+        id: position
+        type: object
+        label: Position
+        placeholder: position
+        required: false
+        description: 'Position of the overlay.'
+        schema:
+          verbose_singular: Position
+          fields:
+            -
+              id: top
+              type: text
+              label: 'Position / Top'
+              placeholder: auto
+              required: true
+              description: 'The top position of your static overlayer (in pixels or percentage).'
+            -
+              id: bottom
+              type: text
+              label: 'Position / Bottom'
+              placeholder: auto
+              required: true
+              description: 'The bottom position of your static overlayer (in pixels or percentage).'
+            -
+              id: left
+              type: text
+              label: 'Position / Left'
+              placeholder: auto
+              required: true
+              description: 'The left position of your static overlayer (in pixels or percentage).'
+            -
+              id: right
+              type: text
+              label: 'Position / Right'
+              placeholder: auto
+              required: true
+              description: 'The right position of your static overlayer (in pixels or percentage).'
+      -
+        id: width
+        type: text
+        label: Width
+        placeholder: width
+        required: true
+        description: 'The width of your static overlayer (in pixels or percentage).'
+      -
+        id: height
+        type: text
+        label: Height
+        placeholder: height
+        required: true
+        description: 'The height of your static overlayer (in pixels or percentage).'
+      -
+        id: css
+        type: object
+        label: CSS
+        placeholder: css
+        required: false
+        description: 'Additional CSS for the overlay.'
+        schema:
+          verbose_singular: CSS
+          fields:
+            -
+              id: properties
+              type: objectarray
+              label: 'Intent Additional CSS Properties'
+              placeholder: properties
+              required: false
+              description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
+              schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+      -
+        id: text
+        type: object
+        label: Text
+        placeholder: text
+        required: false
+        description: 'Text of the overlay.'
+        when:
+          field: type
+          values:
+            - text
+        schema:
+          verbose_singular: Position
+          fields:
+            -
+              id: content
+              type: text
+              label: 'Text Content'
+              placeholder: text
+              required: false
+              description: 'The text of your static overlayer.'
+            -
+              id: font.family
+              type: text
+              label: 'Text Font Family'
+              placeholder: Arial
+              required: false
+              description: 'The font family of your text in your static overlayer.'
+              options: [Arial, 'Open Sans', Verdana, Impact]
+            -
+              id: font.size
+              type: text
+              label: 'Text Font Size'
+              placeholder: 12px
+              required: false
+              description: 'The font size of your text in your static overlayer.'
+            -
+              id: font.style
+              type: text
+              label: 'Text Font Style'
+              placeholder: 'normal or italic'
+              required: false
+              description: 'The font style of your text in your static overlayer.'
+              options: [normal, italic, oblique, initial, inherit]
+            -
+              id: shadow
+              type: text
+              label: 'Text Shadow'
+              placeholder: none;
+              required: false
+              description: 'The text-shadow to apply to your static overlayer.'
+      -
+        id: image
+        type: object
+        label: Image
+        placeholder: image
+        required: false
+        description: 'Image for the overlay.'
+        when:
+          field: type
+          values:
+            - image
+        schema:
+          verbose_singular: Image
+          fields:
+            -
+              id: asset
+              type: text
+              label: 'Image Asset ID'
+              placeholder: 'image asset ID'
+              required: false
+              description: 'The id of the image asset.'
+              search: {datasets: [Images]}
+            -
+              id: url
+              type: text
+              label: 'Image Url'
+              placeholder: 'image url'
+              required: false
+              description: 'The URL of your image static overlayer.'
+      -
+        id: link
+        type: object
+        label: Link
+        placeholder: link
+        required: false
+        description: 'Link for the overlay.'
+        schema:
+          verbose_singular: Link
+          fields:
+            -
+              id: url
+              type: text
+              label: 'Link URL'
+              placeholder: url
+              required: true
+              description: 'The destination of the link activated on user click.'
+            -
+              id: target
+              type: text
+              label: 'Link Target'
+              placeholder: target
+              required: true
+              description: 'The target of the link.'
+              options: [_blank, _self, _parent, _top]
+      -
+        id: intent
+        type: object
+        label: Intent
+        placeholder: intent
+        required: false
+        description: 'Intent for the overlay.'
+        schema:
+          verbose_singular: Intent
+          fields:
+            -
+              id: name
+              type: text
+              label: 'Intent Name'
+              placeholder: name
+              required: true
+              description: 'The intent to emit.'
+              search: {local: {name: reflect, args: {locations: [handlers]}}}
+            -
+              id: properties
+              type: objectarray
+              label: 'Intent Properties'
+              placeholder: properties
+              required: false
+              description: 'The properties of the intent, such as layer id, location, etc.'
+              schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}

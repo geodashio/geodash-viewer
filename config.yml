@@ -1,0 +1,129 @@
+---
+name: geodashviewer
+version: "0.0.1"
+description: "GeoDash Viewer 1.x"
+path:
+  geodash: "./src/geodash"
+less:
+  pre: ["./src/less/geodashviewer.less"]
+  paths: ["./src/geodash/global"]
+  outfile: "main.css"
+  dest: "./build/css/"
+bootstrap:
+  src: "/home/vagrant/geodash-base.git/lib/bootstrap/3.3.5/less"
+  variables: "./src/geodash/global/variables.less"
+  dest: "./build/bootstrap"
+plugins:
+  # Used for Production
+  #- https://github.com/geodashio/geodash-plugin-map-map.git
+  #- https://github.com/geodashio/geodash-plugin-editor-welcome.git
+  #- https://github.com/geodashio/geodash-plugin-editor-sidebar.git
+  #- https://github.com/geodashio/geodash-plugin-main.git
+  # Use file links when editing locally
+  - file:///home/vagrant/geodash-plugin-map-map.git
+  - file:///home/vagrant/geodash-plugin-main.git
+dependencies:
+  production:
+    javascript:
+      - "./src/config.js"
+      - "./build/meta/meta.js"
+      - "./build/templates/templates.js"
+    templates:
+      - "./src/templates/*.html"
+    project:
+      - "~/geodash-base.git/config.yml"
+  test:
+    javascript: ["./src/config.js"]
+compiler:
+  list: []
+resources:
+  - name: geodashviewer.less
+    path: ./src/less/geodashviewer.less
+  - name: bootstrap.css
+    path: ./build/bootstrap/bootstrap.css
+  - name: polyfill.min.js
+    path: ./build/js/polyfill.min.js
+build:
+  main.css:
+    name: main.css
+    type: less
+    src:
+      - type: resource
+        project: geodashviewer
+        name: geodashviewer.less
+      - type: var
+        name: compile_less  # GeoDash will concat array variables
+    outfile: geodashviewer.css
+    dest: ./build/css/
+    paths: ./src/geodash/global
+  polyfill.js:
+    name: polyfill.js
+    type: js
+    uglify: true # Create an unglified version at *.min.js
+    src: "./src/polyfill/*.js"
+    outfile: polyfill.js
+    dest:  ./build/js/
+  main.js:
+    name: main.js
+    type: js
+    uglify: true # Create an unglified version at *.min.js
+    src:
+      - type: variable
+        name: compile_js  # GeoDash will concat array variables
+    outfile: geodashviewer.js
+    dest: ./build/js/
+  monolith.js:
+    name: monolith.js
+    type: js
+    src:
+      - type: resource
+        project: geodash
+        version: "1.9.1"
+        name: jquery.js
+      - type: resource
+        project: geodash
+        version: "1.11.4"
+        name: jquery-ui.js
+      - type: resource
+        project: geodash
+        name: yaml.js
+      - type: resource
+        project: geodash
+        version: geodash
+        name: typeahead.js
+      - type: resource
+        project: geodash
+        version: "1.4.0-beta.4"
+        names:
+          - angular.js
+          - angular-route.js
+          - angular-sanitize.js
+          - angular-cookies.js
+      - type: resource
+        project: geodash
+        version: "3.3.5"
+        name: bootstrap.js
+      - type: resource
+        project: geodash
+        version: "3.5.14"
+        name: d3.js
+      - type: resource
+        project: geodash
+        version: "0.4.10"
+        name: c3.js
+      - type: resource
+        project: geodash
+        version: "3.17.1"
+        name: ol3.js
+      - type: resource
+        project: geodash
+        version: "1.3.0"
+        name: showdown.js
+      - type: resource
+        project: geodash
+        version: "0.0.1"
+        name: geodash.js
+      - type: build
+        name: main.js
+    outfile: geodashviewer.full.js
+    dest: ./build/js/

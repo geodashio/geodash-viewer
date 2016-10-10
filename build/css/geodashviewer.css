@@ -1,0 +1,371 @@
+/* Widely Used Variables */
+/* Original 768px */
+/* Defaults for Tooltips */
+/* 7 x 9s */
+/* Defaults for Modals */
+/* 5 x 9s */
+/* 6 x 9s */
+/* Defaults for Popups */
+/* 5 x 9s */
+/* Defaults for Controls */
+/* 4 x 9s */
+/* Welcome */
+/* Breadcrumbs */
+/* Overlays */
+/* Legend */
+/* Filter */
+/* Sidebar */
+.html {
+  height: 100%;
+}
+.body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+}
+.footer {
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  position: relative;
+}
+.footer,
+.push {
+  background-color: #f5f5f5;
+}
+.footer-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+}
+#left-footer-menu,
+#footer-disclaimer {
+  padding-left: 56px;
+}
+#right-footer-menu {
+  padding-right: 75px;
+  text-align: right;
+}
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.mapgive-font {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 18px;
+}
+.logo-font {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+.float-right {
+  float: right;
+}
+.header-container {
+  width: auto;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.wfp-logo {
+  display: inline-block;
+  opacity: 1;
+  height: 50px;
+}
+.logo {
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+}
+.sameline {
+  display: inline-block;
+}
+.odd {
+  background: #f5f5f5;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.navbar-brand {
+  float: left;
+  padding: 5px 9px 0px 13px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 42px;
+}
+.navbar-inverse {
+  border-bottom: 2px #667764;
+  border-style: solid;
+}
+.navbar {
+  min-height: 61px;
+}
+.navbar-right-text {
+  padding-top: 5px;
+}
+.navbar-nav > li > a {
+  padding-bottom: 0px;
+  line-height: initial;
+}
+.geodash-row {
+  margin: 0;
+}
+.geodash-select-dropdown {
+  width: 300px !important;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+.geodash-main {
+  position: relative;
+}
+.geodash-main .tooltip {
+  z-index: 9999999;
+  max-width: 120px;
+}
+.geodash-main .geodash-sidebar {
+  position: absolute;
+  top: 0px;
+  width: 0px;
+  height: 100%;
+  transition: all 1.2s ease-in-out;
+}
+.geodash-main .geodash-sidebar.geodash-sidebar-left.sidebar-open {
+  width: 600px;
+}
+.geodash-main .geodash-sidebar.geodash-sidebar-right.sidebar-open {
+  width: 600px;
+}
+.geodash-main .geodash-sidebar.geodash-sidebar-left {
+  left: 0px;
+}
+.geodash-main .geodash-sidebar.geodash-sidebar-right {
+  right: 0px;
+}
+.geodash-main .geodash-map {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100%;
+  transition: all 1.2s ease-in-out;
+}
+.geodash-main .geodash-map .leaflet-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+}
+.geodash-main .geodash-map .leaflet-control-container .leaflet-top.leaflet-left {
+  top: 4px;
+}
+.geodash-main .geodash-map .leaflet-popup-content {
+  width: auto !important;
+  font-size: 12px;
+}
+.geodash-main .geodash-map .leaflet-popup-content .tab-pane {
+  padding: 10px;
+}
+.geodash-main .geodash-map.sidebar-left-open {
+  left: 600px;
+}
+.geodash-main .geodash-map.sidebar-right-open {
+  right: 600px;
+}
+.geodash-modal {
+  color: black;
+  z-index: 999999;
+  /*display: block;*/
+}
+@media (max-width: 807px) {
+  .geodash-main {
+    position: relative;
+    height: 400px;
+  }
+  .geodash-main .geodash-modal .modal-dialog.geodash-responsive {
+    width: calc(@{@screen-xs-max} - 20px);
+  }
+}
+@media (min-width: 808px) and (max-width: 991px) {
+  .geodash-main {
+    position: relative;
+    height: 100%;
+  }
+  .geodash-main .geodash-modal .modal-dialog.geodash-responsive {
+    width: 100%;
+    max-width: 980px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .geodash-main {
+    position: relative;
+    height: 100%;
+  }
+  .geodash-main .geodash-modal .modal-dialog.geodash-responsive {
+    width: 100%;
+    max-width: 980px;
+  }
+}
+@media (min-width: 1200px) {
+  .geodash-main {
+    position: relative;
+    height: 100%;
+  }
+  .geodash-main .geodash-modal .modal-dialog.geodash-responsive {
+    width: 100%;
+    max-width: 980px;
+  }
+}
+
+/* Widely Used Variables */
+/* Original 768px */
+/* Defaults for Tooltips */
+/* 7 x 9s */
+/* Defaults for Modals */
+/* 5 x 9s */
+/* 6 x 9s */
+/* Defaults for Popups */
+/* 5 x 9s */
+/* Defaults for Controls */
+/* 4 x 9s */
+/* Welcome */
+/* Breadcrumbs */
+/* Overlays */
+/* Legend */
+/* Filter */
+/* Sidebar */
+.geodash-map-legend {
+  position: absolute;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+.geodash-map-legend h5,
+.geodash-map-legend .h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+}
+.geodash-map-legend h6,
+.geodash-map-legend .h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #444;
+  line-height: 2rem;
+}
+.geodash-map-legend .tooltip {
+  max-width: none;
+}
+.geodash-map-legend .tooltip .tooltip-inner {
+  max-width: none;
+}
+
+/* Widely Used Variables */
+/* Original 768px */
+/* Defaults for Tooltips */
+/* 7 x 9s */
+/* Defaults for Modals */
+/* 5 x 9s */
+/* 6 x 9s */
+/* Defaults for Popups */
+/* 5 x 9s */
+/* Defaults for Controls */
+/* 4 x 9s */
+/* Welcome */
+/* Breadcrumbs */
+/* Overlays */
+/* Legend */
+/* Filter */
+/* Sidebar */
+.geodash-map-overlays .geodash-map-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  overflow: hidden;
+  display: none;
+}
+.geodash-map-overlays .geodash-map-grid table {
+  width: 100%;
+  height: 100%;
+}
+.geodash-map-overlays .geodash-map-grid table td {
+  width: 50%;
+}
+.geodash-map-overlays .geodash-map-grid.on {
+  display: block;
+}
+.geodash-map-overlays .geodash-map-grid.on table td {
+  border: 2px solid blue;
+}
+.geodash-map-overlays .geodash-map-overlay {
+  position: absolute;
+  z-index: 9999;
+  color: white;
+  padding: 10px;
+  box-sizing: padding-box;
+}
+.geodash-map-overlays.editable .geodash-map-grid.on table td:hover {
+  background: rgba(0, 0, 128, 0.25);
+}
+.geodash-map-overlays.editable .geodash-map-overlay:hover {
+  border: 4px solid blue;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Widely Used Variables */
+/* Original 768px */
+/* Defaults for Tooltips */
+/* 7 x 9s */
+/* Defaults for Modals */
+/* 5 x 9s */
+/* 6 x 9s */
+/* Defaults for Popups */
+/* 5 x 9s */
+/* Defaults for Controls */
+/* 4 x 9s */
+/* Welcome */
+/* Breadcrumbs */
+/* Overlays */
+/* Legend */
+/* Filter */
+/* Sidebar */
+.geodash-popup-plain {
+  word-wrap: break-word;
+  text-align: center;
+  font-family: Verdana;
+  font-size: 14px;
+}
+.geodash-popup-plain .geodash-popup-plain-value {
+  font-size: 18px;
+  text-decoration: underline;
+}
+.geodash-popup-chart {
+  width: 260px;
+  height: 200px;
+  margin: 0 auto;
+}
+.geodash-popup-chart .c3-tooltip-container {
+  z-index: 99999;
+}
+.geodash-map-map .popover {
+  max-width: 550px;
+}

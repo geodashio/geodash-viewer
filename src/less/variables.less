@@ -1,0 +1,75 @@
+/* Widely Used Variables */
+
+@screen-xs-min: 480px;
+@screen-sm-min: 808px; /* Original 768px */
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+
+@wfp-blue: #0088FF;
+@geodashserver-font-family-primary: 'Open Sans', sans-serif;
+
+@geodash-header-height: 61px;
+
+@geodash-leaflet-position-top: 4px;
+@geodash-leaflet-position-bottom: 4px;
+
+/* Defaults for Tooltips */
+@geodash-tooltip-z-index: 9999999; /* 7 x 9s */
+
+/* Defaults for Modals */
+@geodash-modal-z-index: 999999; /* 5 x 9s */
+@geodash-modal-select-dropdown-z-index: 999999; /* 6 x 9s */
+@geodash-modal-max-width: 980px;
+
+/* Defaults for Popups */
+@geodash-map-popup-z-index: 99999; /* 5 x 9s */
+@geodash-map-popup-chart-width: 260px;
+@geodash-map-popup-chart-height: 200px;
+
+/* Defaults for Controls */
+@geodash-map-control-background: rgba(0,0,0,0);
+@geodash-map-control-width: 258px;
+@geodash-map-control-z-index: 9999; /* 4 x 9s */
+
+/* Welcome */
+@geodasheditor-welcome-body-font-family: @geodashserver-font-family-primary;
+@geodasheditor-welcome-body-font-size: 14px;
+@geodasheditor-welcome-body-font-size-h3: 18px;
+
+@geodasheditor-welcome-select-font-family: @geodashserver-font-family-primary;
+@geodasheditor-welcome-select-foreground: white;
+@geodasheditor-welcome-select-background: @wfp-blue;
+@geodasheditor-welcome-select-dropdown-height: 56px;
+@geodasheditor-welcome-select-dropdown-font-size: 20px;
+@geodasheditor-welcome-select-dropdown-z-index: @geodash-modal-select-dropdown-z-index;
+
+/* Breadcrumbs */
+
+/* Overlays */
+@geodash-overlay-z-index: @geodash-map-control-z-index;
+
+/* Legend */
+@geodash-map-legend-bottom: 4px;
+@geodash-map-legend-right: 4px;
+@geodash-map-legend-width: 358px;
+@geodash-map-legend-background: #337ab7;
+@geodash-map-legend-z-index: @geodash-map-control-z-index;
+@geodash-map-legend-item-symbol-width: 40px;
+@geodash-map-legend-item-symbol-height: 100%;
+@geodash-map-legend-item-symbol-max-height: 20px;
+
+/* Filter */
+@geodash-map-filter-width: 358px;
+@geodash-map-filter-background: @geodash-map-control-background;
+@geodash-map-filter-z-index: @geodash-map-control-z-index;
+
+/* Sidebar */
+@geodash-sidebar-width: 600px;
+@geodash-sidebar-left-width: @geodash-sidebar-width;
+@geodash-sidebar-right-width: @geodash-sidebar-width;
+@geodash-sidebar-transition: 1.2s;
+@geodash-map-sidebar-toggle-z-index: @geodash-map-control-z-index;
