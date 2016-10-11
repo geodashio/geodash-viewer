@@ -2597,7 +2597,7 @@ geodash.controllers.GeoDashControllerLegend = function($scope, $element, $contro
   {
     if(angular.isNumber(column) && column >= 0)
     {
-      return extract(column, $scope.grid, $scope.defaultGrid[column]);
+      return extract([column], $scope.grid, $scope.defaultGrid[column]);
     }
     else
     {
