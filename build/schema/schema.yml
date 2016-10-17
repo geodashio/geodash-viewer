@@ -481,7 +481,7 @@ featurelayers:
               placeholder: styles
               required: false
               description: styles
-              schema: {verbose_singular: Style, verbose_plural: Style, fields: [{id: id, type: text, label: 'Style ID', placeholder: id, required: true, description: 'The id of the style.'}, {id: title, type: text, label: 'Style Title', placeholder: title, required: true, description: 'The title of the style.'}, {id: description, type: text, label: 'Style Description', placeholder: description, required: true, description: 'The description of the style.'}, {id: legend, type: object, label: Legend, placeholder: legend, required: false, description: Legend, schema: {verbose_singular: Legend, fields: [{id: type, type: text, label: 'Legend type', placeholder: type, required: false, description: type, options: [default, graduated]}]}}, {id: symbolizers, type: objectarray, label: Symbolizers, placeholder: symbolizers, required: false, description: symbolizers, schema: {verbose_singular: Symbolizer, verbose_plural: Symbolizers, fields: [{id: id, type: text, label: 'Symbolizer ID', placeholder: id, required: true, description: 'The id of the symbolizer.'}, {id: title, type: text, label: 'Symbolizer Title', placeholder: title, required: true, description: 'The title of the symbolizer.'}, {id: type, type: text, label: 'Symbolizer Type', placeholder: title, required: true, description: 'The type of the symbolizer.', options: [point, line, polygon]}, {id: static, type: object, label: 'Symbolizer Static', placeholder: 'Symbolizer Static', required: false, description: 'Symbolizer Static', schema: {verbose_singular: Static, fields: [{id: properties, type: objectarray, label: 'Symbolizer Static Properties', placeholder: properties, required: false, description: properties, schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.', options: [radius, fillColor, fillOpacity, strokeWidth, strokeColor, strokeOpacity]}, {id: value, type: text, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}}, {id: dynamic, type: object, label: 'Symbolizer Dynamic', placeholder: 'Symbolizer Dynamic', required: false, description: 'Symbolizer Dynamic', schema: {verbose_singular: Dynamic, fields: [{id: func, type: template, label: 'Symbolizer Dynamic Function Name', placeholder: 'function name', required: false, description: 'Symbolizer Dynamic Function Name', search: {local: {name: reflect, args: {locations: [dynamicStyleFn]}}}}]}}]}}]}
+              schema: {verbose_singular: Style, verbose_plural: Style, fields: [{id: id, type: text, label: 'Style ID', placeholder: id, required: true, description: 'The id of the style.'}, {id: title, type: text, label: 'Style Title', placeholder: title, required: true, description: 'The title of the style.'}, {id: description, type: text, label: 'Style Description', placeholder: description, required: true, description: 'The description of the style.'}, {id: legend, type: object, label: Legend, placeholder: legend, required: false, description: Legend, schema: {verbose_singular: Legend, fields: [{id: type, type: text, label: 'Legend type', placeholder: type, required: false, description: type, options: [default, graduated]}]}}, {id: symbolizers, type: objectarray, label: Symbolizers, placeholder: symbolizers, required: false, description: symbolizers, schema: {verbose_singular: Symbolizer, verbose_plural: Symbolizers, fields: [{id: id, type: text, label: 'Symbolizer ID', placeholder: id, required: true, description: 'The id of the symbolizer.'}, {id: title, type: text, label: 'Symbolizer Title', placeholder: title, required: true, description: 'The title of the symbolizer.'}, {id: type, type: text, label: 'Symbolizer Type', placeholder: title, required: true, description: 'The type of the symbolizer.', options: [point, line, polygon]}, {id: static, type: object, label: 'Symbolizer Static', placeholder: 'Symbolizer Static', required: false, description: 'Symbolizer Static', schema: {verbose_singular: Static, fields: [{id: properties, type: objectarray, label: 'Symbolizer Static Properties', placeholder: properties, required: false, description: properties, schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.', options: [radius, fillColor, fillOpacity, strokeWidth, strokeColor, strokeOpacity, textAlign, textBaseline, textCode, textColor, textContent, textFont]}, {id: value, type: text, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}}, {id: dynamic, type: object, label: 'Symbolizer Dynamic', placeholder: 'Symbolizer Dynamic', required: false, description: 'Symbolizer Dynamic', schema: {verbose_singular: Dynamic, fields: [{id: func, type: template, label: 'Symbolizer Dynamic Function Name', placeholder: 'function name', required: false, description: 'Symbolizer Dynamic Function Name', search: {local: {name: reflect, args: {locations: [dynamicStyleFn]}}}}]}}]}}]}
       -
         id: heatmap
         type: object
@@ -977,6 +977,31 @@ overlays:
               required: false
               description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+      -
+        id: tooltip
+        type: object
+        label: Tooltip
+        placeholder: tooltip
+        required: false
+        description: Tooltip
+        schema:
+          verbose_singular: Tooltip
+          fields:
+            -
+              id: content
+              type: template
+              label: 'Tooltip / Content'
+              placeholder: auto
+              required: true
+              description: 'The content of the tooltip.'
+            -
+              id: placement
+              type: text
+              label: 'Tooltip / Placement'
+              placeholder: auto
+              required: true
+              description: 'The placement of the tooltip.'
+              options: [top, left, bottom, right]
       -
         id: text
         type: object
