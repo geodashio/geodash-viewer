@@ -25,19 +25,22 @@
     <!-- Development -->
     <!-- <link href='build/css/geodashviewer.css' rel='stylesheet' /> -->
     <!-- Production -->
-    <link href='//cdn.geodash.io/geodash-viewer/latest/css/geodashviewer.css' rel='stylesheet' />
+    <link href='http://cdn.geodash.io/geodash-viewer/latest/css/geodashviewer.css' rel='stylesheet' />
     <style type="text/css">[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}</style>
     <!-- JavaScript / Polyfill -->
     <!-- Development -->
     <!-- <script src="build/js/polyfill.min.js"></script> -->
     <!-- Production -->
-    <script src="//cdn.geodash.io/geodash-viewer/latest/js/polyfill.min.js"></script>
+    <script src="http://cdn.geodash.io/geodash-viewer/latest/js/polyfill.min.js"></script>
     <!-- JavaScript / Monolith -->
     <!-- Development -->
     <!-- <script src="build/js/geodashviewer.full.js"></script> -->
     <!-- Production -->
-    <script src="//cdn.geodash.io/geodash-viewer/latest/js/geodashviewer.full.min.js"></script>
-    <script type="text/javascript" language="Javascript">$(function(){geodash.init.all();});</script>
+    <script src="http://cdn.geodash.io/geodash-viewer/latest/js/geodashviewer.full.js"></script>
+    <script type="text/javascript" language="Javascript">
+      geodash.mapping_library = "ol3";
+      $(function(){geodash.init.all();});
+    </script>
   </head>
   <body>
     <div
