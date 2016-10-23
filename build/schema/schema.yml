@@ -896,7 +896,7 @@ overlays:
         label: ID
         placeholder: ID
         required: true
-        description: 'The id of your static overlay.'
+        description: 'The id of your navbar.'
       -
         id: type
         type: text
@@ -963,9 +963,6 @@ overlays:
         id: css
         type: object
         label: CSS
-        placeholder: css
-        required: false
-        description: 'Additional CSS for the overlay.'
         schema:
           verbose_singular: CSS
           fields:
@@ -977,6 +974,7 @@ overlays:
               required: false
               description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+        description: 'Additional CSS for the overlay.'
       -
         id: tooltip
         type: object
@@ -1014,7 +1012,7 @@ overlays:
           values:
             - text
         schema:
-          verbose_singular: Position
+          verbose_singular: Text
           fields:
             -
               id: content
@@ -1113,7 +1111,6 @@ overlays:
         label: Intent
         placeholder: intent
         required: false
-        description: 'Intent for the overlay.'
         schema:
           verbose_singular: Intent
           fields:
@@ -1133,3 +1130,4 @@ overlays:
               required: false
               description: 'The properties of the intent, such as layer id, location, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+        description: 'Intent for the overlay.'
