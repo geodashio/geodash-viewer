@@ -3280,19 +3280,34 @@ geodash.controllers.GeoDashControllerMapMap = function(
         geodash.var.map.fitBounds(geodash.var.featurelayers[args["layer"]].getBounds());
       }
     }
-    else if(angular.isDefined(extract("zoom", args)))
+    else
     {
-      var v = geodash.var.map.getView();
-      /*geodash.var.map.beforeRender(ol.animation.zoom({ duration: 250, source: v.getResolution() }));
-      var resolution = ---
-      ol.interaction.Interaction.zoomWithoutConstraints(
-        geodash.var.map,
-        v,
-        resolution,
-        false,
-        250
-      )*/
-      v.setZoom(extract("zoom", args));
+      var lat = geodash.normalize.float(extract("lat", args));
+      var lon = geodash.normalize.float(extract("lon", args));
+      var zoom = geodash.normalize.float(extract("zoom", args));
+      if(angular.isDefined(lat) && angular.isDefined(lon))
+      {
+        var v = geodash.var.map.getView();
+        v.setCenter(ol.proj.transform([lon, lat], extract("projection", args, "EPSG:4326"), v.getProjection()));
+        if(angular.isDefined(zoom))
+        {
+          v.setZoom(zoom);
+        }
+      }
+      else if(angular.isDefined(zoom))
+      {
+        var v = geodash.var.map.getView();
+        /*geodash.var.map.beforeRender(ol.animation.zoom({ duration: 250, source: v.getResolution() }));
+        var resolution = ---
+        ol.interaction.Interaction.zoomWithoutConstraints(
+          geodash.var.map,
+          v,
+          resolution,
+          false,
+          250
+        )*/
+        v.setZoom(zoom);
+      }
     }
   });
 
