@@ -252,6 +252,52 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+.geodash-placement-top {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: auto;
+  right: 0px;
+}
+.geodash-placement-left {
+  position: absolute;
+  top: 0px
+  left: 0px;
+  bottom: 0px;
+  right: auto;
+}
+.geodash-placement-bottom {
+  position: absolute;
+  top: auto;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+.geodash-placement-right {
+  position: absolute;
+  top: 0px
+  left: auto;
+  bottom: 0px;
+  right: 0px;
+}
+
+/* Widely Used Variables */
+/* Original 768px */
+/* Defaults for Tooltips */
+/* 7 x 9s */
+/* Defaults for Modals */
+/* 5 x 9s */
+/* 6 x 9s */
+/* Defaults for Popups */
+/* 5 x 9s */
+/* Defaults for Controls */
+/* 4 x 9s */
+/* Welcome */
+/* Breadcrumbs */
+/* Overlays */
+/* Legend */
+/* Filter */
+/* Sidebar */
 .geodash-map-legend {
   position: absolute;
   z-index: 9999;
@@ -348,6 +394,66 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+.geodash-map-navbars {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+.geodash-map-navbars .geodash-map-navbar {
+  background: rgba(0, 0, 0, 0);
+  z-index: 9999;
+  border-radius: 3px;
+  border: 0;
+}
+.geodash-map-navbars .geodash-map-navbar li a {
+  transition: width 1.2s ease-in-out;
+  transition: height 1.2s ease-in-out;
+}
+.geodash-map-navbars .geodash-map-navbar li a:hover {
+  height: 60px;
+  line-height: 38px;
+}
+.geodash-map-navbars .geodash-map-navbar li a.btn-default {
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+}
+.geodash-map-navbars .geodash-map-navbar li a.selected {
+  height: 60px;
+  line-height: 38px;
+  background: #337ab7;
+}
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top li {
+  vertical-align: top;
+}
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top li a {
+  border-radius: 0px 0px 6px 6px;
+}
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom li {
+  vertical-align: bottom;
+}
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom li a {
+  border-radius: 6px 6px 0px 0px;
+}
+
+/* Widely Used Variables */
+/* Original 768px */
+/* Defaults for Tooltips */
+/* 7 x 9s */
+/* Defaults for Modals */
+/* 5 x 9s */
+/* 6 x 9s */
+/* Defaults for Popups */
+/* 5 x 9s */
+/* Defaults for Controls */
+/* 4 x 9s */
+/* Welcome */
+/* Breadcrumbs */
+/* Overlays */
+/* Legend */
+/* Filter */
+/* Sidebar */
 .geodash-popup-plain {
   word-wrap: break-word;
   text-align: center;
@@ -369,4 +475,5 @@
 .geodash-map-map .popover {
   min-width: 220px;
   max-width: 550px;
+  z-index: 99999;
 }

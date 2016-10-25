@@ -15,8 +15,8 @@ bootstrap:
   dest: "./build/bootstrap"
 plugins:
   # Used for Production
-  - https://github.com/geodashio/geodash-plugin-map-map.git
-  - https://github.com/geodashio/geodash-plugin-main.git
+  - { branch: master, url: https://github.com/geodashio/geodash-plugin-map-map.git }
+  - { branch: master, url: https://github.com/geodashio/geodash-plugin-main.git }
   # Used for Development
   #- file:///home/vagrant/geodash-plugin-map-map.git
   #- file:///home/vagrant/geodash-plugin-main.git

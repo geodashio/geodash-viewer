@@ -974,14 +974,14 @@ overlays:
               required: false
               description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
-        description: 'Additional CSS for the overlay.'
+        description: 'Additional CSS for each tab.'
       -
         id: tooltip
         type: object
         label: Tooltip
         placeholder: tooltip
         required: false
-        description: Tooltip
+        description: 'Toolip for the navbar.'
         schema:
           verbose_singular: Tooltip
           fields:
@@ -1131,3 +1131,117 @@ overlays:
               description: 'The properties of the intent, such as layer id, location, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
         description: 'Intent for the overlay.'
+navbars:
+  type: objectarray
+  label: Navbars
+  placeholder: Navbars
+  required: true
+  description: Navbars
+  schema:
+    verbose_singular: Navbar
+    verbose_plural: Navbars
+    fields:
+      -
+        id: id
+        type: text
+        label: ID
+        placeholder: ID
+        required: true
+        description: 'The id of your static overlay.'
+      -
+        id: placement
+        type: text
+        label: Placement
+        placeholder: auto
+        options:
+          - top
+          - left
+          - bottom
+          - right
+        description: 'Placement for the navbar.'
+      -
+        id: page
+        type: text
+        label: Page
+        placeholder: page
+        required: true
+        description: 'The page (in geodash.pages array) for permalinking each tab.'
+      -
+        id: intents
+        type: objectarray
+        label: Intents
+        placeholder: intents
+        required: false
+        schema:
+          verbose_singular: Intent
+          verbose_plural: Intents
+          fields:
+            -
+              id: name
+              type: text
+              label: 'Intent Name'
+              placeholder: name
+              required: true
+              description: 'The intent to emit.'
+              search: {local: {name: reflect, args: {locations: [handlers]}}}
+            -
+              id: properties
+              type: objectarray
+              label: 'Intent Properties'
+              placeholder: properties
+              required: false
+              description: 'The properties of the intent, such as layer id, location, etc.'
+              schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+        description: 'Intent for each tab.'
+      -
+        id: css
+        type: object
+        label: CSS
+        schema:
+          verbose_singular: CSS
+          fields:
+            -
+              id: properties
+              type: objectarray
+              label: 'Intent Additional CSS Properties'
+              placeholder: properties
+              required: false
+              description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
+              schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
+        description: 'Additional CSS for each tab.'
+      -
+        id: tabs
+        type: objectarray
+        label: Tabs
+        placeholder: tabs
+        description: 'The tabs to show in the navbar'
+        schema:
+          verbose_singular: Tab
+          verbose_plural: Tabs
+          fields:
+            -
+              id: value
+              type: text
+              label: 'Tab Value'
+              placeholder: value
+              description: 'The value of the tab.'
+            -
+              id: title
+              type: template
+              label: 'Tab Title'
+              placeholder: value
+              description: 'The title of the tab.'
+            -
+              id: tooltip
+              type: object
+              label: Tooltip
+              placeholder: tooltip
+              required: false
+              description: 'Toolip for the navbar.'
+              schema: {verbose_singular: Tooltip, fields: [{id: content, type: template, label: 'Tooltip / Content', placeholder: auto, required: true, description: 'The content of the tooltip.'}, {id: placement, type: text, label: 'Tooltip / Placement', placeholder: auto, required: true, description: 'The placement of the tooltip.', options: [top, left, bottom, right]}]}
+            -
+              id: css
+              type: object
+              label: CSS
+              schema: {verbose_singular: CSS, fields: [{id: properties, type: objectarray, label: 'Intent Additional CSS Properties', placeholder: properties, required: false, description: 'The additional css properties of the intent, such as margin, padding, border, etc.', schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}
+              description: 'Additional CSS for each tab.'
