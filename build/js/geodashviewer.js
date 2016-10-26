@@ -1860,7 +1860,7 @@ geodash.directives.geodashMapMap = function(){
       }
       else
       {
-        setTimeout(function(){
+        /*setTimeout(function(){
           var loadedFeatureLayers = $.grep(state.view.featurelayers, function(layerID){
             var y = extract(layerID, geodash.var.featurelayers);
             return angular.isDefined(y) && (y instanceof ol.layer.Vector);
@@ -1869,9 +1869,9 @@ geodash.directives.geodashMapMap = function(){
           var newExtent = ol.extent.createEmpty();
           fitLayers.forEach(function(layer){ ol.extent.extend(newExtent, layer.getSource().getExtent()); });
           var v = geodash.var.map.getView();
-          /*geodash.var.map.beforeRender(ol.animation.pan({ duration: 500, source: v.getCenter() }));
-          v.fit(newExtent, geodash.var.map.getSize());*/
-        }, 4000);
+          geodash.var.map.beforeRender(ol.animation.pan({ duration: 500, source: v.getCenter() }));
+          v.fit(newExtent, geodash.var.map.getSize());
+        }, 4000);*/
       }
     }
   };

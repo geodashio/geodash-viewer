@@ -1,0 +1,55 @@
+<html class="svg" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="en_US" />
+    <link rel="dns-prefetch" href="//wfp.org">
+    <link rel="dns-prefetch" href="//state.gov">
+    <link rel="dns-prefetch" href="//geonode.wfp.org">
+    <link rel="dns-prefetch" href="//geonode.state.gov">
+    <link rel="dns-prefetch" href="//mapbox.com">
+    <link rel="dns-prefetch" href="//api.mapbox.com">
+    <link rel="dns-prefetch" href="//openstreetmap.org">
+    <link rel="dns-prefetch" href="//openstreetmap.fr">
+    <title>GeoDash Viewer</title>
+    <!-- Fonts / External -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- CSS / External-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- OpenLayers 3 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.18.2/ol.css" type="text/css" media="all" />
+    <style>.ol-control button { width: 2em; height: 2em; }</style>
+    <!-- Font Awesome CSS -->
+    <link href="lib/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- CSS / Internal -->
+    <!-- Development -->
+    <link href='build/css/geodashviewer.css' rel='stylesheet' />
+    <!-- Production -->
+    <!--   <link href='http://cdn.geodash.io/geodash-viewer/20161026-b1/geodashviewer.css' rel='stylesheet' /> -->
+    <style type="text/css">[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}</style>
+    <!-- JavaScript / Polyfill -->
+    <!-- Development -->
+    <script src="build/js/polyfill.min.js"></script>
+    <!-- Production -->
+    <!-- <script src="http://cdn.geodash.io/geodash-viewer/0.0.1/polyfill.min.js"></script> -->
+    <!-- JavaScript / Monolith -->
+    <!-- Development -->
+    <script src="build/js/geodashviewer.full.js"></script>
+    <!-- Production -->
+    <!-- Can't used minified version, b/c it strips out something critical, but don't know what yet -->
+    <!-- <script src="http://cdn.geodash.io/geodash-viewer/20161026-b1/geodashviewer.full.js"></script> -->
+    <script type="text/javascript" language="Javascript">
+      geodash.mapping_library = "ol3";
+      $(function(){geodash.init.all();});
+    </script>
+  </head>
+  <body>
+    <div
+      id="geodash-main"
+      data-geodash-controllers="GeoDashControllerMain"
+      data-geodash-dashboard-name="main"
+      class="row geodash-row geodash-main geodash-controller geodash-dashboard"
+      geodash-main>
+    </div>
+  </body>
+</html>
