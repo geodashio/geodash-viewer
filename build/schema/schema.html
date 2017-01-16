@@ -1,0 +1,817 @@
+<html class="svg" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="google" content="notranslate" /><meta http-equiv="Content-Language" content="en_US" /><title>Schema - GeoDash Viewer</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></head><body class="container-fluid"><h1>GeoDash Schema</h1><h2 id="title">title</h2>
+<p><strong>Label:</strong> Title</p>
+<p><strong>Type:</strong> markdown</p>
+<p><strong>Description:</strong> <em>The title of your dashboard.</em></p>
+<h2 id="slug">slug</h2>
+<p><strong>Label:</strong> Slug</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url for the dasboard such as http://geodash.io/dashboard/<slug>.</em></p>
+<h2 id="description">description</h2>
+<p><strong>Label:</strong> Description</p>
+<p><strong>Type:</strong> markdown</p>
+<p><strong>Description:</strong> <em>The generic description for the dashboard.  This is mostly used internally.  Use about or welcome for user descriptions.</em></p>
+<h2 id="about">about</h2>
+<p><strong>Label:</strong> About</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>About.</em></p>
+<p><strong>Fields:</strong> <a href="#abouttitle">title</a></p>
+<h2 id="abouttitle">about.title</h2>
+<p><strong>Label:</strong> About / Title</p>
+<p><strong>Type:</strong> markdown</p>
+<p><strong>Description:</strong> <em>The title for the about modal.</em></p>
+<h2 id="welcome">welcome</h2>
+<p><strong>Label:</strong> Welcome</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Contents of welcome modal.</em></p>
+<p><strong>Fields:</strong> <a href="#welcometitle">title</a> , <a href="#welcomeintro">intro</a> , <a href="#welcomeabout">about</a></p>
+<h2 id="welcometitle">welcome.title</h2>
+<p><strong>Label:</strong> Welcome / Title</p>
+<p><strong>Type:</strong> markdown</p>
+<p><strong>Description:</strong> <em>The title for the welcome modal.</em></p>
+<h2 id="welcomeintro">welcome.intro</h2>
+<p><strong>Label:</strong> Welcome / Introduction</p>
+<p><strong>Type:</strong> markdown</p>
+<p><strong>Description:</strong> <em>The text (in markdown) for the default intro tab of the welcome modal.</em></p>
+<h2 id="welcomeabout">welcome.about</h2>
+<p><strong>Label:</strong> Welcome / About</p>
+<p><strong>Type:</strong> markdown</p>
+<p><strong>Description:</strong> <em>The text (in markdown) for the about tab of the welcome modal.</em></p>
+<h2 id="baselayers">baselayers</h2>
+<p><strong>Label:</strong> Base Layers</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Base layers available.</em></p>
+<p><strong>Fields:</strong> <a href="#baselayersid">id</a> , <a href="#baselayerstitle">title</a> , <a href="#baselayersdescription">description</a> , <a href="#baselayerslegendlabel">legend.label</a> , <a href="#baselayerssource">source</a></p>
+<h2 id="baselayersid">baselayers.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your base layer.</em></p>
+<h2 id="baselayerstitle">baselayers.title</h2>
+<p><strong>Label:</strong> Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of your base layer.</em></p>
+<h2 id="baselayersdescription">baselayers.description</h2>
+<p><strong>Label:</strong> Description</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The description of your base layer.</em></p>
+<h2 id="baselayerslegendlabel">baselayers.legend.label</h2>
+<p><strong>Label:</strong> Legend Label</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The label for the legend.</em></p>
+<h2 id="baselayerssource">baselayers.source</h2>
+<p><strong>Label:</strong> Source</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Source available.</em></p>
+<p><strong>Fields:</strong> <a href="#baselayerssourcename">name</a> , <a href="#baselayerssourceattribution">attribution</a> , <a href="#baselayerssourcetype">type</a> , <a href="#baselayerssourcetileurl">tile.url</a> , <a href="#baselayerssourcemapboxaccess_token">mapbox.access_token</a> , <a href="#baselayerssourcemapboxlayers">mapbox.layers</a> , <a href="#baselayerssourcegwcurl">gwc.url</a> , <a href="#baselayerssourcegwclayers">gwc.layers</a></p>
+<h2 id="baselayerssourcename">baselayers.source.name</h2>
+<p><strong>Label:</strong> Source Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the source of your base layer.</em></p>
+<h2 id="baselayerssourceattribution">baselayers.source.attribution</h2>
+<p><strong>Label:</strong> Source Attribution</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The attribution of the source of base layer.</em></p>
+<h2 id="baselayerssourcetype">baselayers.source.type</h2>
+<p><strong>Label:</strong> Source Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of the feature layer (tiles,mapbox).</em></p>
+<p><strong>Options:</strong> <code>tiles</code> , <code>mapbox</code> , <code>gwc</code></p>
+<h2 id="baselayerssourcetileurl">baselayers.source.tile.url</h2>
+<p><strong>Label:</strong> Tile URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The tile url of the source of base layer.</em></p>
+<h2 id="baselayerssourcemapboxaccess_token">baselayers.source.mapbox.access_token</h2>
+<p><strong>Label:</strong> Public MapBox Access Token</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>Your public MapBox access token.</em></p>
+<h2 id="baselayerssourcemapboxlayers">baselayers.source.mapbox.layers</h2>
+<p><strong>Label:</strong> MapBox Layers</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>MapBox layers</em></p>
+<h2 id="baselayerssourcegwcurl">baselayers.source.gwc.url</h2>
+<p><strong>Label:</strong> GWC URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>GWC URL</em></p>
+<h2 id="baselayerssourcegwclayers">baselayers.source.gwc.layers</h2>
+<p><strong>Label:</strong> GWC Layers</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>GWC layers</em></p>
+<h2 id="assets">assets</h2>
+<p><strong>Label:</strong> Assets</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Known assets available.  Can be then referenced by name</em></p>
+<p><strong>Fields:</strong> <a href="#assetsid">id</a> , <a href="#assetstitle">title</a> , <a href="#assetstype">type</a> , <a href="#assetsurl">url</a></p>
+<h2 id="assetsid">assets.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your asset.</em></p>
+<h2 id="assetstitle">assets.title</h2>
+<p><strong>Label:</strong> Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of your asset.</em></p>
+<h2 id="assetstype">assets.type</h2>
+<p><strong>Label:</strong> Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of the asset (image, svg, font).</em></p>
+<p><strong>Options:</strong> <code>image</code> , <code>svg</code> , <code>font</code></p>
+<h2 id="assetsurl">assets.url</h2>
+<p><strong>Label:</strong> URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the asset.</em></p>
+<h2 id="featurelayers">featurelayers</h2>
+<p><strong>Label:</strong> Available Feature Layers</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Feature layers available.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayersid">id</a> , <a href="#featurelayerstitle">title</a> , <a href="#featurelayersdescription">description</a> , <a href="#featurelayersauth">auth</a> , <a href="#featurelayerstype">type</a> , <a href="#featurelayersviewminzoom">view.minZoom</a> , <a href="#featurelayersviewmaxzoom">view.maxZoom</a> , <a href="#featurelayerssource">source</a> , <a href="#featurelayerswms">wms</a> , <a href="#featurelayerswmtslayers">wmts.layers</a> , <a href="#featurelayerswmtsurl">wmts.url</a> , <a href="#featurelayerswfs">wfs</a> , <a href="#featurelayersgeojsonurl">geojson.url</a> , <a href="#featurelayerstegola">tegola</a> , <a href="#featurelayerscarto">carto</a> , <a href="#featurelayersheatmap">heatmap</a> , <a href="#featurelayerspopup">popup</a> , <a href="#featurelayersmetadata">metadata</a></p>
+<h2 id="featurelayersid">featurelayers.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your base layer.</em></p>
+<h2 id="featurelayerstitle">featurelayers.title</h2>
+<p><strong>Label:</strong> Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of your base layer.</em></p>
+<h2 id="featurelayersdescription">featurelayers.description</h2>
+<p><strong>Label:</strong> Description</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The description of your base layer.</em></p>
+<h2 id="featurelayersauth">featurelayers.auth</h2>
+<p><strong>Label:</strong> Authentication</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of authentication for this layer.</em></p>
+<p><strong>Options:</strong> <code>none</code> , <code>basic</code></p>
+<h2 id="featurelayerstype">featurelayers.type</h2>
+<p><strong>Label:</strong> Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of the feature layer (wms, wmts, geojson, tegola).</em></p>
+<p><strong>Options:</strong> <code>wms</code> , <code>wmts</code> , <code>geojson</code> , <code>tegola</code></p>
+<h2 id="featurelayersviewminzoom">featurelayers.view.minZoom</h2>
+<p><strong>Label:</strong> View / Minimum Zoom</p>
+<p><strong>Type:</strong> int</p>
+<p><strong>Description:</strong> <em>The maximum a user can zoom out.</em></p>
+<p><strong>Range:</strong> 0 - 18</p>
+<p>Examples:</p>
+<pre><code>0</code></pre>
+<pre><code>3</code></pre>
+<h2 id="featurelayersviewmaxzoom">featurelayers.view.maxZoom</h2>
+<p><strong>Label:</strong> View / Maximum Zoom</p>
+<p><strong>Type:</strong> int</p>
+<p><strong>Description:</strong> <em>The maximum a user can zoom in.</em></p>
+<p><strong>Range:</strong> 0 - 18</p>
+<p>Examples:</p>
+<pre><code>18</code></pre>
+<h2 id="featurelayerssource">featurelayers.source</h2>
+<p><strong>Label:</strong> Source</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Source configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerssourcename">name</a> , <a href="#featurelayerssourceattribution">attribution</a> , <a href="#featurelayerssourcemaxzoom">maxZoom</a></p>
+<h2 id="featurelayerssourcename">featurelayers.source.name</h2>
+<p><strong>Label:</strong> Source / Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the source of your feature layer.</em></p>
+<h2 id="featurelayerssourceattribution">featurelayers.source.attribution</h2>
+<p><strong>Label:</strong> Source / Attribution</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The attribution of the source of feature layer.</em></p>
+<h2 id="featurelayerssourcemaxzoom">featurelayers.source.maxZoom</h2>
+<p><strong>Label:</strong> Source / Maximum Zoom</p>
+<p><strong>Type:</strong> int</p>
+<p><strong>Description:</strong> <em>The maximum zoom level provided by the source.</em></p>
+<p><strong>Range:</strong> 0 - 18</p>
+<h2 id="featurelayerswms">featurelayers.wms</h2>
+<p><strong>Label:</strong> WMS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>WMS configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerswmslayers">layers</a> , <a href="#featurelayerswmscql_filter">cql_filter</a> , <a href="#featurelayerswmsurl">url</a></p>
+<p>Examples:</p>
+<pre><code>layers: 'geonode:wld_poi_facilities_wfp'
+cql_filter: '(facility IN (''Country Office'') AND status = ''Open'')'
+url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
+<h2 id="featurelayerswmslayers">featurelayers.wms.layers</h2>
+<p><strong>Label:</strong> WMS Layers</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The wms layers of the feature layer.</em></p>
+<p>Examples:</p>
+<pre><code>geonode:wld_poi_facilities_wfp</code></pre>
+<h2 id="featurelayerswmscql_filter">featurelayers.wms.cql_filter</h2>
+<p><strong>Label:</strong> CQL Filter</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The CQL Filter to apply to the WMS GetMap requests.</em></p>
+<p>Examples:</p>
+<pre><code>(facility IN (''Country Office'') AND status = ''Open'')</code></pre>
+<h2 id="featurelayerswmsurl">featurelayers.wms.url</h2>
+<p><strong>Label:</strong> WMS URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the WMS server.</em></p>
+<p>Examples:</p>
+<pre><code>http://geonode.wfp.org/geoserver/wms</code></pre>
+<pre><code>http://geonode.state.gov/geoserver/wms</code></pre>
+<pre><code>http://mapstory.org/geoserver/wms</code></pre>
+<h2 id="featurelayerswmtslayers">featurelayers.wmts.layers</h2>
+<p><strong>Label:</strong> WMTS Layers</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The wmts layers of the feature layer.</em></p>
+<h2 id="featurelayerswmtsurl">featurelayers.wmts.url</h2>
+<p><strong>Label:</strong> WMTS URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the WMTS server.</em></p>
+<h2 id="featurelayerswfs">featurelayers.wfs</h2>
+<p><strong>Label:</strong> WFS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>WFS configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerswfsversion">version</a> , <a href="#featurelayerswfsurl">url</a></p>
+<h2 id="featurelayerswfsversion">featurelayers.wfs.version</h2>
+<p><strong>Label:</strong> WFS Version</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The version of the WFS server.</em></p>
+<p><strong>Options:</strong> <code>1.0.0</code> , <code>1.1.0</code> , <code>2.0</code> , <code>2.0.2</code></p>
+<h2 id="featurelayerswfsurl">featurelayers.wfs.url</h2>
+<p><strong>Label:</strong> WFS URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the WFS server.</em></p>
+<h2 id="featurelayersgeojsonurl">featurelayers.geojson.url</h2>
+<p><strong>Label:</strong> GeoJSON URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the geojson service/file.</em></p>
+<h2 id="featurelayerstegola">featurelayers.tegola</h2>
+<p><strong>Label:</strong> Tegola</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Tegola configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerstegolamap">map</a> , <a href="#featurelayerstegolaurl">url</a> , <a href="#featurelayerstegoladebug">debug</a></p>
+<h2 id="featurelayerstegolamap">featurelayers.tegola.map</h2>
+<p><strong>Label:</strong> Map</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The tegola map to show.</em></p>
+<h2 id="featurelayerstegolaurl">featurelayers.tegola.url</h2>
+<p><strong>Label:</strong> Tegola Server URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the tegola server.</em></p>
+<h2 id="featurelayerstegoladebug">featurelayers.tegola.debug</h2>
+<p><strong>Label:</strong> Debug</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>Debug.  If yes, will return border of each tile as vectors.</em></p>
+<h2 id="featurelayerscarto">featurelayers.carto</h2>
+<p><strong>Label:</strong> Cartography</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Cartography (styles, etc.).</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostyles">styles</a></p>
+<h2 id="featurelayerscartostyles">featurelayers.carto.styles</h2>
+<p><strong>Label:</strong> Styles</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>styles</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylesid">id</a> , <a href="#featurelayerscartostylestitle">title</a> , <a href="#featurelayerscartostylesdescription">description</a> , <a href="#featurelayerscartostyleslegend">legend</a> , <a href="#featurelayerscartostylessymbolizers">symbolizers</a></p>
+<h2 id="featurelayerscartostylesid">featurelayers.carto.styles.id</h2>
+<p><strong>Label:</strong> Style ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of the style.</em></p>
+<h2 id="featurelayerscartostylestitle">featurelayers.carto.styles.title</h2>
+<p><strong>Label:</strong> Style Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of the style.</em></p>
+<h2 id="featurelayerscartostylesdescription">featurelayers.carto.styles.description</h2>
+<p><strong>Label:</strong> Style Description</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The description of the style.</em></p>
+<h2 id="featurelayerscartostyleslegend">featurelayers.carto.styles.legend</h2>
+<p><strong>Label:</strong> Legend</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Legend</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostyleslegendtype">type</a></p>
+<h2 id="featurelayerscartostyleslegendtype">featurelayers.carto.styles.legend.type</h2>
+<p><strong>Label:</strong> Legend type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>type</em></p>
+<p><strong>Options:</strong> <code>default</code> , <code>graduated</code></p>
+<h2 id="featurelayerscartostylessymbolizers">featurelayers.carto.styles.symbolizers</h2>
+<p><strong>Label:</strong> Symbolizers</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>symbolizers</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizersid">id</a> , <a href="#featurelayerscartostylessymbolizerstitle">title</a> , <a href="#featurelayerscartostylessymbolizerstype">type</a> , <a href="#featurelayerscartostylessymbolizersstatic">static</a> , <a href="#featurelayerscartostylessymbolizersdynamic">dynamic</a></p>
+<h2 id="featurelayerscartostylessymbolizersid">featurelayers.carto.styles.symbolizers.id</h2>
+<p><strong>Label:</strong> Symbolizer ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of the symbolizer.</em></p>
+<h2 id="featurelayerscartostylessymbolizerstitle">featurelayers.carto.styles.symbolizers.title</h2>
+<p><strong>Label:</strong> Symbolizer Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of the symbolizer.</em></p>
+<h2 id="featurelayerscartostylessymbolizerstype">featurelayers.carto.styles.symbolizers.type</h2>
+<p><strong>Label:</strong> Symbolizer Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of the symbolizer.</em></p>
+<p><strong>Options:</strong> <code>point</code> , <code>line</code> , <code>polygon</code></p>
+<h2 id="featurelayerscartostylessymbolizersstatic">featurelayers.carto.styles.symbolizers.static</h2>
+<p><strong>Label:</strong> Symbolizer Static</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Symbolizer Static</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizersstaticproperties">properties</a></p>
+<h2 id="featurelayerscartostylessymbolizersstaticproperties">featurelayers.carto.styles.symbolizers.static.properties</h2>
+<p><strong>Label:</strong> Symbolizer Static Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>properties</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizersstaticpropertiesname">name</a> , <a href="#featurelayerscartostylessymbolizersstaticpropertiesvalue">value</a></p>
+<h2 id="featurelayerscartostylessymbolizersstaticpropertiesname">featurelayers.carto.styles.symbolizers.static.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<p><strong>Options:</strong> <code>radius</code> , <code>fillColor</code> , <code>fillOpacity</code> , <code>strokeWidth</code> , <code>strokeColor</code> , <code>strokeOpacity</code> , <code>textAlign</code> , <code>textBaseline</code> , <code>textCode</code> , <code>textColor</code> , <code>textContent</code> , <code>textFont</code></p>
+<h2 id="featurelayerscartostylessymbolizersstaticpropertiesvalue">featurelayers.carto.styles.symbolizers.static.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="featurelayerscartostylessymbolizersdynamic">featurelayers.carto.styles.symbolizers.dynamic</h2>
+<p><strong>Label:</strong> Symbolizer Dynamic</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Symbolizer Dynamic</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizersdynamicfunc">func</a></p>
+<h2 id="featurelayerscartostylessymbolizersdynamicfunc">featurelayers.carto.styles.symbolizers.dynamic.func</h2>
+<p><strong>Label:</strong> Symbolizer Dynamic Function Name</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>Symbolizer Dynamic Function Name</em></p>
+<h2 id="featurelayersheatmap">featurelayers.heatmap</h2>
+<p><strong>Label:</strong> Heatmap</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Heatmap configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayersheatmapblur">blur</a> , <a href="#featurelayersheatmapradius">radius</a> , <a href="#featurelayersheatmapweight">weight</a></p>
+<h2 id="featurelayersheatmapblur">featurelayers.heatmap.blur</h2>
+<p><strong>Label:</strong> Heatmap Blur</p>
+<p><strong>Type:</strong> int</p>
+<p><strong>Description:</strong> <em>heatmap blur</em></p>
+<h2 id="featurelayersheatmapradius">featurelayers.heatmap.radius</h2>
+<p><strong>Label:</strong> Heatmap Radius</p>
+<p><strong>Type:</strong> int</p>
+<p><strong>Description:</strong> <em>heatmap radius</em></p>
+<h2 id="featurelayersheatmapweight">featurelayers.heatmap.weight</h2>
+<p><strong>Label:</strong> Heatmap Weight Attribute</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>Name of the attribute that is used as the weight. If not included, everything is given weight of 1.</em></p>
+<h2 id="featurelayerspopup">featurelayers.popup</h2>
+<p><strong>Label:</strong> Popup</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Popup displayed when clicked on map.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerspopuptitle">title</a> , <a href="#featurelayerspopupmaxwidth">maxWidth</a> , <a href="#featurelayerspopuppanes">panes</a></p>
+<h2 id="featurelayerspopuptitle">featurelayers.popup.title</h2>
+<p><strong>Label:</strong> Popup Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of the layer's popup.  Can use angular variables and filters.</em></p>
+<h2 id="featurelayerspopupmaxwidth">featurelayers.popup.maxWidth</h2>
+<p><strong>Label:</strong> Popup Maximum Width</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The maximum width of the layer's popup.</em></p>
+<h2 id="featurelayerspopuppanes">featurelayers.popup.panes</h2>
+<p><strong>Label:</strong> Panes</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Panes</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerspopuppanesid">id</a> , <a href="#featurelayerspopuppanestablabel">tab.label</a> , <a href="#featurelayerspopuppanesfields">fields</a></p>
+<h2 id="featurelayerspopuppanesid">featurelayers.popup.panes.id</h2>
+<p><strong>Label:</strong> Pane ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of the pane.</em></p>
+<h2 id="featurelayerspopuppanestablabel">featurelayers.popup.panes.tab.label</h2>
+<p><strong>Label:</strong> Tab Label</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The label of the pane's tab.</em></p>
+<h2 id="featurelayerspopuppanesfields">featurelayers.popup.panes.fields</h2>
+<p><strong>Label:</strong> Fields</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Fields</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerspopuppanesfieldstype">type</a> , <a href="#featurelayerspopuppanesfieldsattribute">attribute</a> , <a href="#featurelayerspopuppanesfieldsinputs">inputs</a> , <a href="#featurelayerspopuppanesfieldsvalue">value</a> , <a href="#featurelayerspopuppanesfieldsurl">url</a> , <a href="#featurelayerspopuppanesfieldslabel">label</a> , <a href="#featurelayerspopuppanesfieldswhen">when</a></p>
+<h2 id="featurelayerspopuppanesfieldstype">featurelayers.popup.panes.fields.type</h2>
+<p><strong>Label:</strong> Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>Type (text, link).</em></p>
+<p><strong>Options:</strong> <code>text</code> , <code>template</code> , <code>link</code> , <code>date</code></p>
+<h2 id="featurelayerspopuppanesfieldsattribute">featurelayers.popup.panes.fields.attribute</h2>
+<p><strong>Label:</strong> Field Attribute</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The attribute name (use when input &amp; output are the same).</em></p>
+<h2 id="featurelayerspopuppanesfieldsinputs">featurelayers.popup.panes.fields.inputs</h2>
+<p><strong>Label:</strong> Inputs</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>Will coalesce when provided with multiple attribute names.</em></p>
+<h2 id="featurelayerspopuppanesfieldsvalue">featurelayers.popup.panes.fields.value</h2>
+<p><strong>Label:</strong> Value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>Custom value to show.</em></p>
+<h2 id="featurelayerspopuppanesfieldsurl">featurelayers.popup.panes.fields.url</h2>
+<p><strong>Label:</strong> URL</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>When you want to hyperlink the value field.</em></p>
+<h2 id="featurelayerspopuppanesfieldslabel">featurelayers.popup.panes.fields.label</h2>
+<p><strong>Label:</strong> Field Label</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The label of the field.</em></p>
+<h2 id="featurelayerspopuppanesfieldswhen">featurelayers.popup.panes.fields.when</h2>
+<p><strong>Label:</strong> Field When</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>When to display the field (always, defined, etc.).</em></p>
+<p><strong>Options:</strong> <code>always</code> , <code>defined</code></p>
+<h2 id="featurelayersmetadata">featurelayers.metadata</h2>
+<p><strong>Label:</strong> Metadata</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Metadata (keywords, etc.).</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayersmetadatakeywords">keywords</a></p>
+<h2 id="featurelayersmetadatakeywords">featurelayers.metadata.keywords</h2>
+<p><strong>Label:</strong> Keywords</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>Keywords</em></p>
+<h2 id="controls">controls</h2>
+<p><strong>Label:</strong> undefined</p>
+<p><strong>Description:</strong> <em>undefined</em></p>
+<h2 id="view">view</h2>
+<p><strong>Label:</strong> undefined</p>
+<p><strong>Description:</strong> <em>undefined</em></p>
+<h2 id="renderlayers">renderlayers</h2>
+<p><strong>Label:</strong> Render Layers</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>The layers in stack order to render; the first is on top; the last is on the bottom.</em></p>
+<h2 id="servers">servers</h2>
+<p><strong>Label:</strong> Servers</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Known servers available.</em></p>
+<p><strong>Fields:</strong> <a href="#serversid">id</a> , <a href="#serverstitle">title</a> , <a href="#serversdescription">description</a> , <a href="#serverstype">type</a> , <a href="#serverswms">wms</a> , <a href="#serverswfs">wfs</a> , <a href="#serverstegola">tegola</a></p>
+<h2 id="serversid">servers.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your server.</em></p>
+<h2 id="serverstitle">servers.title</h2>
+<p><strong>Label:</strong> Title</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The title of your server.</em></p>
+<h2 id="serversdescription">servers.description</h2>
+<p><strong>Label:</strong> Description</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The description of your server.</em></p>
+<h2 id="serverstype">servers.type</h2>
+<p><strong>Label:</strong> Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of the server (wms, mapbox, tegola).</em></p>
+<p><strong>Options:</strong> <code>wms</code> , <code>mapbox</code> , <code>tegola</code></p>
+<h2 id="serverswms">servers.wms</h2>
+<p><strong>Label:</strong> WMS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>WMS configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#serverswmsurl">url</a></p>
+<h2 id="serverswmsurl">servers.wms.url</h2>
+<p><strong>Label:</strong> WMS URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the WMS server.</em></p>
+<h2 id="serverswfs">servers.wfs</h2>
+<p><strong>Label:</strong> WFS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>WFS configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#serverswfsversion">version</a> , <a href="#serverswfsurl">url</a></p>
+<h2 id="serverswfsversion">servers.wfs.version</h2>
+<p><strong>Label:</strong> WFS Version</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The version of the WFS server.</em></p>
+<p><strong>Options:</strong> <code>1.0.0</code> , <code>1.1.0</code> , <code>2.0</code> , <code>2.0.2</code></p>
+<h2 id="serverswfsurl">servers.wfs.url</h2>
+<p><strong>Label:</strong> WFS URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the WFS server.</em></p>
+<h2 id="serverstegola">servers.tegola</h2>
+<p><strong>Label:</strong> Tegola</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Tegola configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#serverstegolaurl">url</a></p>
+<h2 id="serverstegolaurl">servers.tegola.url</h2>
+<p><strong>Label:</strong> Tegola URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of the Tegola server.</em></p>
+<h2 id="pages">pages</h2>
+<p><strong>Label:</strong> Pages</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Pages.  Used for templating links to this and other systems.</em></p>
+<p><strong>Fields:</strong> <a href="#pagesid">id</a> , <a href="#pagesurl">url</a></p>
+<h2 id="pagesid">pages.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your page.</em></p>
+<h2 id="pagesurl">pages.url</h2>
+<p><strong>Label:</strong> URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The url of your page.  Can use Angular interpolation and filters.</em></p>
+<h2 id="legend">legend</h2>
+<p><strong>Label:</strong> Legend</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Legend</em></p>
+<p><strong>Fields:</strong> <a href="#legendposition">position</a> , <a href="#legendwidth">width</a> , <a href="#legendheight">height</a> , <a href="#legendgrid">grid</a> , <a href="#legendcss">css</a></p>
+<h2 id="legendposition">legend.position</h2>
+<p><strong>Label:</strong> Position</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Position of the legend.</em></p>
+<p><strong>Fields:</strong> <a href="#legendpositiontop">top</a> , <a href="#legendpositionbottom">bottom</a> , <a href="#legendpositionleft">left</a> , <a href="#legendpositionright">right</a></p>
+<h2 id="legendpositiontop">legend.position.top</h2>
+<p><strong>Label:</strong> Position / Top</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The top position of the legend (in pixels or percentage).</em></p>
+<h2 id="legendpositionbottom">legend.position.bottom</h2>
+<p><strong>Label:</strong> Position / Bottom</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The bottom position of the legend (in pixels or percentage).</em></p>
+<h2 id="legendpositionleft">legend.position.left</h2>
+<p><strong>Label:</strong> Position / Left</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The left position of the legend (in pixels or percentage).</em></p>
+<h2 id="legendpositionright">legend.position.right</h2>
+<p><strong>Label:</strong> Position / Right</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The right position of the legend (in pixels or percentage).</em></p>
+<h2 id="legendwidth">legend.width</h2>
+<p><strong>Label:</strong> Width</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The width of the legend (in pixels or percentage).</em></p>
+<h2 id="legendheight">legend.height</h2>
+<p><strong>Label:</strong> Height</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The height of the legend (in pixels or percentage).</em></p>
+<h2 id="legendgrid">legend.grid</h2>
+<p><strong>Label:</strong> Grid</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>The classes of the grid.  First value is for the left.  Second is for the right.  You can use bootstrap classes.</em></p>
+<h2 id="legendcss">legend.css</h2>
+<p><strong>Label:</strong> CSS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Additional CSS for the legend.</em></p>
+<p><strong>Fields:</strong> <a href="#legendcssproperties">properties</a></p>
+<h2 id="legendcssproperties">legend.css.properties</h2>
+<p><strong>Label:</strong> Legend Additional CSS Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The additional css properties of the legend, such as margin, padding, border, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#legendcsspropertiesname">name</a> , <a href="#legendcsspropertiesvalue">value</a></p>
+<h2 id="legendcsspropertiesname">legend.css.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="legendcsspropertiesvalue">legend.css.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="overlays">overlays</h2>
+<p><strong>Label:</strong> Static Overlays</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Static Overlays available.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaysid">id</a> , <a href="#overlaystype">type</a> , <a href="#overlaysposition">position</a> , <a href="#overlayswidth">width</a> , <a href="#overlaysheight">height</a> , <a href="#overlayscss">css</a> , <a href="#overlaystooltip">tooltip</a> , <a href="#overlaystext">text</a> , <a href="#overlaysimage">image</a> , <a href="#overlayslink">link</a> , <a href="#overlaysintent">intent</a></p>
+<h2 id="overlaysid">overlays.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your navbar.</em></p>
+<h2 id="overlaystype">overlays.type</h2>
+<p><strong>Label:</strong> Type</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The type of your static overlay (text or image).</em></p>
+<p><strong>Options:</strong> <code>text</code> , <code>image</code></p>
+<h2 id="overlaysposition">overlays.position</h2>
+<p><strong>Label:</strong> Position</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Position of the overlay.</em></p>
+<p><strong>Fields:</strong> <a href="#overlayspositiontop">top</a> , <a href="#overlayspositionbottom">bottom</a> , <a href="#overlayspositionleft">left</a> , <a href="#overlayspositionright">right</a></p>
+<h2 id="overlayspositiontop">overlays.position.top</h2>
+<p><strong>Label:</strong> Position / Top</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The top position of your static overlayer (in pixels or percentage).</em></p>
+<h2 id="overlayspositionbottom">overlays.position.bottom</h2>
+<p><strong>Label:</strong> Position / Bottom</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The bottom position of your static overlayer (in pixels or percentage).</em></p>
+<h2 id="overlayspositionleft">overlays.position.left</h2>
+<p><strong>Label:</strong> Position / Left</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The left position of your static overlayer (in pixels or percentage).</em></p>
+<h2 id="overlayspositionright">overlays.position.right</h2>
+<p><strong>Label:</strong> Position / Right</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The right position of your static overlayer (in pixels or percentage).</em></p>
+<h2 id="overlayswidth">overlays.width</h2>
+<p><strong>Label:</strong> Width</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The width of your static overlayer (in pixels or percentage).</em></p>
+<h2 id="overlaysheight">overlays.height</h2>
+<p><strong>Label:</strong> Height</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The height of your static overlayer (in pixels or percentage).</em></p>
+<h2 id="overlayscss">overlays.css</h2>
+<p><strong>Label:</strong> CSS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab.</em></p>
+<p><strong>Fields:</strong> <a href="#overlayscssproperties">properties</a></p>
+<h2 id="overlayscssproperties">overlays.css.properties</h2>
+<p><strong>Label:</strong> Intent Additional CSS Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The additional css properties of the intent, such as margin, padding, border, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#overlayscsspropertiesname">name</a> , <a href="#overlayscsspropertiesvalue">value</a></p>
+<h2 id="overlayscsspropertiesname">overlays.css.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="overlayscsspropertiesvalue">overlays.css.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="overlaystooltip">overlays.tooltip</h2>
+<p><strong>Label:</strong> Tooltip</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Toolip for the navbar.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaystooltipcontent">content</a> , <a href="#overlaystooltipplacement">placement</a></p>
+<h2 id="overlaystooltipcontent">overlays.tooltip.content</h2>
+<p><strong>Label:</strong> Tooltip / Content</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The content of the tooltip.</em></p>
+<h2 id="overlaystooltipplacement">overlays.tooltip.placement</h2>
+<p><strong>Label:</strong> Tooltip / Placement</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The placement of the tooltip.</em></p>
+<p><strong>Options:</strong> <code>top</code> , <code>left</code> , <code>bottom</code> , <code>right</code></p>
+<h2 id="overlaystext">overlays.text</h2>
+<p><strong>Label:</strong> Text</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Text of the overlay.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaystextcontent">content</a> , <a href="#overlaystextfontfamily">font.family</a> , <a href="#overlaystextfontsize">font.size</a> , <a href="#overlaystextfontstyle">font.style</a> , <a href="#overlaystextshadow">shadow</a></p>
+<h2 id="overlaystextcontent">overlays.text.content</h2>
+<p><strong>Label:</strong> Text Content</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The text of your static overlayer.</em></p>
+<h2 id="overlaystextfontfamily">overlays.text.font.family</h2>
+<p><strong>Label:</strong> Text Font Family</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The font family of your text in your static overlayer.</em></p>
+<p><strong>Options:</strong> <code>Arial</code> , <code>Open Sans</code> , <code>Verdana</code> , <code>Impact</code></p>
+<h2 id="overlaystextfontsize">overlays.text.font.size</h2>
+<p><strong>Label:</strong> Text Font Size</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The font size of your text in your static overlayer.</em></p>
+<h2 id="overlaystextfontstyle">overlays.text.font.style</h2>
+<p><strong>Label:</strong> Text Font Style</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The font style of your text in your static overlayer.</em></p>
+<p><strong>Options:</strong> <code>normal</code> , <code>italic</code> , <code>oblique</code> , <code>initial</code> , <code>inherit</code></p>
+<h2 id="overlaystextshadow">overlays.text.shadow</h2>
+<p><strong>Label:</strong> Text Shadow</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The text-shadow to apply to your static overlayer.</em></p>
+<h2 id="overlaysimage">overlays.image</h2>
+<p><strong>Label:</strong> Image</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Image for the overlay.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaysimageasset">asset</a> , <a href="#overlaysimageurl">url</a></p>
+<h2 id="overlaysimageasset">overlays.image.asset</h2>
+<p><strong>Label:</strong> Image Asset ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of the image asset.</em></p>
+<h2 id="overlaysimageurl">overlays.image.url</h2>
+<p><strong>Label:</strong> Image Url</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The URL of your image static overlayer.</em></p>
+<h2 id="overlayslink">overlays.link</h2>
+<p><strong>Label:</strong> Link</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Link for the overlay.</em></p>
+<p><strong>Fields:</strong> <a href="#overlayslinkurl">url</a> , <a href="#overlayslinktarget">target</a></p>
+<h2 id="overlayslinkurl">overlays.link.url</h2>
+<p><strong>Label:</strong> Link URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The destination of the link activated on user click.</em></p>
+<h2 id="overlayslinktarget">overlays.link.target</h2>
+<p><strong>Label:</strong> Link Target</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The target of the link.</em></p>
+<p><strong>Options:</strong> <code>_blank</code> , <code>_self</code> , <code>_parent</code> , <code>_top</code></p>
+<h2 id="overlaysintent">overlays.intent</h2>
+<p><strong>Label:</strong> Intent</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Intent for the overlay.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaysintentname">name</a> , <a href="#overlaysintentproperties">properties</a></p>
+<h2 id="overlaysintentname">overlays.intent.name</h2>
+<p><strong>Label:</strong> Intent Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The intent to emit.</em></p>
+<h2 id="overlaysintentproperties">overlays.intent.properties</h2>
+<p><strong>Label:</strong> Intent Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The properties of the intent, such as layer id, location, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaysintentpropertiesname">name</a> , <a href="#overlaysintentpropertiesvalue">value</a></p>
+<h2 id="overlaysintentpropertiesname">overlays.intent.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="overlaysintentpropertiesvalue">overlays.intent.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="navbars">navbars</h2>
+<p><strong>Label:</strong> Navbars</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Navbars</em></p>
+<p><strong>Fields:</strong> <a href="#navbarsid">id</a> , <a href="#navbarsplacement">placement</a> , <a href="#navbarspage">page</a> , <a href="#navbarslink">link</a> , <a href="#navbarsintents">intents</a> , <a href="#navbarscss">css</a> , <a href="#navbarstabs">tabs</a></p>
+<h2 id="navbarsid">navbars.id</h2>
+<p><strong>Label:</strong> ID</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The id of your static overlay.</em></p>
+<h2 id="navbarsplacement">navbars.placement</h2>
+<p><strong>Label:</strong> Placement</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>Placement for the navbar.</em></p>
+<p><strong>Options:</strong> <code>top</code> , <code>left</code> , <code>bottom</code> , <code>right</code></p>
+<h2 id="navbarspage">navbars.page</h2>
+<p><strong>Label:</strong> Page</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The page (in geodash.pages array) for permalinking each tab.</em></p>
+<h2 id="navbarslink">navbars.link</h2>
+<p><strong>Label:</strong> Link</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Link for each tab.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarslinkurl">url</a> , <a href="#navbarslinktarget">target</a></p>
+<h2 id="navbarslinkurl">navbars.link.url</h2>
+<p><strong>Label:</strong> Link URL</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The destination of the link activated on user click.</em></p>
+<h2 id="navbarslinktarget">navbars.link.target</h2>
+<p><strong>Label:</strong> Link Target</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The target of the link.</em></p>
+<p><strong>Options:</strong> <code>_blank</code> , <code>_self</code> , <code>_parent</code> , <code>_top</code></p>
+<h2 id="navbarsintents">navbars.intents</h2>
+<p><strong>Label:</strong> Intents</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Intent for each tab.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarsintentsname">name</a> , <a href="#navbarsintentsproperties">properties</a></p>
+<h2 id="navbarsintentsname">navbars.intents.name</h2>
+<p><strong>Label:</strong> Intent Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The intent to emit.</em></p>
+<h2 id="navbarsintentsproperties">navbars.intents.properties</h2>
+<p><strong>Label:</strong> Intent Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The properties of the intent, such as layer id, location, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarsintentspropertiesname">name</a> , <a href="#navbarsintentspropertiesvalue">value</a></p>
+<h2 id="navbarsintentspropertiesname">navbars.intents.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="navbarsintentspropertiesvalue">navbars.intents.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="navbarscss">navbars.css</h2>
+<p><strong>Label:</strong> CSS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarscssproperties">properties</a></p>
+<h2 id="navbarscssproperties">navbars.css.properties</h2>
+<p><strong>Label:</strong> Intent Additional CSS Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The additional css properties of the intent, such as margin, padding, border, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarscsspropertiesname">name</a> , <a href="#navbarscsspropertiesvalue">value</a></p>
+<h2 id="navbarscsspropertiesname">navbars.css.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="navbarscsspropertiesvalue">navbars.css.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="navbarstabs">navbars.tabs</h2>
+<p><strong>Label:</strong> Tabs</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The tabs to show in the navbar</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabsvalue">value</a> , <a href="#navbarstabstitle">title</a> , <a href="#navbarstabstooltip">tooltip</a> , <a href="#navbarstabscss">css</a></p>
+<h2 id="navbarstabsvalue">navbars.tabs.value</h2>
+<p><strong>Label:</strong> Tab Value</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The value of the tab.</em></p>
+<h2 id="navbarstabstitle">navbars.tabs.title</h2>
+<p><strong>Label:</strong> Tab Title</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The title of the tab.</em></p>
+<h2 id="navbarstabstooltip">navbars.tabs.tooltip</h2>
+<p><strong>Label:</strong> Tooltip</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Toolip for the navbar.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabstooltipcontent">content</a> , <a href="#navbarstabstooltipplacement">placement</a></p>
+<h2 id="navbarstabstooltipcontent">navbars.tabs.tooltip.content</h2>
+<p><strong>Label:</strong> Tooltip / Content</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The content of the tooltip.</em></p>
+<h2 id="navbarstabstooltipplacement">navbars.tabs.tooltip.placement</h2>
+<p><strong>Label:</strong> Tooltip / Placement</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The placement of the tooltip.</em></p>
+<p><strong>Options:</strong> <code>top</code> , <code>left</code> , <code>bottom</code> , <code>right</code></p>
+<h2 id="navbarstabscss">navbars.tabs.css</h2>
+<p><strong>Label:</strong> CSS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabscssproperties">properties</a></p>
+<h2 id="navbarstabscssproperties">navbars.tabs.css.properties</h2>
+<p><strong>Label:</strong> Intent Additional CSS Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The additional css properties of the intent, such as margin, padding, border, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabscsspropertiesname">name</a> , <a href="#navbarstabscsspropertiesvalue">value</a></p>
+<h2 id="navbarstabscsspropertiesname">navbars.tabs.css.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="navbarstabscsspropertiesvalue">navbars.tabs.css.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>

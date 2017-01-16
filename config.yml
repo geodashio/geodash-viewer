@@ -32,15 +32,11 @@ dependencies:
       - "~/geodash-base.git/config.yml"
   test:
     javascript: ["./src/config.js"]
-compiler:
-  list: []
+compiler: { list: [] }
 resources:
-  - name: geodashviewer.less
-    path: ./src/less/geodashviewer.less
-  - name: bootstrap.css
-    path: ./build/bootstrap/bootstrap.css
-  - name: polyfill.min.js
-    path: ./build/js/polyfill.min.js
+  - { name: geodashviewer.less, path: ./src/less/geodashviewer.less }
+  - { name: bootstrap.css, path: ./build/bootstrap/bootstrap.css }
+  - { name: polyfill.min.js, path: ./build/js/polyfill.min.js }
 build:
   main.css:
     name: main.css
@@ -111,7 +107,7 @@ build:
         name: c3.js
       - type: resource
         project: geodash
-        version: "3.17.1"
+        version: "3.20.1"
         name: ol3.js
       - type: resource
         project: geodash

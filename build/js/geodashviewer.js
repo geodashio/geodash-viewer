@@ -30,8 +30,8 @@ geodash.config = {
 
 geodash.meta = {};
 geodash.meta.projects = [{"name":"geodash","version":"0.0.1","description":"geodash 0.0.1"},{"name":"geodashviewer","version":"0.0.1","description":"GeoDash Viewer 1.x"}];
-geodash.meta.plugins = [{"controllers":["GeoDashControllerBase.js","GeoDashControllerModal.js"],"directives":["svg/ngSvgText.js","svg/svg.js","geodashBase.js","onLinkDone.js","onRepeatDone.js","geodashBtnClose.js","geodashBtnInfo.js","geodashBtn.js","geodashLabel.js","geodashTab.js","geodashTabs.js"],"enumerations":["dates.js"],"templates":["geodash_tab.tpl.html","geodash_tabs.tpl.html","geodash_btn_close.tpl.html","geodash_btn_info.tpl.html","geodash_btn.tpl.html","geodash_label.tpl.html"],"filters":[],"handlers":["clickedOnMap.js","filterChanged.js","hideLayer.js","hideLayers.js","layerLoaded.js","requestToggleComponent.js","selectStyle.js","showLayer.js","showLayers.js","stateChanged.js","switchBaseLayer.js","ol3/toggleComponent.js","toggleFeatureLayer.js","toggleControl.js","viewChanged.js","zoomIn.js","zoomOut.js","zoomToLayer.js","zoomToLocation.js","ol3/printMap.js","ol3/toggleFullScreen.js"],"schemas":["base.yml","baselayers.yml","assets.yml","featurelayers.yml","controls.yml","view.yml","servers.yml","pages.yml",{"id":"css","path":"/home/vagrant/geodash-base.git/src/geodash/plugins/base/schemas/lib/css.yml"},{"id":"intent","path":"/home/vagrant/geodash-base.git/src/geodash/plugins/base/schemas/lib/intent.yml"},{"id":"intents","path":"/home/vagrant/geodash-base.git/src/geodash/plugins/base/schemas/lib/intents.yml"},{"id":"placement","path":"/home/vagrant/geodash-base.git/src/geodash/plugins/base/schemas/lib/placement.yml"},{"id":"position","path":"/home/vagrant/geodash-base.git/src/geodash/plugins/base/schemas/lib/position.yml"},{"id":"tooltip","path":"/home/vagrant/geodash-base.git/src/geodash/plugins/base/schemas/lib/tooltip.yml"}],"modals":[],"less":["base.less"],"project":"geodash","id":"base"},{"filters":["default.js","md2html.js","percent.js","tabLabel.js","as_float.js","add.js","title.js","as_array.js","sortItemsByArray.js","breakpoint.js","breakpoints.js","position_x.js","width_x.js","length.js","layer_is_visible.js","common/append.js","common/default_if_undefined.js","common/default_if_undefined_or_blank.js","common/extract.js","common/extractTest.js","common/inArray.js","common/not.js","common/prepend.js","common/parseTrue.js","common/ternary.js","common/ternary_defined.js","common/yaml.js","array/arrayToObject.js","array/join.js","array/first.js","array/last.js","array/choose.js","css/css.js","css/ellipsis.js","format/formatBreakPoint.js","format/formatFloat.js","format/formatInteger.js","format/formatArray.js","format/formatMonth.js","math/eq.js","math/lte.js","math/gte.js","math/gt.js","string/replace.js","string/split.js","string/stringToObject.js","url/url_shapefile.js","url/url_geojson.js","url/url_kml.js","url/url_describefeaturetype.js"],"project":"geodash","id":{"branch":"master","url":"https://github.com/geodashio/geodash-plugin-filters.git"}},{"name":"geodash-plugin-legend","controllers":["GeoDashControllerLegend.js"],"directives":["geodashMapLegend.js"],"templates":["map_legend.tpl.html"],"less":["legend.less"],"schemas":["legend.yml"],"project":"geodash","id":"geodash-plugin-legend"},{"controllers":[],"directives":["geodashModalWelcome.js"],"templates":["modal/geodash_modal_welcome.tpl.html"],"project":"geodash","id":"welcome"},{"controllers":[],"directives":["geodashModalAbout.js"],"templates":["geodash_modal_about.tpl.html"],"project":"geodash","id":"about"},{"controllers":[],"directives":["geodashModalDownload.js"],"templates":["geodash_modal_download.tpl.html"],"project":"geodash","id":"download"},{"name":"geodash-plugin-overlays","controllers":["GeoDashControllerOverlays.js"],"directives":["geodashMapOverlays.js"],"templates":["map_overlays.tpl.html"],"less":["map_overlays.less"],"schemas":["map_overlays_schema.yml"],"project":"geodash","id":"geodash-plugin-overlays"},{"name":"geodash-plugin-navbars","controllers":["GeoDashControllerMapNavbars.js"],"directives":["geodashMapNavbars.js"],"templates":["map_navbars.tpl.html"],"less":["map_navbars.less"],"schemas":["map_navbars.yml"],"project":"geodash","id":"geodash-plugin-navbars"},{"controllers":[],"directives":["geodashSidebarToggleLeft.js"],"templates":["geodash_sidebar_toggle_left.tpl.html"],"project":"geodash","id":"sidebar_toggle_left"},{"controllers":[],"directives":["geodashSidebarToggleRight.js"],"templates":["geodash_sidebar_toggle_right.tpl.html"],"project":"geodash","id":"sidebar_toggle_right"},{"name":"geodash-plugin-map-map","controllers":[{"name":"GeoDashControllerMapMap","path":"GeoDashControllerMapMap.js","handlers":[{"event":"toggleComponent","handler":"toggleComponent"}]}],"directives":["geodashMapMap.js"],"templates":["map_map.tpl.html"],"less":["map_map.less"],"project":"geodashviewer","id":"geodash-plugin-map-map"},{"name":"geodash-plugin-main","controllers":[{"name":"GeoDashControllerMain","path":"GeoDashControllerMain.js","handlers":[{"event":"clickedOnMap","handler":"clickedOnMap"},{"event":"filterChanged","handler":"filterChanged"},{"event":"hideLayer","handler":"hideLayer"},{"event":"hideLayers","handler":"hideLayers"},{"event":"layerLoaded","handler":"layerLoaded"},{"event":"requestToggleComponent","handler":"requestToggleComponent"},{"event":"selectStyle","handler":"selectStyle"},{"event":"showLayer","handler":"showLayer"},{"event":"showLayers","handler":"showLayers"},{"event":"stateChanged","handler":"stateChanged"},{"event":"switchBaseLayer","handler":"switchBaseLayer"},{"event":"viewChanged","handler":"viewChanged"},{"event":"zoomIn","handler":"zoomIn"},{"event":"zoomOut","handler":"zoomOut"},{"event":"zoomToLayer","handler":"zoomToLayer"},{"event":"zoomToLocation","handler":"zoomToLocation"},{"event":"printMap","handler":"printMap"},{"event":"toggleFullScreen","handler":"toggleFullScreen"},{"event":"toggleFeatureLayer","handler":"toggleFeatureLayer"},{"event":"toggleControl","handler":"toggleControl"}]}],"directives":["geodashMain.js"],"templates":["main.tpl.html"],"handlers":[],"project":"geodashviewer","id":"geodash-plugin-main"}];
-geodash.meta.controllers = [{"name":"GeoDashControllerMapMap","handlers":[{"event":"toggleComponent","handler":"toggleComponent"}]},{"name":"GeoDashControllerMain","handlers":[{"event":"clickedOnMap","handler":"clickedOnMap"},{"event":"filterChanged","handler":"filterChanged"},{"event":"hideLayer","handler":"hideLayer"},{"event":"hideLayers","handler":"hideLayers"},{"event":"layerLoaded","handler":"layerLoaded"},{"event":"requestToggleComponent","handler":"requestToggleComponent"},{"event":"selectStyle","handler":"selectStyle"},{"event":"showLayer","handler":"showLayer"},{"event":"showLayers","handler":"showLayers"},{"event":"stateChanged","handler":"stateChanged"},{"event":"switchBaseLayer","handler":"switchBaseLayer"},{"event":"viewChanged","handler":"viewChanged"},{"event":"zoomIn","handler":"zoomIn"},{"event":"zoomOut","handler":"zoomOut"},{"event":"zoomToLayer","handler":"zoomToLayer"},{"event":"zoomToLocation","handler":"zoomToLocation"},{"event":"printMap","handler":"printMap"},{"event":"toggleFullScreen","handler":"toggleFullScreen"},{"event":"toggleFeatureLayer","handler":"toggleFeatureLayer"},{"event":"toggleControl","handler":"toggleControl"}]}];
+geodash.meta.plugins = [{"controllers":["GeoDashControllerBase.js","GeoDashControllerModal.js"],"directives":["svg/ngSvgText.js","svg/svg.js","geodashBase.js","onLinkDone.js","onRepeatDone.js","geodashBtnClose.js","geodashBtnInfo.js","geodashBtn.js","geodashLabel.js","geodashTab.js","geodashTabs.js"],"enumerations":["dates.js"],"templates":["geodash_tab.tpl.html","geodash_tabs.tpl.html","geodash_btn_close.tpl.html","geodash_btn_info.tpl.html","geodash_btn.tpl.html","geodash_label.tpl.html"],"filters":[],"handlers":[],"schemas":["base.yml","baselayers.yml","assets.yml","featurelayers.yml","controls.yml","view.yml","servers.yml","pages.yml",{"id":"css","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/css.yml"},{"id":"link","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/link.yml"},{"id":"intent","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/intent.yml"},{"id":"intents","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/intents.yml"},{"id":"placement","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/placement.yml"},{"id":"position","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/position.yml"},{"id":"tooltip","path":"/home/vagrant/geodash-plugin-base.git/schemas/lib/tooltip.yml"}],"modals":[],"less":["base.less"],"project":"geodash","id":"file:///home/vagrant/geodash-plugin-base.git"},{"name":"geodash-plugin-handlers","controllers":[],"directives":[],"enumerations":[],"templates":[],"filters":[],"handlers":["clickedOnMap.js","filterChanged.js","hideLayer.js","hideLayers.js","layerLoaded.js","requestToggleComponent.js","selectStyle.js","showLayer.js","showLayers.js","stateChanged.js","switchBaseLayer.js","ol3/toggleComponent.js","toggleFeatureLayer.js","toggleControl.js","viewChanged.js","zoomIn.js","zoomOut.js","zoomToLayer.js","zoomToLocation.js","flyToExtent.js","flyToLocation.js","ol3/printMap.js","ol3/toggleFullScreen.js"],"schemas":[],"modals":[],"less":[],"project":"geodash","id":"geodash-plugin-handlers"},{"name":"geodash-plugin-filters","filters":["default.js","percent.js","tabLabel.js","as_float.js","add.js","title.js","as_array.js","sortItemsByArray.js","breakpoint.js","breakpoints.js","position_x.js","width_x.js","length.js","layer_is_visible.js","common/append.js","common/default_if_undefined.js","common/default_if_undefined_or_blank.js","common/extract.js","common/extractTest.js","common/inArray.js","common/not.js","common/prepend.js","common/parseTrue.js","common/ternary.js","common/ternary_defined.js","common/yaml.js","array/arrayToObject.js","array/join.js","array/first.js","array/last.js","array/choose.js","css/css.js","css/ellipsis.js","format/formatBreakPoint.js","format/formatFloat.js","format/formatInteger.js","format/formatArray.js","format/formatMonth.js","math/eq.js","math/lte.js","math/gte.js","math/gt.js","string/replace.js","string/split.js","string/stringToObject.js","string/md2html.js","url/url_shapefile.js","url/url_geojson.js","url/url_kml.js","url/url_describefeaturetype.js"],"project":"geodash","id":"geodash-plugin-filters"},{"name":"geodash-plugin-legend","controllers":["GeoDashControllerLegend.js"],"directives":["geodashMapLegend.js"],"templates":["map_legend.tpl.html"],"less":["legend.less"],"schemas":["legend.yml"],"project":"geodash","id":"geodash-plugin-legend"},{"controllers":[],"directives":["geodashModalWelcome.js"],"templates":["modal/geodash_modal_welcome.tpl.html"],"project":"geodash","id":"welcome"},{"controllers":[],"directives":["geodashModalAbout.js"],"templates":["geodash_modal_about.tpl.html"],"project":"geodash","id":"about"},{"controllers":[],"directives":["geodashModalDownload.js"],"templates":["geodash_modal_download.tpl.html"],"project":"geodash","id":"download"},{"name":"geodash-plugin-overlays","controllers":["GeoDashControllerOverlays.js"],"directives":["geodashMapOverlays.js"],"templates":["map_overlays.tpl.html"],"less":["map_overlays.less"],"schemas":["map_overlays_schema.yml"],"project":"geodash","id":"geodash-plugin-overlays"},{"name":"geodash-plugin-navbars","controllers":["GeoDashControllerMapNavbars.js"],"directives":["geodashMapNavbars.js"],"templates":["map_navbars.tpl.html"],"less":["map_navbars.less"],"schemas":["map_navbars.yml"],"project":"geodash","id":"geodash-plugin-navbars"},{"controllers":[],"directives":["geodashSidebarToggleLeft.js"],"templates":["geodash_sidebar_toggle_left.tpl.html"],"project":"geodash","id":"sidebar_toggle_left"},{"controllers":[],"directives":["geodashSidebarToggleRight.js"],"templates":["geodash_sidebar_toggle_right.tpl.html"],"project":"geodash","id":"sidebar_toggle_right"},{"name":"geodash-plugin-map-map","controllers":[{"name":"GeoDashControllerMapMap","path":"GeoDashControllerMapMap.js","handlers":[{"event":"toggleComponent","handler":"toggleComponent"}]}],"directives":["geodashMapMap.js"],"templates":["map_map.tpl.html"],"less":["map_map.less"],"project":"geodashviewer","id":"geodash-plugin-map-map"},{"name":"geodash-plugin-main","controllers":[{"name":"GeoDashControllerMain","path":"GeoDashControllerMain.js","handlers":[{"event":"clickedOnMap","handler":"clickedOnMap"},{"event":"filterChanged","handler":"filterChanged"},{"event":"hideLayer","handler":"hideLayer"},{"event":"hideLayers","handler":"hideLayers"},{"event":"layerLoaded","handler":"layerLoaded"},{"event":"requestToggleComponent","handler":"requestToggleComponent"},{"event":"selectStyle","handler":"selectStyle"},{"event":"showLayer","handler":"showLayer"},{"event":"showLayers","handler":"showLayers"},{"event":"stateChanged","handler":"stateChanged"},{"event":"switchBaseLayer","handler":"switchBaseLayer"},{"event":"viewChanged","handler":"viewChanged"},{"event":"zoomIn","handler":"zoomIn"},{"event":"zoomOut","handler":"zoomOut"},{"event":"zoomToLayer","handler":"zoomToLayer"},{"event":"zoomToLocation","handler":"zoomToLocation"},{"event":"flyToLocation","handler":"flyToLocation"},{"event":"flyToExtent","handler":"flyToExtent"},{"event":"printMap","handler":"printMap"},{"event":"toggleFullScreen","handler":"toggleFullScreen"},{"event":"toggleFeatureLayer","handler":"toggleFeatureLayer"},{"event":"toggleControl","handler":"toggleControl"}]}],"directives":["geodashMain.js"],"templates":["main.tpl.html"],"handlers":[],"project":"geodashviewer","id":"geodash-plugin-main"}];
+geodash.meta.controllers = [{"name":"GeoDashControllerMapMap","handlers":[{"event":"toggleComponent","handler":"toggleComponent"}]},{"name":"GeoDashControllerMain","handlers":[{"event":"clickedOnMap","handler":"clickedOnMap"},{"event":"filterChanged","handler":"filterChanged"},{"event":"hideLayer","handler":"hideLayer"},{"event":"hideLayers","handler":"hideLayers"},{"event":"layerLoaded","handler":"layerLoaded"},{"event":"requestToggleComponent","handler":"requestToggleComponent"},{"event":"selectStyle","handler":"selectStyle"},{"event":"showLayer","handler":"showLayer"},{"event":"showLayers","handler":"showLayers"},{"event":"stateChanged","handler":"stateChanged"},{"event":"switchBaseLayer","handler":"switchBaseLayer"},{"event":"viewChanged","handler":"viewChanged"},{"event":"zoomIn","handler":"zoomIn"},{"event":"zoomOut","handler":"zoomOut"},{"event":"zoomToLayer","handler":"zoomToLayer"},{"event":"zoomToLocation","handler":"zoomToLocation"},{"event":"flyToLocation","handler":"flyToLocation"},{"event":"flyToExtent","handler":"flyToExtent"},{"event":"printMap","handler":"printMap"},{"event":"toggleFullScreen","handler":"toggleFullScreen"},{"event":"toggleFeatureLayer","handler":"toggleFeatureLayer"},{"event":"toggleControl","handler":"toggleControl"}]}];
 geodash.meta.modals = [];
 geodash.templates = {static:{}};
 geodash.templates.static["geodash_tab.tpl.html"] = "<li\n  role=\"presentation\"\n  ng-class=\"(active && active != \'false\') ? \'active\' : \'\'\">\n  <a\n    href=\"#{{ target }}\"\n    aria-controls=\"{{ target }}\"\n    role=\"tab\"\n    data-toggle=\"tab\"\n    style=\"padding-left:8px; padding-right: 8px; height: {{ height | default_if_undefined : \'auto\'}}\">{{ label }}</a>\n</li>\n";
@@ -40,7 +40,7 @@ geodash.templates.static["geodash_btn_close.tpl.html"] = "<button\n  type=\"butt
 geodash.templates.static["geodash_btn_info.tpl.html"] = "<div\n  class=\"input-group-addon btn btn-primary\"\n  data-toggle=\"tooltip\"\n  data-placement=\"{{ placement | default_if_undefined : \'left\' }}\"\n  ng-attr-title=\"{{ info }}\">\n  <i class=\"fa fa-info-circle\"></i>\n</div>\n";
 geodash.templates.static["geodash_btn.tpl.html"] = "<div\n  ng-class=\"[\'input-group-addon\',\'btn\',(\'btn-\'|add: mode),((mode == \'clear\' || mode ==\'off\') ? \'btn-danger\': \'\'),((mode == \'on\') ? \'btn-success\': \'\'),((mode == \'edit\') ? \'btn-primary btn-edit\': \'\')]\"\n  data-target=\"{{ target }}\"\n  data-toggle=\"{{ info | ternary_defined : \'tooltip\' : undefined }}\"\n  data-placement=\"{{ placement | default_if_undefined : \'left\' }}\"\n  ng-attr-title=\"{{ info }}\">\n  <i ng-class=\"[\'fa\',(mode == \'clear\' ? \'fa-times\' : \'\'),(mode == \'on\' ? \'fa-check\' : \'\'),(mode == \'off\' ? \'fa-circle-o\' : \'\'),(mode == \'edit\' ? \'fa-pencil-square-o\' : \'\')]\"></i>\n</div>\n";
 geodash.templates.static["geodash_label.tpl.html"] = "<label for=\"{{ target }}\" class=\"col-sm-3 control-label\" ng-bind-html=\"content\"></label>\n";
-geodash.templates.static["map_legend.tpl.html"] = "<div\n  id=\"geodash-map-legend\"\n  class=\"geodash-map-legend\"\n  style=\"{{ style() }}\">\n  <div class=\"container-fluid\">\n    <div\n      ng-repeat=\"layer in visibleFeaturelayers track by $index\"\n      ng-init=\"layerIndex = $index\"\n      ng-if=\"layer.title | ternary_defined : true : false\"\n      class=\"geodash-map-legend-layer noselect row\"\n      style=\"margin-bottom:8px;\"\n      data-layer=\"{{ layer.id }}\">\n      <div ng-if=\"getLegendType(layer) == \'legendgraphic\'\" class=\"col-sm-12\">\n        <div class=\"row\" style=\"margin-bottom:8px;\">\n          <div class=\"{{ class(0) }}\">\n            <img\n              style=\"{{ getLegendGraphicStyle(layer) | css }}\"\n              ng-src=\"{{ getLegendGraphicURL(layer) }}\">\n          </div>\n          <div class=\"{{ class(1) }}\">\n            <span\n              class=\"h5\"\n              style=\"{{ {\'margin\': \'0\'} | ellipsis | css }}\"\n              data-toggle=\"tooltip\"\n              data-placement=\"bottom\"\n              data-container=\"#geodash-map-legend\"\n              ng-attr-title=\"{{ layer.title }}\"\n              ng-bind-html=\"layer.title\"></span>\n          </div>\n        </div>\n        <div class=\"row\"><div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"\'Source: \'+layer.source.attribution\"></span></div></div>\n      </div>\n      <div ng-if=\"getLegendType(layer) == \'graduated\'\" ng-init=\"style = getCurrentStyle(layer)\" class=\"col-sm-12\">\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <span\n              class=\"h5\"\n              style=\"{{ {\'display\': \'inline-block\', \'max-width\': \'100%\', \'overflow\': \'hidden\', \'height\': \'1.2rem\'} | css }}\"\n              data-toggle=\"tooltip\"\n              data-placement=\"bottom\"\n              data-container=\"#geodash-map-legend\"\n              ng-attr-title=\"{{ layer.title }}\"\n              ng-bind-html=\"layer.title\"></span>\n          </div>\n        </div>\n        <div class=\"row\" style=\"margin-bottom:8px;\"><div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"(\'(\'+style.description+\')\') | md2html\"></span></div></div>\n        <div class=\"row\" style=\"margin-bottom:8px;\">\n          <div class=\"col-sm-12\" ng-init=\"ramp = getColorRamp(layer)\">\n            <svg\n              width=\"100%\"\n              ng-attr-height=\"{{ getRange(layer) | ternary_defined : \'40px\' : \'20px\' }}\"\n              version=\"1.0\"\n              xmlns=\"http://www.w3.org/2000/svg\">\n              <rect\n                ng-repeat=\"color in ramp track by $index\"\n                ng-attr-x=\"{{ $index | percent: ramp.length }}%\"\n                y=\"0\"\n                ng-attr-width=\"{{ 1 | percent: ramp.length }}%\"\n                ng-attr-height=\"{{ \'20px\' }}\"\n                ng-attr-fill=\"{{ color }}\"\n                stroke-width=\"1\"\n                stroke=\"#000000\"/>\n              <text\n                ng-if=\"getRange(layer) | ternary_defined : true : false\"\n                x=\"0px\"\n                y=\"34px\"\n                text-anchor=\"start\"\n                font-size=\"12px\"\n                fill=\"#444444\"\n                ng-svg-text=\"{{ getRange(layer)| first | extract : \'label\' }}\"\n              ></text>\n              <text\n                ng-if=\"getRange(layer) | ternary_defined : true : false\"\n                x=\"100%\"\n                y=\"34px\"\n                text-anchor=\"end\"\n                font-size=\"12px\"\n                fill=\"#444444\"\n                ng-svg-text=\"{{ getRange(layer)| last | extract : \'label\' }}\"\n              ></text>\n            </svg>\n          </div>\n        </div>\n        <div class=\"row\"><div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"\'Source: \'+layer.source.attribution\"></span></div></div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+geodash.templates.static["map_legend.tpl.html"] = "<div\n  id=\"geodash-map-legend\"\n  class=\"geodash-map-legend\"\n  style=\"{{ style() }}\">\n  <div class=\"container-fluid\">\n    <div\n      ng-repeat=\"layer in visibleFeaturelayers track by $index\"\n      ng-init=\"layerIndex = $index\"\n      ng-if=\"layer.title | ternary_defined : true : false\"\n      class=\"geodash-map-legend-layer noselect row\"\n      style=\"margin-bottom:8px;\"\n      data-layer=\"{{ layer.id }}\">\n      <div ng-if=\"getLegendType(layer) == \'legendgraphic\'\" class=\"col-sm-12\">\n        <div class=\"row\" style=\"margin-bottom:8px;\">\n          <div class=\"{{ class(0) }}\">\n            <img\n              style=\"{{ getLegendGraphicStyle(layer) | css }}\"\n              ng-src=\"{{ getLegendGraphicURL(layer) }}\">\n          </div>\n          <div class=\"{{ class(1) }}\">\n            <span\n              class=\"h5\"\n              style=\"{{ {\'margin\': \'0\'} | ellipsis | css }}\"\n              data-toggle=\"tooltip\"\n              data-placement=\"bottom\"\n              data-container=\"#geodash-map-legend\"\n              ng-attr-title=\"{{ layer.title }}\"\n              ng-bind-html=\"layer.title\"></span>\n          </div>\n        </div>\n        <div class=\"row\"><div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"\'Source: \'+layer.source.attribution\"></span></div></div>\n      </div>\n      <div ng-if=\"getLegendType(layer) == \'graduated\'\" ng-init=\"style = getCurrentStyle(layer)\" class=\"col-sm-12\">\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <span\n              class=\"h5\"\n              style=\"{{ {\'display\': \'inline-block\', \'max-width\': \'100%\', \'overflow\': \'hidden\', \'height\': \'1.2rem\'} | css }}\"\n              data-toggle=\"tooltip\"\n              data-placement=\"bottom\"\n              data-container=\"#geodash-map-legend\"\n              ng-attr-title=\"{{ layer.title }}\"\n              ng-bind-html=\"layer.title\"></span>\n          </div>\n        </div>\n        <div class=\"row\" style=\"margin-bottom:8px;\"><div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"(\'(\'+style.description+\')\') | md2html\"></span></div></div>\n        <div class=\"row\" style=\"margin-bottom:8px;\">\n          <div class=\"col-sm-12\" ng-init=\"classes = getClasses(layer)\">\n            <svg\n              width=\"100%\"\n              ng-attr-height=\"{{ getRange(layer) | ternary_defined : \'40px\' : \'20px\' }}\"\n              version=\"1.0\"\n              xmlns=\"http://www.w3.org/2000/svg\">\n              <rect\n                ng-repeat=\"class in classes track by $index\"\n                ng-attr-x=\"{{ $index | percent: classes.length }}%\"\n                y=\"0\"\n                ng-attr-width=\"{{ 1 | percent: classes.length }}%\"\n                ng-attr-height=\"{{ \'20px\' }}\"\n                ng-attr-fill=\"{{ class.color | default_if_undefined : \'#000000\' }}\"\n                stroke-width=\"1\"\n                stroke=\"#000000\"\n                data-toggle=\"tooltip\"\n                data-placement=\"bottom\"\n                data-container=\"#geodash-map-legend\"\n                ng-attr-title=\"{{ class.title }}\"/>\n              <text\n                ng-repeat=\"class in classes track by $index\"\n                ng-attr-x=\"{{ $index | percent: classes.length }}%\"\n                y=\"14px\"\n                text-anchor=\"start\"\n                data-toggle=\"tooltip\"\n                data-placement=\"bottom\"\n                data-container=\"#geodash-map-legend\"\n                ng-attr-title=\"{{ class.title }}\">\n                <tspan\n                  dx=\"1px\"\n                  font-size=\"10px\"\n                  fill=\"#000000\"\n                  ng-svg-text=\"{{ class.label | default_if_undefined : \'\' }}\">\n                </tspan>\n              </text>\n              <text\n                ng-if=\"getRange(layer) | ternary_defined : true : false\"\n                x=\"0px\"\n                y=\"34px\"\n                text-anchor=\"start\"\n                font-size=\"12px\"\n                fill=\"#444444\"\n                ng-svg-text=\"{{ getRange(layer) | first | extract : \'label\' }}\"\n              ></text>\n              <text\n                ng-if=\"getRange(layer) | ternary_defined : true : false\"\n                x=\"100%\"\n                y=\"34px\"\n                text-anchor=\"end\"\n                font-size=\"12px\"\n                fill=\"#444444\"\n                ng-svg-text=\"{{ getRange(layer) | last | extract : \'label\' }}\"\n              ></text>\n            </svg>\n          </div>\n        </div>\n        <div\n          ng-if=\"layer.legend.ui.source | default_if_undefined : true\"\n          class=\"row\">\n          <div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"\'Source: \'+layer.source.attribution\"></span></div>\n        </div>\n      </div>\n      <div ng-if=\"getLegendType(layer) == \'heatmap\'\" ng-init=\"style = getCurrentStyle(layer)\" class=\"col-sm-12\">\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <span\n              class=\"h5\"\n              style=\"{{ {\'display\': \'inline-block\', \'max-width\': \'100%\', \'overflow\': \'hidden\', \'height\': \'1.2rem\'} | css }}\"\n              data-toggle=\"tooltip\"\n              data-placement=\"bottom\"\n              data-container=\"#geodash-map-legend\"\n              ng-attr-title=\"{{ layer.title }}\"\n              ng-bind-html=\"layer.title\"></span>\n          </div>\n        </div>\n        <div class=\"row\" style=\"margin-bottom:8px;\"><div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"(\'(\'+style.description+\')\') | md2html\"></span></div></div>\n        <div class=\"row\" style=\"margin-bottom:8px;\">\n          <div class=\"col-sm-12\" ng-init=\"classes = getClasses(layer)\">\n            <svg\n              width=\"100%\"\n              ng-attr-height=\"{{ getRange(layer) | ternary_defined : \'40px\' : \'20px\' }}\"\n              version=\"1.0\"\n              xmlns=\"http://www.w3.org/2000/svg\">\n              <rect\n                ng-repeat=\"class in classes track by $index\"\n                ng-attr-x=\"{{ $index | percent: classes.length }}%\"\n                y=\"0\"\n                ng-attr-width=\"{{ 1 | percent: classes.length }}%\"\n                ng-attr-height=\"{{ \'20px\' }}\"\n                ng-attr-fill=\"{{ class.color | default_if_undefined : \'#000000\' }}\"\n                stroke-width=\"1\"\n                stroke=\"#000000\"\n                data-toggle=\"tooltip\"\n                data-placement=\"bottom\"\n                data-container=\"#geodash-map-legend\"\n                ng-attr-title=\"{{ class.title }}\"/>\n              <text\n                ng-if=\"getRange(layer) | ternary_defined : true : false\"\n                x=\"0px\"\n                y=\"34px\"\n                text-anchor=\"start\"\n                font-size=\"12px\"\n                fill=\"#444444\"\n                ng-svg-text=\"{{ getRange(layer) | first | extract : \'label\' }}\"\n              ></text>\n              <text\n                ng-if=\"getRange(layer) | ternary_defined : true : false\"\n                x=\"100%\"\n                y=\"34px\"\n                text-anchor=\"end\"\n                font-size=\"12px\"\n                fill=\"#444444\"\n                ng-svg-text=\"{{ getRange(layer) | last | extract : \'label\' }}\"\n              ></text>\n            </svg>\n          </div>\n        </div>\n        <div\n          ng-if=\"layer.legend.ui.source | default_if_undefined : true\"\n          class=\"row\">\n          <div class=\"col-sm-12\"><span class=\"h6\" ng-bind-html=\"\'Source: \'+layer.source.attribution\"></span></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
 geodash.templates.static["geodash_modal_welcome.tpl.html"] = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button geodash-btn-close></button>\n      <h4 class=\"modal-title\" id=\"myModalLabel\">{{ welcome.title }}</h4>\n    </div>\n    <div class=\"modal-body\">\n      <div>\n        <!-- Nav tabs -->\n        <ul class=\"nav nav-tabs\" role=\"tablist\">\n          <li role=\"presentation\" class=\"active\">\n            <a\n              href=\"#modal-welcome-general\"\n              aria-controls=\"modal-welcome-general\"\n              role=\"tab\"\n              data-toggle=\"tab\"\n              style=\"padding-left:8px; padding-right: 8px;\">General</a>\n          </li>\n          <li role=\"presentation\" class=\"\">\n            <a\n              href=\"#modal-welcome-about\"\n              aria-controls=\"modal-welcome-about\"\n              role=\"tab\"\n              data-toggle=\"tab\"\n              style=\"padding-left:8px; padding-right: 8px;\">About</a>\n          </li>\n        </ul>\n        <div class=\"tab-content\">\n          <div\n            id=\"modal-welcome-general\"\n            class=\"tab-pane fade in active\"\n            role=\"tabpanel\"\n            style=\"padding: 10px;\">\n            <span ng-bind-html=\"welcome.general | md2html | default:\'No body given.\'\"></span>\n          </div>\n          <div\n            id=\"modal-welcome-about\"\n            class=\"tab-pane fade\"\n            role=\"tabpanel\"\n            style=\"padding: 10px;\">\n            <span ng-bind-html=\"welcome.about | md2html | default:\'No body given.\'\"></span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div>\n</div>\n";
 geodash.templates.static["geodash_modal_about.tpl.html"] = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button geodash-btn-close></button>\n      <h4 class=\"modal-title\" id=\"myModalLabel\">{{ about.title }}</h4>\n    </div>\n    <div class=\"modal-body\">\n      <div>\n        <!-- Nav tabs -->\n        <ul class=\"nav nav-tabs\" role=\"tablist\">\n          <li\n            role=\"presentation\"\n            ng-class=\"$first ? \'active\' : \'\'\"\n            ng-repeat=\"pane in about.panes track by $index\">\n            <a\n              href=\"#{{ pane.id }}\"\n              aria-controls=\"{{ pane.id }}\"\n              role=\"tab\"\n              data-toggle=\"tab\"\n              style=\"padding-left:8px; padding-right: 8px;\"\n              ng-bind-html=\"pane.tab.label | default:\'Default\' | tabLabel\"></a>\n          </li>\n        </ul>\n        <!-- Tab panes -->\n        <div class=\"tab-content\">\n          <div\n            ng-class=\"$first ? \'tab-pane fade in active\' : \'tab-pane fade\'\"\n            ng-repeat=\"pane in about.panes track by $index\"\n            id=\"{{ pane.id }}\"\n            role=\"tabpanel\"\n            style=\"padding: 10px;\">\n            <span ng-bind-html=\"pane.content | md2html | default:\'No content given.\'\"></span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div>\n</div>\n";
 geodash.templates.static["geodash_modal_download.tpl.html"] = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button geodash-btn-close></button>\n      <h4 class=\"modal-title\" id=\"myModalLabel\">{{ download.title }}</h4>\n    </div>\n    <div class=\"modal-body\">\n      <div>\n        <!-- Nav tabs -->\n        <ul class=\"nav nav-tabs\" role=\"tablist\">\n          <li\n            role=\"presentation\"\n            ng-class=\"$first ? \'active\' : \'\'\"\n            ng-repeat=\"pane in download.panes track by $index\">\n            <a\n              href=\"#{{ pane.id }}\"\n              aria-controls=\"{{ pane.id }}\"\n              role=\"tab\"\n              data-toggle=\"tab\"\n              style=\"padding-left:8px; padding-right: 8px;\"\n              ng-bind-html=\"pane.tab.label | default:\'Default\' | tabLabel\"></a>\n          </li>\n        </ul>\n        <!-- Tab panes -->\n        <div class=\"tab-content\">\n          <div\n            ng-class=\"$first ? \'tab-pane fade in active\' : \'tab-pane fade\'\"\n            ng-repeat=\"pane in download.panes track by $index\"\n            id=\"{{ pane.id }}\"\n            role=\"tabpanel\"\n            style=\"padding: 10px;\">\n            <span ng-bind-html=\"pane.content | md2html | default:\'No content given.\'\"></span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div>\n</div>\n";
@@ -105,46 +105,6 @@ geodash.filters["default"] = function()
   return function(value, fallback)
   {
     return value || fallback;
-  };
-};
-
-geodash.filters["md2html"] = function()
-{
-  return function(text)
-  {
-    if(text != undefined)
-    {
-      var converter = new showdown.Converter();
-      html = converter.makeHtml(text);
-
-      // Open Links in New Windows
-      html = html.replace(new RegExp("(<a .*?)>(.*?)</a>", "gi"), '$1 target="_blank">$2</a>');
-
-      // Replace New Line characters with Line Breaks
-      html = html.replace(new RegExp('\n', 'gi'),'<br>');
-
-      // Replace extra new lines before heading tags, which add their own margin by default
-      html = html.replace(new RegExp("<br><br><(h\\d.*?)>", "gi"),'<br><$1>');
-
-      // Replace extra new lines before paragraph tags, which add their own margin by default
-      html = html.replace(new RegExp("<br><br><p>", "gi"),'<p>');
-
-      // If one enclosing paragraph element, then flatten it.
-      var matches = html.match(new RegExp("^<p(.*?)>(.*?)</p>", "gi"));
-      if(Array.isArray(matches) && matches.length == 1)  // If only 1 match
-      {
-        if(matches[0] == html) // Fully enclosing
-        {
-          html = html.substring("<p>".length, html.length - "</p>".length);
-        }
-      }
-
-      return html;
-    }
-    else
-    {
-      return "";
-    }
   };
 };
 
@@ -850,6 +810,14 @@ geodash.filters["stringToObject"] = function()
   };
 };
 
+geodash.filters.md2html = function()
+{
+  return function(text)
+  {
+    return geodash.codec.md2html(text);
+  };
+};
+
 geodash.filters["url_shapefile"] = function()
 {
     return function(layer, state)
@@ -1089,7 +1057,7 @@ geodash.handlers["clickedOnMap"] = function($scope, $interpolate, $http, $q, eve
           var fl = featurelayers_by_featuretype[featureAndLocation.feature.featuretype] || featurelayers_by_featuretype["geonode:"+featureAndLocation.feature.featuretype];
           $scope.$broadcast("openPopup", {
             'featureLayer': fl,
-            'feature': featureAndLocation.feature,
+            'feature': geodash.normalize.feature(featureAndLocation.feature),
             'location': geodash.normalize.point(featureAndLocation.location)
           });
         }
@@ -1304,12 +1272,10 @@ geodash.handlers.toggleControl = function($scope, $interpolate, $http, $q, event
 geodash.handlers["viewChanged"] = function($scope, $interpolate, $http, $q, event, args) {
   console.log('event', event);
   console.log('args', args);
-  $scope.state.view = $.extend($scope.state.view, args);
-  var url = buildPageURL($interpolate, $scope.dashboard, $scope.state);
-  if(url != undefined)
-  {
-    history.replaceState($scope.state, "", url);
-  }
+
+  $.extend($scope.state.view, args);
+  
+  geodash.history.pushState($interpolate, $scope);
 };
 
 geodash.handlers.zoomIn = function($scope, $interpolate, $http, $q, event, args)
@@ -1346,6 +1312,28 @@ geodash.handlers["zoomToLocation"] = function($scope, $interpolate, $http, $q, e
       "lon": extract("lon", args),
       "zoom": extract("zoom", args),
       "projection": extract("projection", args)
+    });
+};
+
+geodash.handlers.flyToExtent = function($scope, $interpolate, $http, $q, event, args)
+{
+    var $scope = geodash.util.getScope("geodash-main");
+    $scope.$broadcast("changeView", {
+      "extent": extract("extent", args),
+      "projection": extract("projection", args),
+      "animations": ["pan", "bounce"]
+    });
+};
+
+geodash.handlers.flyToLocation = function($scope, $interpolate, $http, $q, event, args)
+{
+    var $scope = geodash.util.getScope("geodash-main");
+    $scope.$broadcast("changeView", {
+      "lat": extract("lat", args),
+      "lon": extract("lon", args),
+      "zoom": extract("zoom", args),
+      "projection": extract("projection", args),
+      "animations": ["pan", "bounce"]
     });
 };
 
@@ -1778,35 +1766,42 @@ geodash.directives.geodashMapMap = function(){
             }
           },
           moveend: function(e){
-            var m = geodash.var.map;
-            var v = m.getView();
-            var c = v.getCenter();
-            var delta = {
-              "extent": v.calculateExtent(m.getSize()).join(","),
-              "location": {
-                "lat": c[1],
-                "lon": c[0]
-              },
-            };
-            geodash.api.intend("viewChanged", delta, $scope);
+            if(! geodash.var.map.getView().getAnimating())
+            {
+              console.log("In moveend, going to trigger viewChanged.");
+              var m = geodash.var.map;
+              var v = m.getView();
+              var c = v.getCenter();
+              var delta = {
+                "extent": v.calculateExtent(m.getSize()),//"extent": v.calculateExtent(m.getSize()).join(","),
+                "location": {
+                  "lat": c[1],
+                  "lon": c[0]
+                },
+              };
+              geodash.api.intend("viewChanged", delta, $scope);
+            }
           }
         },
         "view": {
           "change:resolution": function(e){
-            var m = geodash.var.map;
-            var v = m.getView();
-            var c = v.getCenter();
-            var delta = {
-              "extent": v.calculateExtent(m.getSize()).join(","),
-              "z": v.getZoom()
-            };
-
-            if(geodash.mapping_library == "ol3")
+            if(! geodash.var.map.getView().getAnimating())
             {
-              $("#popup").popover('destroy');
-            }
+              console.log("In change:resolution, going to trigger viewChanged.");
+              var m = geodash.var.map;
+              var v = m.getView();
+              var c = v.getCenter();
+              var delta = {
+                "extent": v.calculateExtent(m.getSize()),
+                "z": v.getZoom()
+              };
 
-            geodash.api.intend("viewChanged", delta, $scope);
+              if(geodash.mapping_library == "ol3")
+              {
+                $("#popup").popover('destroy');
+              }
+              geodash.api.intend("viewChanged", delta, $scope);
+            }
           }
         }
       };
@@ -1818,15 +1813,20 @@ geodash.directives.geodashMapMap = function(){
         "dashboard": dashboard,
         "listeners": listeners
       });
+      // Initialize History
+      //setTimeout(function(){geodash.api.intend("viewChanged", delta, $scope);}, 0);
       //////////////////////////////////////
       // Base Layers
-      var baseLayers = geodash.layers.init_baselayers_ol3(geodash.var.map, dashboard["baselayers"]);
-      $.extend(geodash.var.baselayers, baseLayers);
-      // Load Default/Initial Base Layer
-      var baseLayerID = dashboard["view"]["baselayer"] || dashboard["baselayers"][0].id;
-      geodash.var.map.addLayer(geodash.var.baselayers[baseLayerID]);
-      geodash.api.intend("viewChanged", {'baselayer': baseLayerID}, $scope);
-      geodash.api.intend("layerLoaded", {'type':'baselayer', 'layer': baseLayerID}, $scope);
+      if(extract("baselayers", dashboard, []).length > 0)
+      {
+        var baselayers = geodash.layers.init_baselayers_ol3(geodash.var.map, dashboard["baselayers"]);
+        $.extend(geodash.var.baselayers, baselayers);
+        // Load Default/Initial Base Layer
+        var baseLayerID = dashboard["view"]["baselayer"] || dashboard["baselayers"][0].id;
+        geodash.var.map.addLayer(geodash.var.baselayers[baseLayerID]);
+        geodash.api.intend("viewChanged", {'baselayer': baseLayerID}, $scope);
+        geodash.api.intend("layerLoaded", {'type':'baselayer', 'layer': baseLayerID}, $scope);
+      }
       //////////////////////////////////////
       // Feature Layers
       if(angular.isArray(extract("featurelayers", dashboard)))
@@ -2033,7 +2033,8 @@ geodash.controllers.GeoDashControllerBase = function(
   {
     if(angular.isDefined($scope.workspace))
     {
-      var slug = geodash.util.getScope('geodash-main')['state']['slug'];
+      var mainScope = geodash.util.getScope('geodash-main');
+      var slug = extract("state.slug", mainScope) || extract("dashboard.slug", mainScope);
       if(angular.isString(slug) && slug.length > 0)
       {
         var template = geodash.api.getEndpoint(name);
@@ -2673,6 +2674,10 @@ geodash.controllers.GeoDashControllerModal = function(
       {
         label = "Save "+(extract("schema.verbose_plural", t) || extract("label", t) || "Object");
       }
+      else if(t.type == "markdown" || t.type == "text" || t.type == "string" || t.type == "int" || t.type == "integer")
+      {
+        label = "Save "+(extract("label", t) || "Object");
+      }
       else
       {
         label = "Save "+(extract("schema.verbose_singular", t) || "Object");
@@ -2846,28 +2851,77 @@ geodash.controllers.GeoDashControllerLegend = function($scope, $element, $contro
     return range;
   };
 
-  $scope.getColorRamp = function(layer, style)
+  $scope.getClasses = function(layer, style)
   {
     var styleID = angular.isDefined(style) ? style : 0;
-    var ramp = undefined;
+    var classes = undefined;
     if(angular.isDefined(layer))
     {
       var styleID = 0;
-      var symbolizers = extract(["carto", "styles", styleID, "symbolizers"], layer, []);
-      for(var i = 0; i < symbolizers.length; i++)
+      var styleObject = extract(["carto", "styles", styleID], layer, []);
+      if(angular.isDefined(styleObject))
       {
-        var symbolizer = symbolizers[i];
-        if(symbolizer.type == "polygon")
+        var legendType = extract("legend.type", styleObject);
+        if(legendType == "graduated")
         {
-          ramp = extract(["dynamic", "options", "colors", "ramp"], symbolizer);
-          if(angular.isDefined(ramp))
+          var symbolizers = extract("symbolizers", styleObject, []);
+          for(var i = 0; i < symbolizers.length; i++)
           {
-            break;
+            var symbolizer = symbolizers[i];
+            if(symbolizer.type == "polygon")
+            {
+              classes = geodash.util.deepCopy(extract(["dynamic", "options", "classes"], symbolizer));
+              if(angular.isDefined(classes))
+              {
+                break;
+              }
+              else
+              {
+                var ramp = geodash.util.deepCopy(extract(["dynamic", "options", "colors", "ramp"], symbolizer));
+                if(angular.isDefined(ramp))
+                {
+                  classes = ramp.map(function(x){ return {"label": undefined, "color": x}; });
+                  break;
+                }
+              }
+            }
           }
+          var outside = extract(["dynamic", "options", "outside"], symbolizer);
+          if(angular.isDefined(outside))
+          {
+            var rgba = geodash.normalize.color(extract("color", outside, "#AAAAAA"));
+            rgba[3] = extract(["static", "properties", "fillOpacity"], symbolizer, 1.0);
+            var class_outside = {"label": extract("label", outside, "Outside"), "color": "rgba("+rgba.join(", ")+")"};
+            var placement = extract("placement", outside, "start");
+            if(placement == "start")
+            {
+              classes = [].concat([class_outside], classes);
+            }
+            else if(placement == "middle")
+            {
+              classes.splice((classes.length / 2), 0, class_outside);
+            }
+            else if(placement == "end")
+            {
+              classes = [].concat(classes, [class_outside]);
+            }
+          }
+        }
+        else if(legendType == "heatmap")
+        {
+          var ramp = extract("layer.Heatmap.DEFAULT_GRADIENT", ol);
+          classes = ramp.map(function(x){ return {"label": undefined, "color": x}; });
         }
       }
     }
-    return ramp;
+
+    var classifier = extract("classifier", geodash.config);
+    if(angular.isDefined(classifier))
+    {
+      classes = classifier(layer, style, classes);
+    }
+
+    return classes;
   };
 
   $scope.updateVariables = function()
@@ -2928,11 +2982,13 @@ geodash.controllers.GeoDashControllerLegend = function($scope, $element, $contro
       $scope.state = undefined;
       $scope.newState = geodash.util.deepCopy(args.state);
       $scope.updateVariables();
+      geodash.ui.update($element);
 
       setTimeout(function(){
         $scope.$apply(function(){
           $scope.state = $scope.newState;
           $scope.updateVariables();
+          setTimeout(function(){ geodash.ui.update($element); }, 0);
         });
       },0);
     }
@@ -3113,7 +3169,7 @@ geodash.controllers.GeoDashControllerMapNavbars = function($scope, $element, $co
   $scope.intents = function(navbar, tab)
   {
     var data = [];
-    var intents = extract("intents", navbar);
+    var intents = extract("intents", tab) || extract("intents", navbar);
     if(Array.isArray(intents))
     {
       for(var i = 0; i < intents.length; i++)
@@ -3150,6 +3206,7 @@ geodash.controllers.GeoDashControllerMapMap = function(
   var mainScope = $element.parents(".geodash-dashboard:first").isolateScope();
   $scope.dashboard = geodash.util.deepCopy(mainScope.dashboard);
   $scope.dashboard_flat = geodash.util.deepCopy(mainScope.dashboard_flat);
+  $scope.initial_state = geodash.util.deepCopy(mainScope.state);
   $scope.state = geodash.util.deepCopy(mainScope.state);
 
   $scope.processEvent = function(event, args)
@@ -3264,7 +3321,8 @@ geodash.controllers.GeoDashControllerMapMap = function(
     }
   });
 
-  $scope.$on("changeView", function(event, args) {
+  $scope.$on("changeView", function(event, args)
+  {
     console.log("Refreshing map...");
     if(angular.isDefined(extract("layer", args)))
     {
@@ -3280,6 +3338,71 @@ geodash.controllers.GeoDashControllerMapMap = function(
         geodash.var.map.fitBounds(geodash.var.featurelayers[args["layer"]].getBounds());
       }
     }
+    else if(angular.isDefined(extract("extent", args)))
+    {
+      var newExtent = undefined;
+      var extent = extract("extent", args);
+      if(angular.isString(extent))
+      {
+        if(extent == "initial")
+        {
+          if(! geodash.var.map.getView().getAnimating())
+          {
+            $scope.nav_start();
+          }
+          /*extent = extract("initial_state.view.extent", event.currentScope);
+          var newExtent = geodash.normalize.extent(extent, {
+            "sourceProjection": "EPSG:4326",
+            "targetProjection": geodash.var.map.getView().getProjection().getCode()
+          });
+          if(angular.isDefined(newExtent))
+          {
+            setTimeout(function(){
+              var m = geodash.var.map;
+              var v = m.getView();
+              v.fit(newExtent, m.getSize());
+            }, 0);
+          }
+          else
+          {
+            geodash.log.info("general", ["Could not find requested extent."])
+          }*/
+        }
+        else if(extent == "previous" || extent == "prev")
+        {
+          if(! geodash.var.map.getView().getAnimating())
+          {
+            $scope.nav_back();
+          }
+        }
+        else if(extent == "next" || extent == "forward")
+        {
+          if(! geodash.var.map.getView().getAnimating())
+          {
+            $scope.nav_forward();
+          }
+        }
+      }
+      else
+      {
+        newExtent = geodash.normalize.extent(extent, {
+          "sourceProjection": "EPSG:4326",
+          "targetProjection": geodash.var.map.getView().getProjection().getCode()
+        });
+        if(angular.isDefined(newExtent))
+        {
+          setTimeout(function(){
+            var m = geodash.var.map;
+            var v = m.getView();
+            v.fit(newExtent, m.getSize());
+          }, 0);
+        }
+        else
+        {
+          geodash.log.info("general", ["Could not find requested extent."])
+        }
+      }
+    }
     else
     {
       var lat = geodash.normalize.float(extract("lat", args));
@@ -3288,6 +3411,32 @@ geodash.controllers.GeoDashControllerMapMap = function(
       if(angular.isDefined(lat) && angular.isDefined(lon))
       {
         var v = geodash.var.map.getView();
+
+        var animationNames = extract("animations", args);
+        if(Array.isArray(animationNames))
+        {
+          var animations = [];
+          var duration = 2000;
+          var start = +new Date();
+          for(var i = 0; i < animationNames.length; i++)
+          {
+            var animationFn = extract(animationNames[i], geodash.animations);
+            if(angular.isDefined(animationFn))
+            {
+              animations.push(animationFn({
+                "duration": duration,
+                "start": start,
+                "source": v.getCenter(),
+                "resolution": 4 * v.getResolution()
+              }));
+            }
+          }
+          if(angular.isDefined(animations))
+          {
+            geodash.var.map.beforeRender.apply(geodash.var.map, animations);
+          }
+        }
+
         v.setCenter(ol.proj.transform([lon, lat], extract("projection", args, "EPSG:4326"), v.getProjection()));
         if(angular.isDefined(zoom))
         {
@@ -3328,6 +3477,60 @@ geodash.controllers.GeoDashControllerMapMap = function(
       );
     }
   });
+
+  $scope.nav_start = function()
+  {
+    setTimeout(function(){
+      var m = geodash.var.map;
+      var v = m.getView();
+      var args = geodash.animations.chain(m, v, geodash.var.history.extent.list[0]);
+      if(args.length > 0)
+      {
+        args.push(geodash.animations.callback($scope));
+        v.animate.apply(v, args);
+      }
+    }, 0);
+  };
+
+  $scope.nav_back = function()
+  {
+    var targetExtent = geodash.history.back("extent");
+    if(angular.isDefined(targetExtent))
+    {
+      setTimeout(function(){
+        var m = geodash.var.map;
+        var v = m.getView();
+        var args = geodash.animations.chain(m, v, targetExtent);
+        if(args.length > 0)
+        {
+          args.push(geodash.animations.callback($scope));
+          v.animate.apply(v, args);
+        }
+      }, 0);
+    }
+  };
+
+  $scope.nav_forward = function()
+  {
+    var targetExtent = geodash.history.forward("extent");
+    if(angular.isDefined(targetExtent))
+    {
+      setTimeout(function(){
+        var m = geodash.var.map;
+        var v = m.getView();
+        var args = geodash.animations.chain(m, v, targetExtent);
+        if(args.length > 0)
+        {
+          args.push(geodash.animations.callback($scope));
+          v.animate.apply(v, args);
+        }
+      }, 0);
+    }
+    else
+    {
+      geodash.log.info("general", ["Could not find requested extent."])
+    }
+  };
 };
 
 geodash.controllers.GeoDashControllerMain = function(
@@ -3337,6 +3540,7 @@ geodash.controllers.GeoDashControllerMain = function(
 {
     $scope.dashboard = dashboard;
     $scope.dashboard_flat = geodash.util.flatten($scope.dashboard);
+    $scope.stateschema = stateschema;
     $scope.state = geodash.init.state({
       "state": state,
       "stateschema": stateschema,

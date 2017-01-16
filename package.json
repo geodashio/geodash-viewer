@@ -31,6 +31,8 @@
     "yamljs": "^0.2.7",
     "yargs": "*",
     "mkdirp": "*",
-    "geodash-build-pipeline": "*"
+    "showdown": "*",
+    "geodash-build-pipeline": "*",
+    "geodash-extract": "*"
   }
 }

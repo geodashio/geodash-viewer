@@ -252,6 +252,7 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+/* Navbars */
 .geodash-placement-top {
   position: absolute;
   top: 0px;
@@ -298,6 +299,7 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+/* Navbars */
 .geodash-map-legend {
   position: absolute;
   z-index: 9999;
@@ -340,6 +342,7 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+/* Navbars */
 .geodash-map-overlays .geodash-map-grid {
   position: absolute;
   width: 100%;
@@ -394,6 +397,7 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+/* Navbars */
 .geodash-map-navbars {
   position: absolute;
   top: 0px;
@@ -458,6 +462,7 @@
 /* Legend */
 /* Filter */
 /* Sidebar */
+/* Navbars */
 .geodash-popup-plain {
   word-wrap: break-word;
   text-align: center;

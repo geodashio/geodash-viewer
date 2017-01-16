@@ -19,36 +19,55 @@ description:
   required: true
   description: 'The generic description for the dashboard.  This is mostly used internally.  Use about or welcome for user descriptions.'
 about:
-  title:
-    type: markdown
-    label: 'About / Title'
-    placeholder: title
-    multiline: false
-    required: true
-    description: 'The title for the about modal.'
+  type: object
+  label: About
+  placeholder: About
+  required: true
+  description: About.
+  schema:
+    verbose_singular: About
+    fields:
+      -
+        id: title
+        type: markdown
+        label: 'About / Title'
+        placeholder: title
+        multiline: false
+        required: true
+        description: 'The title for the about modal.'
 welcome:
-  title:
-    type: markdown
-    label: 'Welcome / Title'
-    placeholder: Title
-    multiline: false
-    required: true
-    description: 'The title for the welcome modal.'
-  intro:
-    type: markdown
-    label: 'Welcome / Introduction'
-    placeholder: Introduction
-    multiline: true
-    required: true
-    description: 'The text (in markdown) for the default intro tab of the welcome modal.'
-  about:
-    type: markdown
-    label: 'Welcome / About'
-    placeholder: About
-    multiline: true
-    required: true
-    description: 'The text (in markdown) for the about tab of the welcome modal.'
-download: null
+  type: object
+  label: Welcome
+  placeholder: Welcome
+  required: true
+  description: 'Contents of welcome modal.'
+  schema:
+    verbose_singular: Welcome
+    fields:
+      -
+        id: title
+        type: markdown
+        label: 'Welcome / Title'
+        placeholder: Title
+        multiline: false
+        required: true
+        description: 'The title for the welcome modal.'
+      -
+        id: intro
+        type: markdown
+        label: 'Welcome / Introduction'
+        placeholder: Introduction
+        multiline: true
+        required: true
+        description: 'The text (in markdown) for the default intro tab of the welcome modal.'
+      -
+        id: about
+        type: markdown
+        label: 'Welcome / About'
+        placeholder: About
+        multiline: true
+        required: true
+        description: 'The text (in markdown) for the about tab of the welcome modal.'
 baselayers:
   type: objectarray
   label: 'Base Layers'
@@ -81,20 +100,6 @@ baselayers:
         required: true
         description: 'The description of your base layer.'
       -
-        id: source.name
-        type: text
-        label: 'Source Name'
-        placeholder: 'source name'
-        required: true
-        description: 'The name of the source of your base layer.'
-      -
-        id: source.attribution
-        type: text
-        label: 'Source Attribution'
-        placeholder: 'source attribution'
-        required: true
-        description: 'The attribution of the source of base layer.'
-      -
         id: legend.label
         type: text
         label: 'Legend Label'
@@ -102,72 +107,77 @@ baselayers:
         required: true
         description: 'The label for the legend.'
       -
-        id: source.type
-        type: text
-        label: 'Source Type'
-        placeholder: 'tiles, mapbox, gwc'
-        required: false
-        description: 'The type of the feature layer (tiles,mapbox).'
-        options:
-          - tiles
-          - mapbox
-          - gwc
-      -
-        id: source.tile.url
-        type: text
-        label: 'Tile URL'
-        placeholder: 'Tile URL'
+        id: source
+        type: object
+        label: Source
+        placeholder: Source
         required: true
-        description: 'The tile url of the source of base layer.'
-        when:
-          field: source.type
-          values:
-            - tile
-            - tiles
-      -
-        id: source.mapbox.access_token
-        type: text
-        label: 'Public MapBox Access Token'
-        placeholder: pk.XYZ
-        required: false
-        description: 'Your public MapBox access token.'
-        when:
-          field: source.type
-          values:
-            - mapbox
-      -
-        id: source.mapbox.layers
-        type: text
-        label: 'MapBox Layers'
-        placeholder: mapbox.streets
-        required: false
-        description: 'MapBox layers'
-        when:
-          field: source.type
-          values:
-            - mapbox
-      -
-        id: source.gwc.url
-        type: text
-        label: 'GWC URL'
-        placeholder: 'http://example.com/geoserver/gwc'
-        required: false
-        description: 'GWC URL'
-        when:
-          field: source.type
-          values:
-            - gwc
-      -
-        id: source.gwc.layers
-        type: text
-        label: 'GWC Layers'
-        placeholder: 'GWC Layers'
-        required: false
-        description: 'GWC layers'
-        when:
-          field: source.type
-          values:
-            - gwc
+        description: 'Source available.'
+        schema:
+          verbose_singular: Source
+          fields:
+            -
+              id: name
+              type: text
+              label: 'Source Name'
+              placeholder: 'source name'
+              required: true
+              description: 'The name of the source of your base layer.'
+            -
+              id: attribution
+              type: text
+              label: 'Source Attribution'
+              placeholder: 'source attribution'
+              required: true
+              description: 'The attribution of the source of base layer.'
+            -
+              id: type
+              type: text
+              label: 'Source Type'
+              placeholder: 'tiles, mapbox, gwc'
+              required: false
+              description: 'The type of the feature layer (tiles,mapbox).'
+              options: [tiles, mapbox, gwc]
+            -
+              id: tile.url
+              type: text
+              label: 'Tile URL'
+              placeholder: 'Tile URL'
+              required: true
+              description: 'The tile url of the source of base layer.'
+              when: {field: source.type, values: [tile, tiles]}
+            -
+              id: mapbox.access_token
+              type: text
+              label: 'Public MapBox Access Token'
+              placeholder: pk.XYZ
+              required: false
+              description: 'Your public MapBox access token.'
+              when: {field: source.type, values: [mapbox]}
+            -
+              id: mapbox.layers
+              type: text
+              label: 'MapBox Layers'
+              placeholder: mapbox.streets
+              required: false
+              description: 'MapBox layers'
+              when: {field: source.type, values: [mapbox]}
+            -
+              id: gwc.url
+              type: text
+              label: 'GWC URL'
+              placeholder: 'http://example.com/geoserver/gwc'
+              required: false
+              description: 'GWC URL'
+              when: {field: source.type, values: [gwc]}
+            -
+              id: gwc.layers
+              type: text
+              label: 'GWC Layers'
+              placeholder: 'GWC Layers'
+              required: false
+              description: 'GWC layers'
+              when: {field: source.type, values: [gwc]}
 assets:
   type: objectarray
   label: Assets
@@ -281,6 +291,9 @@ featurelayers:
           values:
             - wms
             - wmts
+        examples:
+          - '0'
+          - '3'
       -
         id: view.maxZoom
         type: int
@@ -294,6 +307,8 @@ featurelayers:
           values:
             - wms
             - wmts
+        examples:
+          - '18'
       -
         id: source
         type: object
@@ -347,6 +362,7 @@ featurelayers:
               placeholder: layers
               required: false
               description: 'The wms layers of the feature layer.'
+              examples: ['geonode:wld_poi_facilities_wfp']
             -
               id: cql_filter
               type: text
@@ -354,6 +370,7 @@ featurelayers:
               placeholder: 'PERSONS > 15000000'
               required: false
               description: 'The CQL Filter to apply to the WMS GetMap requests.'
+              examples: ['(facility IN (''''Country Office'''') AND status = ''''Open'''')']
             -
               id: url
               type: text
@@ -362,6 +379,12 @@ featurelayers:
               required: false
               description: 'The url of the WMS server.'
               typeahead: {local: wms}
+              examples: ['http://geonode.wfp.org/geoserver/wms', 'http://geonode.state.gov/geoserver/wms', 'http://mapstory.org/geoserver/wms']
+        examples:
+          -
+            layers: 'geonode:wld_poi_facilities_wfp'
+            cql_filter: '(facility IN (''Country Office'') AND status = ''Open'')'
+            url: 'http://geonode.wfp.org/geoserver/wms'
       -
         id: wmts.layers
         type: text
@@ -1166,6 +1189,31 @@ navbars:
         placeholder: page
         required: true
         description: 'The page (in geodash.pages array) for permalinking each tab.'
+      -
+        id: link
+        type: object
+        label: Link
+        placeholder: link
+        required: false
+        schema:
+          verbose_singular: Link
+          fields:
+            -
+              id: url
+              type: text
+              label: 'Link URL'
+              placeholder: url
+              required: true
+              description: 'The destination of the link activated on user click.'
+            -
+              id: target
+              type: text
+              label: 'Link Target'
+              placeholder: target
+              required: true
+              description: 'The target of the link.'
+              options: [_blank, _self, _parent, _top]
+        description: 'Link for each tab.'
       -
         id: intents
         type: objectarray
