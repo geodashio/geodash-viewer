@@ -32,6 +32,8 @@
     "yargs": "*",
     "mkdirp": "*",
     "showdown": "*",
+    "gulp-s3-upload": "*",
+    "gulp-replace": "*",
     "geodash-build-pipeline": "*",
     "geodash-extract": "*"
   }

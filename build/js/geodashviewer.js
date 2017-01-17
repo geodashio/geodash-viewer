@@ -3326,17 +3326,7 @@ geodash.controllers.GeoDashControllerMapMap = function(
     console.log("Refreshing map...");
     if(angular.isDefined(extract("layer", args)))
     {
-      if(geodash.mapping_library == "ol3")
-      {
-        var layer = geodash.var.featurelayers[args["layer"]];
-        var v = geodash.var.map.getView();
-        geodash.var.map.beforeRender(ol.animation.pan({ duration: 1000, source: v.getCenter() }));
-        v.fit(layer.getSource().getExtent(), geodash.var.map.getSize());
-      }
-      else if(geodash.mapping_library == "leaflet")
-      {
-        geodash.var.map.fitBounds(geodash.var.featurelayers[args["layer"]].getBounds());
-      }
+      $scope.navigate.layer(args)
     }
     else if(angular.isDefined(extract("extent", args)))
     {
@@ -3348,38 +3338,21 @@ geodash.controllers.GeoDashControllerMapMap = function(
         {
           if(! geodash.var.map.getView().getAnimating())
           {
-            $scope.nav_start();
+            geodash.navigate.start($scope);
           }
-          /*extent = extract("initial_state.view.extent", event.currentScope);
-          var newExtent = geodash.normalize.extent(extent, {
-            "sourceProjection": "EPSG:4326",
-            "targetProjection": geodash.var.map.getView().getProjection().getCode()
-          });
-          if(angular.isDefined(newExtent))
-          {
-            setTimeout(function(){
-              var m = geodash.var.map;
-              var v = m.getView();
-              v.fit(newExtent, m.getSize());
-            }, 0);
-          }
-          else
-          {
-            geodash.log.info("general", ["Could not find requested extent."])
-          }*/
         }
         else if(extent == "previous" || extent == "prev")
         {
           if(! geodash.var.map.getView().getAnimating())
           {
-            $scope.nav_back();
+            geodash.navigate.back($scope);
           }
         }
         else if(extent == "next" || extent == "forward")
         {
           if(! geodash.var.map.getView().getAnimating())
           {
-            $scope.nav_forward();
+            geodash.navigate.forward($scope);
           }
         }
       }
@@ -3478,59 +3451,6 @@ geodash.controllers.GeoDashControllerMapMap = function(
     }
   });
 
-  $scope.nav_start = function()
-  {
-    setTimeout(function(){
-      var m = geodash.var.map;
-      var v = m.getView();
-      var args = geodash.animations.chain(m, v, geodash.var.history.extent.list[0]);
-      if(args.length > 0)
-      {
-        args.push(geodash.animations.callback($scope));
-        v.animate.apply(v, args);
-      }
-    }, 0);
-  };
-
-  $scope.nav_back = function()
-  {
-    var targetExtent = geodash.history.back("extent");
-    if(angular.isDefined(targetExtent))
-    {
-      setTimeout(function(){
-        var m = geodash.var.map;
-        var v = m.getView();
-        var args = geodash.animations.chain(m, v, targetExtent);
-        if(args.length > 0)
-        {
-          args.push(geodash.animations.callback($scope));
-          v.animate.apply(v, args);
-        }
-      }, 0);
-    }
-  };
-
-  $scope.nav_forward = function()
-  {
-    var targetExtent = geodash.history.forward("extent");
-    if(angular.isDefined(targetExtent))
-    {
-      setTimeout(function(){
-        var m = geodash.var.map;
-        var v = m.getView();
-        var args = geodash.animations.chain(m, v, targetExtent);
-        if(args.length > 0)
-        {
-          args.push(geodash.animations.callback($scope));
-          v.animate.apply(v, args);
-        }
-      }, 0);
-    }
-    else
-    {
-      geodash.log.info("general", ["Could not find requested extent."])
-    }
-  };
 };
 
 geodash.controllers.GeoDashControllerMain = function(

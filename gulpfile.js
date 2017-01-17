@@ -17,7 +17,7 @@ var argv = require('yargs').argv;
 var spawn = require('child_process').spawn;
 var execSync = require('child_process').execSync;
 var mkdirp = require('mkdirp');
-
+var replace = require('gulp-replace');
 
 var geodash = require("geodash-build-pipeline");
 var extract = require("geodash-extract");
@@ -29,6 +29,9 @@ var configs_by_name = {};
 var variables = {};
 
 var cwd = __dirname;
+var ts = (new Date).getTime();
+
+var s3 = undefined;
 
 geodash.log.debug(["Extensions supported by require", JSON.stringify(Object.keys(require.extensions))], argv);
 
@@ -49,6 +52,17 @@ if (!String.prototype.endsWith) {
       var lastIndex = subjectString.indexOf(searchString, position);
       return lastIndex !== -1 && lastIndex === position;
   };
+}
+
+if(argv != undefined && (argv.publish == true || argv.publish == "true" || argv.publish == "t"))
+{
+  var s3_config = {
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    region: "us-west-1"
+  };
+  geodash.log.info(["S3 Config \""+JSON.stringify(s3_config)+"\"."]);
+  s3 = require('gulp-s3-upload')(s3_config);
 }
 
 var processBuild = function(rootConfig, t)
@@ -623,14 +637,71 @@ gulp.task('compile:main.js', ['clean', 'geodash:templates'], function(){
 });
 
 gulp.task('compile:monolith.js', ['clean', 'geodash:templates', 'compile:main.js'], function(){
-  var build = rootConfig['build']['monolith.js'];
-  return processBuild(rootConfig, build);
+  return processBuild(rootConfig, rootConfig['build']['monolith.js']);
 });
+
 gulp.task('compile:monolith.min.js', ['clean', 'geodash:templates', 'compile:main.js'], function(){
   var build = rootConfig['build']['monolith.js'];
   build.minified = true;
   build.outfile = path.basename(build.outfile, path.extname(build.outfile)) + ".min.js";
   return processBuild(rootConfig, build);
+});
+
+gulp.task('publish:s3', ['compile:monolith.js'], function(){
+  if(argv != undefined && (argv.publish == true || argv.publish == "true" || argv.publish == "t"))
+  {
+    var prefix = path.join("cdn/geodash-viewer", ""+ts);
+    geodash.log.info(["Uploading to AWS S3."]);
+
+    return gulp
+      .src(["build/js/*", "build/css/*", "build/schema/*"], {base: './'})
+      .pipe(s3({Bucket: "geodash", ACL: 'public-read', keyTransform: function(x){
+        var s3_path = path.join(prefix, path.basename(x));
+        geodash.log.info(["-- uploading "+x+" to "+s3_path+"."]);
+        return s3_path;
+      }},
+      {
+        maxRetries: 1,
+        accessKeyId: process.env.ACCESS_KEY_ID,
+        secretAccessKey: process.env.SECRET_ACCESS_KEY,
+        region: "us-west-1",
+        httpOptions : {
+          timeout: 60000
+        }
+      }));
+
+      "index.html"
+  }
+  else
+  {
+    return false
+  }
+});
+
+gulp.task('publish:patch', ['publish:s3'], function(){
+  if(argv != undefined && (argv.publish == true || argv.publish == "true" || argv.publish == "t"))
+  {
+    var prefix_regex = "http:\\/\\/cdn.geodash.io\\/geodash-viewer\\/";
+    var prefix_repl = "http://cdn.geodash.io/geodash-viewer/";
+    return gulp.src(["index.html"], {base: './'})
+      .pipe(replace(
+        new RegExp(prefix_regex+"(.+)\\/geodashviewer.css", "g"),
+        prefix_repl+ts+"/geodashviewer.css"
+      ))
+      .pipe(replace(
+        new RegExp(prefix_regex+"(.+)\\/geodashviewer.full.js", "g"),
+        prefix_repl+ts+"/geodashviewer.full.js"
+      ))
+      .pipe(replace(
+        new RegExp(prefix_regex+"(.+)\\/polyfill.min.js", "g"),
+        prefix_repl+ts+"/polyfill.min.js"
+      ))
+      .pipe(gulp.dest("./"));
+  }
+  else
+  {
+    return false
+  }
 });
 
 gulp.task('copy', ['clean'], function(){
@@ -674,7 +745,9 @@ gulp.task('default', [
   'compile:polyfill.js',
   'compile:main.js',
   'compile:monolith.js',
-  'compile:monolith.min.js'
+  'compile:monolith.min.js',
+  "publish:s3",
+  "publish:patch"
 ]);
 
 
