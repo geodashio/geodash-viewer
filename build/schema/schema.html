@@ -551,7 +551,7 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Static Overlays</p>
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>Static Overlays available.</em></p>
-<p><strong>Fields:</strong> <a href="#overlaysid">id</a> , <a href="#overlaystype">type</a> , <a href="#overlaysposition">position</a> , <a href="#overlayswidth">width</a> , <a href="#overlaysheight">height</a> , <a href="#overlayscss">css</a> , <a href="#overlaystooltip">tooltip</a> , <a href="#overlaystext">text</a> , <a href="#overlaysimage">image</a> , <a href="#overlayslink">link</a> , <a href="#overlaysintent">intent</a></p>
+<p><strong>Fields:</strong> <a href="#overlaysid">id</a> , <a href="#overlaystype">type</a> , <a href="#overlaysposition">position</a> , <a href="#overlayswidth">width</a> , <a href="#overlaysheight">height</a> , <a href="#overlayscss">css</a> , <a href="#overlaystooltip">tooltip</a> , <a href="#overlaystext">text</a> , <a href="#overlaysimage">image</a> , <a href="#overlayslink">link</a> , <a href="#overlaysintents">intents</a></p>
 <h2 id="overlaysid">overlays.id</h2>
 <p><strong>Label:</strong> ID</p>
 <p><strong>Type:</strong> text</p>
@@ -665,7 +665,7 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <h2 id="overlayslink">overlays.link</h2>
 <p><strong>Label:</strong> Link</p>
 <p><strong>Type:</strong> object</p>
-<p><strong>Description:</strong> <em>Link for the overlay.</em></p>
+<p><strong>Description:</strong> <em>Link for each tab.</em></p>
 <p><strong>Fields:</strong> <a href="#overlayslinkurl">url</a> , <a href="#overlayslinktarget">target</a></p>
 <h2 id="overlayslinkurl">overlays.link.url</h2>
 <p><strong>Label:</strong> Link URL</p>
@@ -676,25 +676,25 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The target of the link.</em></p>
 <p><strong>Options:</strong> <code>_blank</code> , <code>_self</code> , <code>_parent</code> , <code>_top</code></p>
-<h2 id="overlaysintent">overlays.intent</h2>
-<p><strong>Label:</strong> Intent</p>
-<p><strong>Type:</strong> object</p>
-<p><strong>Description:</strong> <em>Intent for the overlay.</em></p>
-<p><strong>Fields:</strong> <a href="#overlaysintentname">name</a> , <a href="#overlaysintentproperties">properties</a></p>
-<h2 id="overlaysintentname">overlays.intent.name</h2>
+<h2 id="overlaysintents">overlays.intents</h2>
+<p><strong>Label:</strong> Intents</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>Intent for each tab.</em></p>
+<p><strong>Fields:</strong> <a href="#overlaysintentsname">name</a> , <a href="#overlaysintentsproperties">properties</a></p>
+<h2 id="overlaysintentsname">overlays.intents.name</h2>
 <p><strong>Label:</strong> Intent Name</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The intent to emit.</em></p>
-<h2 id="overlaysintentproperties">overlays.intent.properties</h2>
+<h2 id="overlaysintentsproperties">overlays.intents.properties</h2>
 <p><strong>Label:</strong> Intent Properties</p>
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>The properties of the intent, such as layer id, location, etc.</em></p>
-<p><strong>Fields:</strong> <a href="#overlaysintentpropertiesname">name</a> , <a href="#overlaysintentpropertiesvalue">value</a></p>
-<h2 id="overlaysintentpropertiesname">overlays.intent.properties.name</h2>
+<p><strong>Fields:</strong> <a href="#overlaysintentspropertiesname">name</a> , <a href="#overlaysintentspropertiesvalue">value</a></p>
+<h2 id="overlaysintentspropertiesname">overlays.intents.properties.name</h2>
 <p><strong>Label:</strong> Property Name</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The name of the property.</em></p>
-<h2 id="overlaysintentpropertiesvalue">overlays.intent.properties.value</h2>
+<h2 id="overlaysintentspropertiesvalue">overlays.intents.properties.value</h2>
 <p><strong>Label:</strong> Property value</p>
 <p><strong>Type:</strong> template</p>
 <p><strong>Description:</strong> <em>The value of the property.</em></p>

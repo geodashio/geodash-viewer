@@ -1114,7 +1114,7 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _Static Overlays available._
 
-**Fields:** [id](#overlaysid) , [type](#overlaystype) , [position](#overlaysposition) , [width](#overlayswidth) , [height](#overlaysheight) , [css](#overlayscss) , [tooltip](#overlaystooltip) , [text](#overlaystext) , [image](#overlaysimage) , [link](#overlayslink) , [intent](#overlaysintent)
+**Fields:** [id](#overlaysid) , [type](#overlaystype) , [position](#overlaysposition) , [width](#overlayswidth) , [height](#overlaysheight) , [css](#overlayscss) , [tooltip](#overlaystooltip) , [text](#overlaystext) , [image](#overlaysimage) , [link](#overlayslink) , [intents](#overlaysintents)
 
 ## overlays.id
 
@@ -1342,7 +1342,7 @@ http://mapstory.org/geoserver/wms
 
 **Type:** object
 
-**Description:** _Link for the overlay._
+**Description:** _Link for each tab._
 
 **Fields:** [url](#overlayslinkurl) , [target](#overlayslinktarget)
 
@@ -1364,17 +1364,17 @@ http://mapstory.org/geoserver/wms
 
 **Options:** `_blank` , `_self` , `_parent` , `_top`
 
-## overlays.intent
+## overlays.intents
 
-**Label:** Intent
+**Label:** Intents
 
-**Type:** object
+**Type:** objectarray
 
-**Description:** _Intent for the overlay._
+**Description:** _Intent for each tab._
 
-**Fields:** [name](#overlaysintentname) , [properties](#overlaysintentproperties)
+**Fields:** [name](#overlaysintentsname) , [properties](#overlaysintentsproperties)
 
-## overlays.intent.name
+## overlays.intents.name
 
 **Label:** Intent Name
 
@@ -1382,7 +1382,7 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The intent to emit._
 
-## overlays.intent.properties
+## overlays.intents.properties
 
 **Label:** Intent Properties
 
@@ -1390,9 +1390,9 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The properties of the intent, such as layer id, location, etc._
 
-**Fields:** [name](#overlaysintentpropertiesname) , [value](#overlaysintentpropertiesvalue)
+**Fields:** [name](#overlaysintentspropertiesname) , [value](#overlaysintentspropertiesvalue)
 
-## overlays.intent.properties.name
+## overlays.intents.properties.name
 
 **Label:** Property Name
 
@@ -1400,7 +1400,7 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The name of the property._
 
-## overlays.intent.properties.value
+## overlays.intents.properties.value
 
 **Label:** Property value
 

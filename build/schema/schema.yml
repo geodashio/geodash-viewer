@@ -1109,7 +1109,6 @@ overlays:
         label: Link
         placeholder: link
         required: false
-        description: 'Link for the overlay.'
         schema:
           verbose_singular: Link
           fields:
@@ -1128,14 +1127,16 @@ overlays:
               required: true
               description: 'The target of the link.'
               options: [_blank, _self, _parent, _top]
+        description: 'Link for each tab.'
       -
-        id: intent
-        type: object
-        label: Intent
-        placeholder: intent
+        id: intents
+        type: objectarray
+        label: Intents
+        placeholder: intents
         required: false
         schema:
           verbose_singular: Intent
+          verbose_plural: Intents
           fields:
             -
               id: name
@@ -1153,7 +1154,7 @@ overlays:
               required: false
               description: 'The properties of the intent, such as layer id, location, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
-        description: 'Intent for the overlay.'
+        description: 'Intent for each tab.'
 navbars:
   type: objectarray
   label: Navbars
