@@ -1283,7 +1283,8 @@ geodash.handlers.zoomIn = function($scope, $interpolate, $http, $q, event, args)
   var z = geodash.var.map.getView().getZoom();
   var maxZoom = extract("dashboard.view.maxZoom", $scope, 18);
   var newZoom = Math.min(z+1, maxZoom);
-  $scope.$broadcast("changeView", { 'zoom': newZoom });
+  var animate = extract("animate", args, true);
+  $scope.$broadcast("changeView", { 'zoom': newZoom, 'animate': animate });
 };
 
 geodash.handlers.zoomOut = function($scope, $interpolate, $http, $q, event, args)
@@ -1291,7 +1292,8 @@ geodash.handlers.zoomOut = function($scope, $interpolate, $http, $q, event, args
   var z = geodash.var.map.getView().getZoom();
   var minZoom = extract("dashboard.view.minZoom", $scope, 0);
   var newZoom = Math.max(z-1, minZoom);
-  $scope.$broadcast("changeView", { 'zoom': newZoom });
+  var animate = extract("animate", args, true);
+  $scope.$broadcast("changeView", { 'zoom': newZoom, 'animate': animate });
 };
 
 geodash.handlers["zoomToLayer"] = function($scope, $interpolate, $http, $q, event, args) {
@@ -3358,78 +3360,23 @@ geodash.controllers.GeoDashControllerMapMap = function(
       }
       else
       {
-        newExtent = geodash.normalize.extent(extent, {
-          "sourceProjection": "EPSG:4326",
-          "targetProjection": geodash.var.map.getView().getProjection().getCode()
+        geodash.navigate.location({
+          "animate": extract("animate", args),
+          "extent": geodash.normalize.extent(extent, {
+            "sourceProjection": "EPSG:4326",
+            "targetProjection": geodash.var.map.getView().getProjection().getCode()
+          })
         });
-        if(angular.isDefined(newExtent))
-        {
-          setTimeout(function(){
-            var m = geodash.var.map;
-            var v = m.getView();
-            v.fit(newExtent, m.getSize());
-          }, 0);
-        }
-        else
-        {
-          geodash.log.info("general", ["Could not find requested extent."])
-        }
       }
     }
     else
     {
-      var lat = geodash.normalize.float(extract("lat", args));
-      var lon = geodash.normalize.float(extract("lon", args));
-      var zoom = geodash.normalize.float(extract("zoom", args));
-      if(angular.isDefined(lat) && angular.isDefined(lon))
-      {
-        var v = geodash.var.map.getView();
-
-        var animationNames = extract("animations", args);
-        if(Array.isArray(animationNames))
-        {
-          var animations = [];
-          var duration = 2000;
-          var start = +new Date();
-          for(var i = 0; i < animationNames.length; i++)
-          {
-            var animationFn = extract(animationNames[i], geodash.animations);
-            if(angular.isDefined(animationFn))
-            {
-              animations.push(animationFn({
-                "duration": duration,
-                "start": start,
-                "source": v.getCenter(),
-                "resolution": 4 * v.getResolution()
-              }));
-            }
-          }
-          if(angular.isDefined(animations))
-          {
-            geodash.var.map.beforeRender.apply(geodash.var.map, animations);
-          }
-        }
-
-        v.setCenter(ol.proj.transform([lon, lat], extract("projection", args, "EPSG:4326"), v.getProjection()));
-        if(angular.isDefined(zoom))
-        {
-          v.setZoom(zoom);
-        }
-      }
-      else if(angular.isDefined(zoom))
-      {
-        var v = geodash.var.map.getView();
-        /*geodash.var.map.beforeRender(ol.animation.zoom({ duration: 250, source: v.getResolution() }));
-        var resolution = ---
-        ol.interaction.Interaction.zoomWithoutConstraints(
-          geodash.var.map,
-          v,
-          resolution,
-          false,
-          250
-        )*/
-        v.setZoom(zoom);
-      }
+      geodash.navigate.location({
+        "animate": extract("animate", args),
+        "lat": extract("lat", args),
+        "lon": extract("lon", args),
+        "zoom": extract("zoom", args)
+      });
     }
   });
 
