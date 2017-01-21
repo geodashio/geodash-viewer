@@ -404,6 +404,8 @@
   left: 0px;
   bottom: 0px;
   right: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .geodash-map-navbars .geodash-map-navbar {
   background: rgba(0, 0, 0, 0);
@@ -411,37 +413,32 @@
   border-radius: 3px;
   border: 0;
 }
-.geodash-map-navbars .geodash-map-navbar li {
-  display: table-cell;
-  width: 1%;
-}
-.geodash-map-navbars .geodash-map-navbar li a {
+.geodash-map-navbars .geodash-map-navbar div a {
+  width: 100%;
+  border: 1px solid #cccccc;
   transition: width 1.2s ease-in-out;
   transition: height 1.2s ease-in-out;
+  cursor: pointer;
 }
-.geodash-map-navbars .geodash-map-navbar li a:hover {
+.geodash-map-navbars .geodash-map-navbar div a:hover {
   height: 60px;
   line-height: 38px;
 }
-.geodash-map-navbars .geodash-map-navbar li a.btn-default {
+.geodash-map-navbars .geodash-map-navbar div a.btn-default {
   color: white;
   background: rgba(0, 0, 0, 0.4);
 }
-.geodash-map-navbars .geodash-map-navbar li a.selected {
+.geodash-map-navbars .geodash-map-navbar div a.selected {
   height: 60px;
   line-height: 38px;
   background: #337ab7;
 }
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-top li {
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top a {
   vertical-align: top;
-}
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-top li a {
   border-radius: 0px 0px 6px 6px;
 }
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom li {
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom a {
   vertical-align: bottom;
-}
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom li a {
   border-radius: 6px 6px 0px 0px;
 }
 
@@ -480,6 +477,10 @@
 }
 .geodash-popup-chart .c3-tooltip-container {
   z-index: 99999;
+}
+.geodash-map-map {
+  width: 100%;
+  height: 100%;
 }
 .geodash-map-map .popover {
   min-width: 220px;
