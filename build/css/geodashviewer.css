@@ -262,7 +262,7 @@
 }
 .geodash-placement-left {
   position: absolute;
-  top: 0px
+  top: 0px;
   left: 0px;
   bottom: 0px;
   right: auto;
@@ -420,18 +420,22 @@
   transition: height 1.2s ease-in-out;
   cursor: pointer;
 }
-.geodash-map-navbars .geodash-map-navbar div a:hover {
-  height: 60px;
-  line-height: 38px;
-}
 .geodash-map-navbars .geodash-map-navbar div a.btn-default {
   color: white;
   background: rgba(0, 0, 0, 0.4);
 }
 .geodash-map-navbars .geodash-map-navbar div a.selected {
+  background: #337ab7;
+}
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top div a:hover,
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom div a:hover {
   height: 60px;
   line-height: 38px;
-  background: #337ab7;
+}
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top div a.selected,
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom div a.selected {
+  height: 60px;
+  line-height: 38px;
 }
 .geodash-map-navbars .geodash-map-navbar.geodash-placement-top a {
   vertical-align: top;

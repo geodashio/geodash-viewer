@@ -15,11 +15,11 @@ bootstrap:
   dest: "./build/bootstrap"
 plugins:
   # Used for Production
-  #- { branch: master, url: https://github.com/geodashio/geodash-plugin-map-map.git }
-  #- { branch: master, url: https://github.com/geodashio/geodash-plugin-main.git }
+  - { branch: master, url: https://github.com/geodashio/geodash-plugin-map-map.git }
+  - { branch: master, url: https://github.com/geodashio/geodash-plugin-main.git }
   # Used for Development
-  - file:///home/vagrant/geodash-plugin-map-map.git
-  - file:///home/vagrant/geodash-plugin-main.git
+  #- file:///home/vagrant/geodash-plugin-map-map.git
+  #- file:///home/vagrant/geodash-plugin-main.git
 dependencies:
   production:
     javascript:
@@ -70,25 +70,11 @@ build:
     name: monolith.js
     type: js
     src:
-      - type: resource
-        project: geodash
-        version: "1.9.1"
-        name: jquery.js
-      - type: resource
-        project: geodash
-        version: "1.3.3"
-        name: tether.js
-      - type: resource
-        project: geodash
-        version: "1.11.4"
-        name: jquery-ui.js
-      - type: resource
-        project: geodash
-        name: yaml.js
-      - type: resource
-        project: geodash
-        version: geodash
-        name: typeahead.js
+      - { type: resource, name: geodash:jquery.js@1.9.1 }
+      - { type: resource, name: geodash:tether.js@1.3.3 }
+      - { type: resource, name: geodash:jquery-ui.js@1.11.4 }
+      - { type: resource, name: geodash:yaml.js }
+      - { type: resource, name: geodash:typeahead.js }
       - type: resource
         project: geodash
         version: "1.4.0-beta.4"
@@ -97,32 +83,12 @@ build:
           - angular-route.js
           - angular-sanitize.js
           - angular-cookies.js
-      - type: resource
-        project: geodash
-        version: "4.0.0-alpha.6"
-        name: bootstrap.js
-      #- { type: resource, project: geodash, name: bootstrap.js@4.0.0-alpha.6 }
-      - type: resource
-        project: geodash
-        version: "3.5.14"
-        name: d3.js
-      - type: resource
-        project: geodash
-        version: "0.4.10"
-        name: c3.js
-      - type: resource
-        project: geodash
-        version: "3.20.1"
-        name: ol3.js
-      - type: resource
-        project: geodash
-        version: "1.3.0"
-        name: showdown.js
-      - type: resource
-        project: geodash
-        version: "0.0.1"
-        name: geodash.js
-      - type: build
-        name: main.js
+      - { type: resource, name: geodash:bootstrap.js@4.0.0-alpha.6 }
+      - { type: resource, name: geodash:d3.js@3.5.14 }
+      - { type: resource, name: geodash:c3.js@0.4.10 }
+      - { type: resource, name: geodash:ol3.js@3.20.1 }
+      - { type: resource, name: geodash:showdown.js@1.3.0 }
+      - { type: resource, name: geodash:geodash.js@0.0.1 }
+      - { type: build, name: main.js }
     outfile: geodashviewer.full.js
     dest: ./build/js/

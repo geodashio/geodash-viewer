@@ -45,7 +45,7 @@ geodash.templates.static["geodash_modal_welcome.tpl.html"] = "<div class=\"modal
 geodash.templates.static["geodash_modal_about.tpl.html"] = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button geodash-btn-close></button>\n      <h4 class=\"modal-title\" id=\"myModalLabel\">{{ about.title }}</h4>\n    </div>\n    <div class=\"modal-body\">\n      <div>\n        <!-- Nav tabs -->\n        <ul class=\"nav nav-tabs\" role=\"tablist\">\n          <li\n            role=\"presentation\"\n            ng-class=\"$first ? \'active\' : \'\'\"\n            ng-repeat=\"pane in about.panes track by $index\">\n            <a\n              href=\"#{{ pane.id }}\"\n              aria-controls=\"{{ pane.id }}\"\n              role=\"tab\"\n              data-toggle=\"tab\"\n              style=\"padding-left:8px; padding-right: 8px;\"\n              ng-bind-html=\"pane.tab.label | default:\'Default\' | tabLabel\"></a>\n          </li>\n        </ul>\n        <!-- Tab panes -->\n        <div class=\"tab-content\">\n          <div\n            ng-class=\"$first ? \'tab-pane fade in active\' : \'tab-pane fade\'\"\n            ng-repeat=\"pane in about.panes track by $index\"\n            id=\"{{ pane.id }}\"\n            role=\"tabpanel\"\n            style=\"padding: 10px;\">\n            <span ng-bind-html=\"pane.content | md2html | default:\'No content given.\'\"></span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div>\n</div>\n";
 geodash.templates.static["geodash_modal_download.tpl.html"] = "<div class=\"modal-dialog\" role=\"document\">\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button geodash-btn-close></button>\n      <h4 class=\"modal-title\" id=\"myModalLabel\">{{ download.title }}</h4>\n    </div>\n    <div class=\"modal-body\">\n      <div>\n        <!-- Nav tabs -->\n        <ul class=\"nav nav-tabs\" role=\"tablist\">\n          <li\n            role=\"presentation\"\n            ng-class=\"$first ? \'active\' : \'\'\"\n            ng-repeat=\"pane in download.panes track by $index\">\n            <a\n              href=\"#{{ pane.id }}\"\n              aria-controls=\"{{ pane.id }}\"\n              role=\"tab\"\n              data-toggle=\"tab\"\n              style=\"padding-left:8px; padding-right: 8px;\"\n              ng-bind-html=\"pane.tab.label | default:\'Default\' | tabLabel\"></a>\n          </li>\n        </ul>\n        <!-- Tab panes -->\n        <div class=\"tab-content\">\n          <div\n            ng-class=\"$first ? \'tab-pane fade in active\' : \'tab-pane fade\'\"\n            ng-repeat=\"pane in download.panes track by $index\"\n            id=\"{{ pane.id }}\"\n            role=\"tabpanel\"\n            style=\"padding: 10px;\">\n            <span ng-bind-html=\"pane.content | md2html | default:\'No content given.\'\"></span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div>\n</div>\n";
 geodash.templates.static["map_overlays.tpl.html"] = "<div\n  id=\"geodash-map-overlays\"\n  class=\"geodash-map-overlays\">\n  <div ng-repeat=\"overlay in dashboard.overlays track by $index\">\n    <div ng-if=\"overlay.link | ternary_defined : false : true\">\n      <div\n        ng-if=\"overlay.type == \'text\'\"\n        data-overlay-index=\"{{ $index }}\"\n        data-overlay-type=\"text\"\n        class=\"{{ class_overlay(overlay) }}\"\n        width=\"{{ overlay.width | default_if_undefined : \'\' }}\"\n        height=\"{{ overlay.height | default_if_undefined : \'\' }}\"\n        style=\"{{ style(overlay.type, overlay) }}\"\n        data-intents=\"{{ intents(overlay) | json : 0 }}\"\n        data-intent-ctrl=\"geodash-map-overlays\"\n        data-toggle=\"{{ overlay.tooltip | ternary_defined : \'tooltip\': \'\' }}\"\n        data-placement=\"{{ overlay | extract : \'tooltip\' : \'placement\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-attr-title=\"{{ overlay | extract : \'tooltip\' : \'content\' | default_if_undefined_or_blank : \'\' }}\"\n        on-link-done=\"overlayLoaded\"\n        ng-bind-html=\"overlay.text.content | md2html\">\n      </div>\n      <div\n        ng-if=\"overlay.type == \'image\'\"\n        data-overlay-index=\"{{ $index }}\"\n        data-overlay-type=\"image\"\n        class=\"{{ class_overlay(overlay) }}\"\n        style=\"display: inline-block; {{ style(overlay.type, overlay) }}\"\n        on-link-done=\"overlayLoaded\"\n        data-intents=\"{{ intents(overlay) | json : 0 }}\"\n        data-intent-ctrl=\"geodash-map-overlays\"\n        data-toggle=\"{{ overlay.tooltip | ternary_defined : \'tooltip\': \'\' }}\"\n        data-placement=\"{{ overlay | extract : \'tooltip\' : \'placement\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-attr-title=\"{{ overlay | extract : \'tooltip\' : \'content\' | default_if_undefined_or_blank : \'\' }}\">\n        <img ng-src=\"{{ imageURL(overlay) }}\" width=\"{{ overlay.width }}\" height=\"{{ overlay.height }}\">\n      </div>\n    </div>\n    <a\n      ng-if=\"overlay.link | ternary_defined : true : false\"\n      ng-href=\"{{ overlay.link.url }}\"\n      target=\"{{ overlay.link.target }}\">\n      <div\n        ng-if=\"overlay.type == \'text\'\"\n        data-overlay-index=\"{{ $index }}\"\n        data-overlay-type=\"text\"\n        class=\"geodash-map-overlay\"\n        width=\"{{ overlay.width | default_if_undefined : initial }}\"\n        height=\"{{ overlay.height | default_if_undefined : initial }}\"\n        style=\"{{ style(overlay.type, overlay) }}\"\n        data-toggle=\"{{ overlay.tooltip | ternary_defined : \'tooltip\': \'\' }}\"\n        data-placement=\"{{ overlay | extract : \'tooltip\' : \'placement\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-attr-title=\"{{ overlay | extract : \'tooltip\' : \'content\' | default_if_undefined_or_blank : \'\' }}\"\n        on-link-done=\"overlayLoaded\"\n        ng-bind-html=\"overlay.text.content | md2html\">\n      </div>\n      <div\n        ng-if=\"overlay.type == \'image\'\"\n        data-overlay-index=\"{{ $index }}\"\n        data-overlay-type=\"image\"\n        class=\"geodash-map-overlay\"\n        style=\"display: inline-block; {{ style(overlay.type, overlay) }}\"\n        data-toggle=\"{{ overlay.tooltip | ternary_defined : \'tooltip\': \'\' }}\"\n        data-placement=\"{{ overlay | extract : \'tooltip\' : \'placement\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-attr-title=\"{{ overlay | extract : \'tooltip\' : \'content\' | default_if_undefined_or_blank : \'\' }}\"\n        on-link-done=\"overlayLoaded\">\n        <img ng-src=\"{{ imageURL(overlay) }}\" width=\"{{ overlay.width }}\" height=\"{{ overlay.height }}\">\n      </div>\n    </a>\n  </div>\n</div>\n";
-geodash.templates.static["map_navbars.tpl.html"] = "<div\n  id=\"geodash-map-navbars\"\n  class=\"geodash-map-navbars\">\n  <div\n    ng-repeat=\"navbar in dashboard.navbars track by $index\"\n    ng-class=\"class_navbar(navbar)\"\n    style=\"{{ style_navbar(navbar) }}\">\n    <div\n      ng-repeat=\"tab in navbar.tabs track by $index\"\n      class=\"col\"\n      style=\"padding:0;\">\n      <a\n        ng-class=\"class_tab(navbar, tab)\"\n        style=\"{{ style_tab(navbar, tab) }}\"\n        ng-href=\"{{ link(tab) }}\"\n        data-intents=\"{{ intents(navbar, tab) | json : 0 }}\"\n        data-intent-ctrl=\"geodash-map-navbars\"\n        data-intent-class-on=\"btn-primary selected\"\n        data-intent-class-off=\"btn-default\"\n        data-toggle=\"{{ tab.tooltip | ternary_defined : \'tooltip\': \'\' }}\"\n        data-placement=\"{{ tab | extract : \'tooltip\' : \'placement\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-attr-title=\"{{ tab | extract : \'tooltip\' : \'content\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-bind-html=\"tab.title | md2html\"></a>\n    </div>\n  </div>\n</div>\n";
+geodash.templates.static["map_navbars.tpl.html"] = "<div\n  id=\"geodash-map-navbars\"\n  class=\"geodash-map-navbars\">\n  <div\n    ng-repeat=\"navbar in dashboard.navbars track by $index\"\n    ng-class=\"class_navbar(navbar)\"\n    style=\"{{ style_navbar(navbar) }}\">\n    <div\n      ng-repeat=\"tab in navbar.tabs track by $index\"\n      ng-class=\"class_tab_wrapper(navbar, tab)\"\n      style=\"padding:0;\">\n      <a\n        ng-class=\"class_tab(navbar, tab)\"\n        style=\"{{ style_tab(navbar, tab) }}\"\n        ng-href=\"{{ link(tab) }}\"\n        data-intents=\"{{ intents(navbar, tab) | json : 0 }}\"\n        data-intent-ctrl=\"geodash-map-navbars\"\n        data-intent-class-on=\"btn-primary selected\"\n        data-intent-class-off=\"btn-default\"\n        data-toggle=\"{{ tab.tooltip | ternary_defined : \'tooltip\': \'\' }}\"\n        data-placement=\"{{ tab_tooltip_placement(navbar, tab) }}\"\n        ng-attr-title=\"{{ tab | extract : \'tooltip\' : \'content\' | default_if_undefined_or_blank : \'\' }}\"\n        ng-bind-html=\"tab.title | md2html\"></a>\n    </div>\n  </div>\n</div>\n";
 geodash.templates.static["geodash_sidebar_toggle_left.tpl.html"] = "<div\n  id=\"geodash-map-sidebar-toggle-left\"\n  class=\"geodash-intent geodash-map-sidebar-toggle geodash-map-sidebar-toggle-left btn btn-primary sidebar-open sidebar-left-open\"\n  data-toggle=\"tooltip\"\n  data-placement=\"bottom\"\n  title=\"Click to toggle sidebar.\"\n  data-intent-name=\"requestToggleComponent\"\n  data-intent-data=\"{&quot;selector&quot;:&quot;{{ selector }}&quot;,&quot;component&quot;:&quot;sidebar&quot;,&quot;position&quot;:&quot;left&quot;}\"\n  data-intent-ctrl=\"geodash-map-sidebar-toggle-left\">\n  <div\n    style=\"padding: 4px;\">\n    <span class=\"icon-arrow-gt\">&gt;&gt;</span>\n    <span class=\"icon-arrow-lt\">&lt;&lt;</span>\n  </div>\n</div>\n";
 geodash.templates.static["geodash_sidebar_toggle_right.tpl.html"] = "<div\n  id=\"geodash-map-sidebar-toggle-right\"\n  class=\"geodash-intent geodash-map-sidebar-toggle geodash-map-sidebar-toggle-right btn btn-primary sidebar-open sidebar-right-open\"\n  data-toggle=\"tooltip\"\n  data-placement=\"bottom\"\n  title=\"Click to toggle sidebar.\"\n  data-intent-name=\"requestToggleComponent\"\n  data-intent-data=\"{&quot;selector&quot;:&quot;{{ selector }}&quot;,&quot;component&quot;:&quot;sidebar&quot;,&quot;position&quot;:&quot;right&quot;}\"\n  data-intent-ctrl=\"geodash-map-sidebar-toggle-right\">\n  <div\n    style=\"padding: 4px;\">\n    <span class=\"icon-arrow-gt\">&gt;&gt;</span>\n    <span class=\"icon-arrow-lt\">&lt;&lt;</span>\n  </div>\n</div>\n";
 geodash.templates.static["map_map.tpl.html"] = "<div id=\"map\" class=\"geodash-map-map\"></div>\n";
@@ -3136,6 +3136,13 @@ geodash.controllers.GeoDashControllerMapNavbars = function($scope, $element, $co
   $scope.dashboard = geodash.util.deepCopy(mainScope.dashboard);
   $scope.state = geodash.util.deepCopy(mainScope.state);
   $scope.months = MONTHS_ALL;
+  $scope.default_tooltip_placement =
+  {
+    "top": "bottom",
+    "left": "right",
+    "bottom": "top",
+    "right": "left"
+  };
 
   $scope.$on("refreshMap", function(event, args)
   {
@@ -3165,11 +3172,25 @@ geodash.controllers.GeoDashControllerMapNavbars = function($scope, $element, $co
 
   $scope.class_navbar = function(navbar)
   {
+    var str = "geodash-map-navbar";
+
     var placement = extract("placement", navbar, "bottom");
-    var str = "row geodash-map-navbar geodash-placement-"+placement
+
+    str += " geodash-placement-"+placement;
+
     if(angular.isDefined(extract("switch", navbar))) {
       str += " geodash-radio-group";
     }
+
+    if(placement == "left" || placement == "right")
+    {
+      str += " container-fluid";
+    }
+    else // if(placement == "left" || placement == "right")
+    {
+      str += " row";
+    }
+
     return str;
   };
 
@@ -3188,23 +3209,45 @@ geodash.controllers.GeoDashControllerMapNavbars = function($scope, $element, $co
     return geodash.codec.formatCSS(styleMap);
   };
 
+  $scope.class_tab_wrapper = function(navbar, tab)
+  {
+    var placement = extract("placement", navbar, "bottom");
+    if(placement == "left" || placement == "right")
+    {
+      return "row";
+    }
+    else // if(placement == "left" || placement == "right")
+    {
+      return "col";
+    }
+  };
+
   $scope.class_tab = function(navbar, tab)
   {
+    var str = "btn";
+
     if(angular.isDefined(navbar.switch))
     {
       if(tab.value == extract(navbar.switch, $scope))
       {
-        return 'btn btn-primary selected geodash-intent geodash-radio geodash-on';
+        str += ' btn-primary selected geodash-intent geodash-radio geodash-on';
       }
       else
       {
-        return 'btn btn-default geodash-intent geodash-radio';
+        str += ' btn-default geodash-intent geodash-radio';
       }
     }
     else
     {
-      return 'btn btn-default geodash-intent';
+      str += ' btn-default geodash-intent';
     }
+
+    var placement = extract("placement", navbar, "bottom");
+    if(placement == "left" || placement == "right")
+    {
+      str += " col";
+    }
+    return str;
   };
 
   $scope.style_tab = function(navbar, tab)
@@ -3221,6 +3264,15 @@ geodash.controllers.GeoDashControllerMapNavbars = function($scope, $element, $co
 
     return geodash.codec.formatCSS(styleMap);
   };
+
+  $scope.tab_tooltip_placement = function(navbar, tab)
+  {
+    return extract(
+      "tooltip.placement",
+      tab,
+      $scope.default_tooltip_placement[extract("placement", navbar, "bottom")]
+    );
+  }
 
   $scope.intents = function(navbar, tab)
   {
