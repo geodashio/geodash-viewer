@@ -34,7 +34,7 @@
     "showdown": "*",
     "gulp-s3-upload": "*",
     "gulp-replace": "*",
-    "geodash-build-pipeline": ">=0.0.2",
+    "geodash-build-pipeline": ">=0.0.3",
     "geodash-extract": "*",
     "jshint": "*"
   }

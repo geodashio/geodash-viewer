@@ -40,13 +40,13 @@
     <!-- Development -->
     <!-- <link href='build/css/geodashviewer.css' rel='stylesheet' /> -->
     <!-- Production -->
-    <link href='http://cdn.geodash.io/geodash-viewer/1485129818921/geodashviewer.css' rel='stylesheet' />
+    <link href='http://cdn.geodash.io/geodash-viewer/1485303005248/geodashviewer.css' rel='stylesheet' />
     <style type="text/css">[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}</style>
     <!-- JavaScript / Polyfill -->
     <!-- Development -->
     <!-- <script src="build/js/polyfill.min.js"></script> -->
     <!-- Production -->
-    <script src="http://cdn.geodash.io/geodash-viewer/1485129818921/polyfill.min.js"></script>
+    <script src="http://cdn.geodash.io/geodash-viewer/1485303005248/polyfill.min.js"></script>
     <!-- JavaScript / Font CDN-->
     <script src="https://use.fontawesome.com/e18802c081.js"></script>
     <!-- JavaScript / Monolith -->
@@ -54,9 +54,14 @@
     <!-- <script src="build/js/geodashviewer.full.js"></script> -->
     <!-- Production -->
     <!-- Can't used minified version, b/c it strips out something critical, but don't know what yet -->
-    <script src="http://cdn.geodash.io/geodash-viewer/1485129818921/geodashviewer.full.js"></script>
+    <script src="http://cdn.geodash.io/geodash-viewer/1485303005248/geodashviewer.full.js"></script>
     <script type="text/javascript" language="Javascript">
       geodash.mapping_library = "ol3";
+      geodash.api.addHandler("GeoDashControllerMain", "geodash:maploaded", function($scope, $interpolate, $http, $q, event, args){
+        // You can catch the geodash:maploaded event after the OL3 map is properly initialized
+        // For example, fly to the current location using geolocation, which will only work on https or localhost
+        // geodash.api.intend("flyToCurrentLocation", {"duration": 3000}, geodash.util.getScope("geodash-main"))
+      });
       $(function(){geodash.init.all();});
     </script>
   </head>

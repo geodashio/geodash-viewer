@@ -48,6 +48,11 @@
     <!-- <script src="http://cdn.geodash.io/geodash-viewer/20161026-b1/geodashviewer.full.js"></script> -->
     <script type="text/javascript" language="Javascript">
       geodash.mapping_library = "ol3";
+      geodash.api.addHandler("GeoDashControllerMain", "geodash:maploaded", function($scope, $interpolate, $http, $q, event, args){
+        // You can catch the geodash:maploaded event after the OL3 map is properly initialized
+        // For example, fly to the current location using geolocation, which will only work on https or localhost
+        // geodash.api.intend("flyToCurrentLocation", {"duration": 3000}, geodash.util.getScope("geodash-main"))
+      });
       $(function(){geodash.init.all();});
     </script>
   </head>
