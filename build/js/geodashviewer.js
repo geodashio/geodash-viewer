@@ -1330,16 +1330,34 @@ geodash.handlers.flyToCurrentLocation = function($scope, $interpolate, $http, $q
     if(navigator.geolocation)
     {
       var duration = args.duration;
-      navigator.geolocation.getCurrentPosition(function(position){
-        $scope.$broadcast("changeView", {
-          "lat": extract(["coords","latitude"], position, 0.0),
-          "lon": extract(["coords","longitude"], position, 0.0),
-          "zoom": 14,
-          "projection": "EPSG:4326",
-          "animations": ["pan", "bounce"],
-          "duration": duration
-        });
-      });
+      navigator.geolocation.getCurrentPosition(
+        function(position){
+          $scope.$broadcast("changeView", {
+            "lat": extract(["coords","latitude"], position, 0.0),
+            "lon": extract(["coords","longitude"], position, 0.0),
+            "zoom": 14,
+            "projection": "EPSG:4326",
+            "animations": ["pan", "bounce"],
+            "duration": duration
+          });
+        },
+        function showError(error) {
+          switch(error.code) {
+              case error.PERMISSION_DENIED:
+                  console.log("User denied the request for Geolocation.");
+                  break;
+              case error.POSITION_UNAVAILABLE:
+                  console.log("Location information is unavailable.");
+                  break;
+              case error.TIMEOUT:
+                  console.log("The request to get user location timed out.");
+                  break;
+              case error.UNKNOWN_ERROR:
+                  console.log("An unknown error occurred.");
+                  break;
+          }
+        }
+      );
     }
 };
 
@@ -1778,16 +1796,9 @@ geodash.directives.geodashMapMap = function(){
               var m = geodash.var.map;
               var v = m.getView();
               var c = v.getCenter();
-              /*var delta = {
-                "extent": v.calculateExtent(m.getSize()),//"extent": v.calculateExtent(m.getSize()).join(","),
-                "location": {
-                  "lat": c[1],
-                  "lon": c[0]
-                },
-              };*/
               var lonlat = ol.proj.transform(c, v.getProjection(), "EPSG:4326");
               var delta = {
-                "extent": v.calculateExtent(m.getSize()),//"extent": v.calculateExtent(m.getSize()).join(","),
+                "extent": v.calculateExtent(m.getSize()),
                 "lon": lonlat[0],
                 "lat": lonlat[1]
               };
@@ -3160,10 +3171,6 @@ geodash.controllers.GeoDashControllerMapNavbars = function($scope, $element, $co
   {
     $scope.state = geodash.util.deepCopy(args.state);
   });
-
-  //$scope.$on("click", function(event, args){
-  //  console.log("Click!", event, args);
-  //});
 
   $scope.link_url = function(navbar, tab)
   {
