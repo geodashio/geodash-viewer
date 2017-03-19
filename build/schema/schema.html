@@ -45,6 +45,9 @@
 <p><strong>Label:</strong> ID</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The id of your base layer.</em></p>
+<p>Examples:</p>
+<pre><code>osm</code></pre>
+<pre><code>world_blank_light</code></pre>
 <h2 id="baselayerstitle">baselayers.title</h2>
 <p><strong>Label:</strong> Title</p>
 <p><strong>Type:</strong> text</p>
@@ -121,7 +124,7 @@
 <p><strong>Label:</strong> Available Feature Layers</p>
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>Feature layers available.</em></p>
-<p><strong>Fields:</strong> <a href="#featurelayersid">id</a> , <a href="#featurelayerstitle">title</a> , <a href="#featurelayersdescription">description</a> , <a href="#featurelayersauth">auth</a> , <a href="#featurelayerstype">type</a> , <a href="#featurelayersviewminzoom">view.minZoom</a> , <a href="#featurelayersviewmaxzoom">view.maxZoom</a> , <a href="#featurelayerssource">source</a> , <a href="#featurelayerswms">wms</a> , <a href="#featurelayerswmtslayers">wmts.layers</a> , <a href="#featurelayerswmtsurl">wmts.url</a> , <a href="#featurelayerswfs">wfs</a> , <a href="#featurelayersgeojsonurl">geojson.url</a> , <a href="#featurelayerstegola">tegola</a> , <a href="#featurelayerscarto">carto</a> , <a href="#featurelayersheatmap">heatmap</a> , <a href="#featurelayerspopup">popup</a> , <a href="#featurelayersmetadata">metadata</a></p>
+<p><strong>Fields:</strong> <a href="#featurelayersid">id</a> , <a href="#featurelayerstitle">title</a> , <a href="#featurelayersdescription">description</a> , <a href="#featurelayersauth">auth</a> , <a href="#featurelayerstype">type</a> , <a href="#featurelayersviewminzoom">view.minZoom</a> , <a href="#featurelayersviewmaxzoom">view.maxZoom</a> , <a href="#featurelayerssource">source</a> , <a href="#featurelayerswms">wms</a> , <a href="#featurelayerswmtslayers">wmts.layers</a> , <a href="#featurelayerswmtsurl">wmts.url</a> , <a href="#featurelayerswfs">wfs</a> , <a href="#featurelayersgeojson">geojson</a> , <a href="#featurelayerstegola">tegola</a> , <a href="#featurelayerscarto">carto</a> , <a href="#featurelayersheatmap">heatmap</a> , <a href="#featurelayerspopup">popup</a> , <a href="#featurelayersmetadata">metadata</a></p>
 <h2 id="featurelayersid">featurelayers.id</h2>
 <p><strong>Label:</strong> ID</p>
 <p><strong>Type:</strong> text</p>
@@ -205,6 +208,7 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p>Examples:</p>
 <pre><code>http://geonode.wfp.org/geoserver/wms</code></pre>
 <pre><code>http://geonode.state.gov/geoserver/wms</code></pre>
+<pre><code>http://secondarycities.geonode.state.gov/geoserver/wms</code></pre>
 <pre><code>http://mapstory.org/geoserver/wms</code></pre>
 <h2 id="featurelayerswmtslayers">featurelayers.wmts.layers</h2>
 <p><strong>Label:</strong> WMTS Layers</p>
@@ -228,10 +232,26 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> WFS URL</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The url of the WFS server.</em></p>
+<h2 id="featurelayersgeojson">featurelayers.geojson</h2>
+<p><strong>Label:</strong> GeoJSON</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>GeoJSON configuration.</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayersgeojsonurl">url</a> , <a href="#featurelayersgeojsonstrategy">strategy</a> , <a href="#featurelayersgeojsonrefresh">refresh</a></p>
 <h2 id="featurelayersgeojsonurl">featurelayers.geojson.url</h2>
 <p><strong>Label:</strong> GeoJSON URL</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The url of the geojson service/file.</em></p>
+<p>Examples:</p>
+<pre><code>http://geonode.state.gov/cors/geoserver/wfs?srsName=EPSG%3A4326&amp;typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&amp;outputFormat=json&amp;version=1.0.0&amp;service=WFS&amp;request=GetFeature</code></pre>
+<h2 id="featurelayersgeojsonstrategy">featurelayers.geojson.strategy</h2>
+<p><strong>Label:</strong> GeoJSON Loading Strategy</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The loading strategy for the layer. For OL3, see <a href="http://openlayers.org/en/latest/apidoc/ol.loadingstrategy.html">http://openlayers.org/en/latest/apidoc/ol.loadingstrategy.html</a>.</em></p>
+<p><strong>Options:</strong> <code>all</code> , <code>bbox</code> , <code>tile</code></p>
+<h2 id="featurelayersgeojsonrefresh">featurelayers.geojson.refresh</h2>
+<p><strong>Label:</strong> GeoJSON Refresh</p>
+<p><strong>Type:</strong> boolean</p>
+<p><strong>Description:</strong> <em>Whether to refresh to layer on application-specific event (e.g., movend, redo search for area, etc.)</em></p>
 <h2 id="featurelayerstegola">featurelayers.tegola</h2>
 <p><strong>Label:</strong> Tegola</p>
 <p><strong>Type:</strong> object</p>
@@ -241,13 +261,17 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Map</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The tegola map to show.</em></p>
+<p>Examples:</p>
+<pre><code>zoning</code></pre>
 <h2 id="featurelayerstegolaurl">featurelayers.tegola.url</h2>
 <p><strong>Label:</strong> Tegola Server URL</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The url of the tegola server.</em></p>
+<p>Examples:</p>
+<pre><code>http://localhost:8080</code></pre>
 <h2 id="featurelayerstegoladebug">featurelayers.tegola.debug</h2>
 <p><strong>Label:</strong> Debug</p>
-<p><strong>Type:</strong> text</p>
+<p><strong>Type:</strong> boolean</p>
 <p><strong>Description:</strong> <em>Debug.  If yes, will return border of each tile as vectors.</em></p>
 <h2 id="featurelayerscarto">featurelayers.carto</h2>
 <p><strong>Label:</strong> Cartography</p>
@@ -285,7 +309,7 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Symbolizers</p>
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>symbolizers</em></p>
-<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizersid">id</a> , <a href="#featurelayerscartostylessymbolizerstitle">title</a> , <a href="#featurelayerscartostylessymbolizerstype">type</a> , <a href="#featurelayerscartostylessymbolizersstatic">static</a> , <a href="#featurelayerscartostylessymbolizersdynamic">dynamic</a></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizersid">id</a> , <a href="#featurelayerscartostylessymbolizerstitle">title</a> , <a href="#featurelayerscartostylessymbolizerstype">type</a> , <a href="#featurelayerscartostylessymbolizersstatic">static</a> , <a href="#featurelayerscartostylessymbolizerstransform">transform</a> , <a href="#featurelayerscartostylessymbolizersdynamic">dynamic</a></p>
 <h2 id="featurelayerscartostylessymbolizersid">featurelayers.carto.styles.symbolizers.id</h2>
 <p><strong>Label:</strong> Symbolizer ID</p>
 <p><strong>Type:</strong> text</p>
@@ -318,6 +342,39 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Property value</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="featurelayerscartostylessymbolizerstransform">featurelayers.carto.styles.symbolizers.transform</h2>
+<p><strong>Label:</strong> Symbolizer Tranform</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Symbolizer Transform</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizerstransformoperations">operations</a></p>
+<h2 id="featurelayerscartostylessymbolizerstransformoperations">featurelayers.carto.styles.symbolizers.transform.operations</h2>
+<p><strong>Label:</strong> Symbolizer Transform Operations</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>operations</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizerstransformoperationsname">name</a> , <a href="#featurelayerscartostylessymbolizerstransformoperationsproperties">properties</a></p>
+<h2 id="featurelayerscartostylessymbolizerstransformoperationsname">featurelayers.carto.styles.symbolizers.transform.operations.name</h2>
+<p><strong>Label:</strong> Operation Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the operation.</em></p>
+<p><strong>Options:</strong> <code>buffer</code></p>
+<h2 id="featurelayerscartostylessymbolizerstransformoperationsproperties">featurelayers.carto.styles.symbolizers.transform.operations.properties</h2>
+<p><strong>Label:</strong> Operation Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>properties</em></p>
+<p><strong>Fields:</strong> <a href="#featurelayerscartostylessymbolizerstransformoperationspropertiesname">name</a> , <a href="#featurelayerscartostylessymbolizerstransformoperationspropertiesvalue">value</a></p>
+<h2 id="featurelayerscartostylessymbolizerstransformoperationspropertiesname">featurelayers.carto.styles.symbolizers.transform.operations.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<p>Examples:</p>
+<pre><code>distance</code></pre>
+<h2 id="featurelayerscartostylessymbolizerstransformoperationspropertiesvalue">featurelayers.carto.styles.symbolizers.transform.operations.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The value of the property.  If starts with $, then dereferences feature attribute by name, otherwise treated as a literal value.</em></p>
+<p>Examples:</p>
+<pre><code>1000</code></pre>
+<pre><code>$accuracy</code></pre>
 <h2 id="featurelayerscartostylessymbolizersdynamic">featurelayers.carto.styles.symbolizers.dynamic</h2>
 <p><strong>Label:</strong> Symbolizer Dynamic</p>
 <p><strong>Type:</strong> object</p>
@@ -336,10 +393,14 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Heatmap Blur</p>
 <p><strong>Type:</strong> int</p>
 <p><strong>Description:</strong> <em>heatmap blur</em></p>
+<p>Examples:</p>
+<pre><code>15</code></pre>
 <h2 id="featurelayersheatmapradius">featurelayers.heatmap.radius</h2>
 <p><strong>Label:</strong> Heatmap Radius</p>
 <p><strong>Type:</strong> int</p>
 <p><strong>Description:</strong> <em>heatmap radius</em></p>
+<p>Examples:</p>
+<pre><code>5</code></pre>
 <h2 id="featurelayersheatmapweight">featurelayers.heatmap.weight</h2>
 <p><strong>Label:</strong> Heatmap Weight Attribute</p>
 <p><strong>Type:</strong> text</p>
@@ -353,6 +414,10 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Popup Title</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The title of the layer's popup.  Can use angular variables and filters.</em></p>
+<p>Examples:</p>
+<pre><code>Airport</code></pre>
+<pre><code>Airport: {{ feature.attributes.name }}</code></pre>
+<pre><code>{{ feature.attributes.name }}</code></pre>
 <h2 id="featurelayerspopupmaxwidth">featurelayers.popup.maxWidth</h2>
 <p><strong>Label:</strong> Popup Maximum Width</p>
 <p><strong>Type:</strong> text</p>
@@ -366,10 +431,18 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Pane ID</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The id of the pane.</em></p>
+<p>Examples:</p>
+<pre><code>overview</code></pre>
+<pre><code>location</code></pre>
+<pre><code>status</code></pre>
 <h2 id="featurelayerspopuppanestablabel">featurelayers.popup.panes.tab.label</h2>
 <p><strong>Label:</strong> Tab Label</p>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The label of the pane's tab.</em></p>
+<p>Examples:</p>
+<pre><code>Overview</code></pre>
+<pre><code>Location</code></pre>
+<pre><code>Status</code></pre>
 <h2 id="featurelayerspopuppanesfields">featurelayers.popup.panes.fields</h2>
 <p><strong>Label:</strong> Fields</p>
 <p><strong>Type:</strong> objectarray</p>
@@ -383,11 +456,18 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <h2 id="featurelayerspopuppanesfieldsattribute">featurelayers.popup.panes.fields.attribute</h2>
 <p><strong>Label:</strong> Field Attribute</p>
 <p><strong>Type:</strong> text</p>
-<p><strong>Description:</strong> <em>The attribute name (use when input &amp; output are the same).</em></p>
+<p><strong>Description:</strong> <em>The attribute name.  Used for testing defined and requesting attributes for WFS layers.  When no value property is set, then shows raw value in popup.</em></p>
+<p>Examples:</p>
+<pre><code>name</code></pre>
+<pre><code>status</code></pre>
+<pre><code>location</code></pre>
+<pre><code>owner</code></pre>
 <h2 id="featurelayerspopuppanesfieldsinputs">featurelayers.popup.panes.fields.inputs</h2>
 <p><strong>Label:</strong> Inputs</p>
 <p><strong>Type:</strong> stringarray</p>
 <p><strong>Description:</strong> <em>Will coalesce when provided with multiple attribute names.</em></p>
+<p>Examples:</p>
+<pre><code>namelong,nameshrt,name,id</code></pre>
 <h2 id="featurelayerspopuppanesfieldsvalue">featurelayers.popup.panes.fields.value</h2>
 <p><strong>Label:</strong> Value</p>
 <p><strong>Type:</strong> template</p>
@@ -396,6 +476,8 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> URL</p>
 <p><strong>Type:</strong> template</p>
 <p><strong>Description:</strong> <em>When you want to hyperlink the value field.</em></p>
+<p>Examples:</p>
+<pre><code>https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lon }}</code></pre>
 <h2 id="featurelayerspopuppanesfieldslabel">featurelayers.popup.panes.fields.label</h2>
 <p><strong>Label:</strong> Field Label</p>
 <p><strong>Type:</strong> template</p>
@@ -593,8 +675,17 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <h2 id="overlayscss">overlays.css</h2>
 <p><strong>Label:</strong> CSS</p>
 <p><strong>Type:</strong> object</p>
-<p><strong>Description:</strong> <em>Additional CSS for each tab.</em></p>
-<p><strong>Fields:</strong> <a href="#overlayscssproperties">properties</a></p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab wrapper.</em></p>
+<p><strong>Fields:</strong> <a href="#overlayscssclasses">classes</a> , <a href="#overlayscssproperties">properties</a></p>
+<h2 id="overlayscssclasses">overlays.css.classes</h2>
+<p><strong>Label:</strong> Classes</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 <a href="https://v4-alpha.getbootstrap.com/utilities/colors/">color utility classes</a>.</em></p>
+<p>Examples:</p>
+<pre><code>text-primary</code></pre>
+<pre><code>text-danger</code></pre>
+<pre><code>bg-inverse</code></pre>
+<pre><code>pop</code></pre>
 <h2 id="overlayscssproperties">overlays.css.properties</h2>
 <p><strong>Label:</strong> Intent Additional CSS Properties</p>
 <p><strong>Type:</strong> objectarray</p>
@@ -755,8 +846,17 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <h2 id="navbarscss">navbars.css</h2>
 <p><strong>Label:</strong> CSS</p>
 <p><strong>Type:</strong> object</p>
-<p><strong>Description:</strong> <em>Additional CSS for each tab.</em></p>
-<p><strong>Fields:</strong> <a href="#navbarscssproperties">properties</a></p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab wrapper.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarscssclasses">classes</a> , <a href="#navbarscssproperties">properties</a></p>
+<h2 id="navbarscssclasses">navbars.css.classes</h2>
+<p><strong>Label:</strong> Classes</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 <a href="https://v4-alpha.getbootstrap.com/utilities/colors/">color utility classes</a>.</em></p>
+<p>Examples:</p>
+<pre><code>text-primary</code></pre>
+<pre><code>text-danger</code></pre>
+<pre><code>bg-inverse</code></pre>
+<pre><code>pop</code></pre>
 <h2 id="navbarscssproperties">navbars.css.properties</h2>
 <p><strong>Label:</strong> Intent Additional CSS Properties</p>
 <p><strong>Type:</strong> objectarray</p>
@@ -774,7 +874,7 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Tabs</p>
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>The tabs to show in the navbar</em></p>
-<p><strong>Fields:</strong> <a href="#navbarstabsvalue">value</a> , <a href="#navbarstabstitle">title</a> , <a href="#navbarstabstooltip">tooltip</a> , <a href="#navbarstabscss">css</a></p>
+<p><strong>Fields:</strong> <a href="#navbarstabsvalue">value</a> , <a href="#navbarstabstitle">title</a> , <a href="#navbarstabstooltip">tooltip</a> , <a href="#navbarstabscss">css</a> , <a href="#navbarstabswrapper">wrapper</a></p>
 <h2 id="navbarstabsvalue">navbars.tabs.value</h2>
 <p><strong>Label:</strong> Tab Value</p>
 <p><strong>Type:</strong> text</p>
@@ -800,8 +900,17 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <h2 id="navbarstabscss">navbars.tabs.css</h2>
 <p><strong>Label:</strong> CSS</p>
 <p><strong>Type:</strong> object</p>
-<p><strong>Description:</strong> <em>Additional CSS for each tab.</em></p>
-<p><strong>Fields:</strong> <a href="#navbarstabscssproperties">properties</a></p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab wrapper.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabscssclasses">classes</a> , <a href="#navbarstabscssproperties">properties</a></p>
+<h2 id="navbarstabscssclasses">navbars.tabs.css.classes</h2>
+<p><strong>Label:</strong> Classes</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 <a href="https://v4-alpha.getbootstrap.com/utilities/colors/">color utility classes</a>.</em></p>
+<p>Examples:</p>
+<pre><code>text-primary</code></pre>
+<pre><code>text-danger</code></pre>
+<pre><code>bg-inverse</code></pre>
+<pre><code>pop</code></pre>
 <h2 id="navbarstabscssproperties">navbars.tabs.css.properties</h2>
 <p><strong>Label:</strong> Intent Additional CSS Properties</p>
 <p><strong>Type:</strong> objectarray</p>
@@ -812,6 +921,38 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Type:</strong> text</p>
 <p><strong>Description:</strong> <em>The name of the property.</em></p>
 <h2 id="navbarstabscsspropertiesvalue">navbars.tabs.css.properties.value</h2>
+<p><strong>Label:</strong> Property value</p>
+<p><strong>Type:</strong> template</p>
+<p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="navbarstabswrapper">navbars.tabs.wrapper</h2>
+<p><strong>Label:</strong> Tab Wrapper</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Tab wrapper</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabswrappercss">css</a></p>
+<h2 id="navbarstabswrappercss">navbars.tabs.wrapper.css</h2>
+<p><strong>Label:</strong> CSS</p>
+<p><strong>Type:</strong> object</p>
+<p><strong>Description:</strong> <em>Additional CSS for each tab wrapper.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabswrappercssclasses">classes</a> , <a href="#navbarstabswrappercssproperties">properties</a></p>
+<h2 id="navbarstabswrappercssclasses">navbars.tabs.wrapper.css.classes</h2>
+<p><strong>Label:</strong> Classes</p>
+<p><strong>Type:</strong> stringarray</p>
+<p><strong>Description:</strong> <em>The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 <a href="https://v4-alpha.getbootstrap.com/utilities/colors/">color utility classes</a>.</em></p>
+<p>Examples:</p>
+<pre><code>text-primary</code></pre>
+<pre><code>text-danger</code></pre>
+<pre><code>bg-inverse</code></pre>
+<pre><code>pop</code></pre>
+<h2 id="navbarstabswrappercssproperties">navbars.tabs.wrapper.css.properties</h2>
+<p><strong>Label:</strong> Intent Additional CSS Properties</p>
+<p><strong>Type:</strong> objectarray</p>
+<p><strong>Description:</strong> <em>The additional css properties of the intent, such as margin, padding, border, etc.</em></p>
+<p><strong>Fields:</strong> <a href="#navbarstabswrappercsspropertiesname">name</a> , <a href="#navbarstabswrappercsspropertiesvalue">value</a></p>
+<h2 id="navbarstabswrappercsspropertiesname">navbars.tabs.wrapper.css.properties.name</h2>
+<p><strong>Label:</strong> Property Name</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The name of the property.</em></p>
+<h2 id="navbarstabswrappercsspropertiesvalue">navbars.tabs.wrapper.css.properties.value</h2>
 <p><strong>Label:</strong> Property value</p>
 <p><strong>Type:</strong> template</p>
 <p><strong>Description:</strong> <em>The value of the property.</em></p>

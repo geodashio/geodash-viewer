@@ -85,6 +85,9 @@ baselayers:
         placeholder: ID
         required: true
         description: 'The id of your base layer.'
+        examples:
+          - osm
+          - world_blank_light
       -
         id: title
         type: text
@@ -379,7 +382,7 @@ featurelayers:
               required: false
               description: 'The url of the WMS server.'
               typeahead: {local: wms}
-              examples: ['http://geonode.wfp.org/geoserver/wms', 'http://geonode.state.gov/geoserver/wms', 'http://mapstory.org/geoserver/wms']
+              examples: ['http://geonode.wfp.org/geoserver/wms', 'http://geonode.state.gov/geoserver/wms', 'http://secondarycities.geonode.state.gov/geoserver/wms', 'http://mapstory.org/geoserver/wms']
         examples:
           -
             layers: 'geonode:wld_poi_facilities_wfp'
@@ -437,16 +440,45 @@ featurelayers:
               required: false
               description: 'The url of the WFS server.'
       -
-        id: geojson.url
-        type: text
-        label: 'GeoJSON URL'
-        placeholder: 'http://example.com/data.geojson'
+        id: geojson
+        type: object
+        label: GeoJSON
+        placeholder: geojson
         required: false
-        description: 'The url of the geojson service/file.'
+        description: 'GeoJSON configuration.'
         when:
           field: type
           values:
             - geojson
+        schema:
+          verbose_singular: GeoJSON
+          fields:
+            -
+              id: url
+              type: text
+              label: 'GeoJSON URL'
+              placeholder: 'http://example.com/data.geojson'
+              required: false
+              description: 'The url of the geojson service/file.'
+              when: {field: type, values: [geojson]}
+              examples: ['http://geonode.state.gov/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature']
+            -
+              id: strategy
+              type: text
+              label: 'GeoJSON Loading Strategy'
+              placeholder: all
+              required: false
+              description: 'The loading strategy for the layer. For OL3, see [http://openlayers.org/en/latest/apidoc/ol.loadingstrategy.html](http://openlayers.org/en/latest/apidoc/ol.loadingstrategy.html).'
+              when: {field: type, values: [geojson]}
+              options: [all, bbox, tile]
+            -
+              id: refresh
+              type: boolean
+              label: 'GeoJSON Refresh'
+              placeholder: 'false'
+              required: false
+              description: 'Whether to refresh to layer on application-specific event (e.g., movend, redo search for area, etc.)'
+              when: {field: type, values: [geojson]}
       -
         id: tegola
         type: object
@@ -468,6 +500,7 @@ featurelayers:
               placeholder: map
               required: false
               description: 'The tegola map to show.'
+              examples: [zoning]
             -
               id: url
               type: text
@@ -476,9 +509,10 @@ featurelayers:
               required: false
               description: 'The url of the tegola server.'
               typeahead: {local: tegola}
+              examples: ['http://localhost:8080']
             -
               id: debug
-              type: text
+              type: boolean
               label: Debug
               placeholder: debug
               required: false
@@ -504,7 +538,7 @@ featurelayers:
               placeholder: styles
               required: false
               description: styles
-              schema: {verbose_singular: Style, verbose_plural: Style, fields: [{id: id, type: text, label: 'Style ID', placeholder: id, required: true, description: 'The id of the style.'}, {id: title, type: text, label: 'Style Title', placeholder: title, required: true, description: 'The title of the style.'}, {id: description, type: text, label: 'Style Description', placeholder: description, required: true, description: 'The description of the style.'}, {id: legend, type: object, label: Legend, placeholder: legend, required: false, description: Legend, schema: {verbose_singular: Legend, fields: [{id: type, type: text, label: 'Legend type', placeholder: type, required: false, description: type, options: [default, graduated]}]}}, {id: symbolizers, type: objectarray, label: Symbolizers, placeholder: symbolizers, required: false, description: symbolizers, schema: {verbose_singular: Symbolizer, verbose_plural: Symbolizers, fields: [{id: id, type: text, label: 'Symbolizer ID', placeholder: id, required: true, description: 'The id of the symbolizer.'}, {id: title, type: text, label: 'Symbolizer Title', placeholder: title, required: true, description: 'The title of the symbolizer.'}, {id: type, type: text, label: 'Symbolizer Type', placeholder: title, required: true, description: 'The type of the symbolizer.', options: [point, line, polygon]}, {id: static, type: object, label: 'Symbolizer Static', placeholder: 'Symbolizer Static', required: false, description: 'Symbolizer Static', schema: {verbose_singular: Static, fields: [{id: properties, type: objectarray, label: 'Symbolizer Static Properties', placeholder: properties, required: false, description: properties, schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.', options: [radius, fillColor, fillOpacity, strokeWidth, strokeColor, strokeOpacity, textAlign, textBaseline, textCode, textColor, textContent, textFont]}, {id: value, type: text, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}}, {id: dynamic, type: object, label: 'Symbolizer Dynamic', placeholder: 'Symbolizer Dynamic', required: false, description: 'Symbolizer Dynamic', schema: {verbose_singular: Dynamic, fields: [{id: func, type: template, label: 'Symbolizer Dynamic Function Name', placeholder: 'function name', required: false, description: 'Symbolizer Dynamic Function Name', search: {local: {name: reflect, args: {locations: [dynamicStyleFn]}}}}]}}]}}]}
+              schema: {verbose_singular: Style, verbose_plural: Style, fields: [{id: id, type: text, label: 'Style ID', placeholder: id, required: true, description: 'The id of the style.'}, {id: title, type: text, label: 'Style Title', placeholder: title, required: true, description: 'The title of the style.'}, {id: description, type: text, label: 'Style Description', placeholder: description, required: true, description: 'The description of the style.'}, {id: legend, type: object, label: Legend, placeholder: legend, required: false, description: Legend, schema: {verbose_singular: Legend, fields: [{id: type, type: text, label: 'Legend type', placeholder: type, required: false, description: type, options: [default, graduated]}]}}, {id: symbolizers, type: objectarray, label: Symbolizers, placeholder: symbolizers, required: false, description: symbolizers, schema: {verbose_singular: Symbolizer, verbose_plural: Symbolizers, fields: [{id: id, type: text, label: 'Symbolizer ID', placeholder: id, required: true, description: 'The id of the symbolizer.'}, {id: title, type: text, label: 'Symbolizer Title', placeholder: title, required: true, description: 'The title of the symbolizer.'}, {id: type, type: text, label: 'Symbolizer Type', placeholder: title, required: true, description: 'The type of the symbolizer.', options: [point, line, polygon]}, {id: static, type: object, label: 'Symbolizer Static', placeholder: 'Symbolizer Static', required: false, description: 'Symbolizer Static', schema: {verbose_singular: Static, fields: [{id: properties, type: objectarray, label: 'Symbolizer Static Properties', placeholder: properties, required: false, description: properties, schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.', options: [radius, fillColor, fillOpacity, strokeWidth, strokeColor, strokeOpacity, textAlign, textBaseline, textCode, textColor, textContent, textFont]}, {id: value, type: text, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}}, {id: transform, type: object, label: 'Symbolizer Tranform', placeholder: 'Symbolizer Transform', required: false, description: 'Symbolizer Transform', schema: {verbose_singular: Transform, fields: [{id: operations, type: objectarray, label: 'Symbolizer Transform Operations', placeholder: operations, required: false, description: operations, schema: {verbose_singular: 'Transform Operation', verbose_plural: 'Transform Operations', fields: [{id: name, type: text, label: 'Operation Name', placeholder: name, required: true, description: 'The name of the operation.', options: [buffer]}, {id: properties, type: objectarray, label: 'Operation Properties', placeholder: properties, required: false, description: properties, schema: {verbose_singular: 'Operation Property', verbose_plural: 'Operation Properties', fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.', examples: [distance]}, {id: value, type: text, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.  If starts with $, then dereferences feature attribute by name, otherwise treated as a literal value.', examples: [1000, $accuracy]}]}}]}}]}}, {id: dynamic, type: object, label: 'Symbolizer Dynamic', placeholder: 'Symbolizer Dynamic', required: false, description: 'Symbolizer Dynamic', schema: {verbose_singular: Dynamic, fields: [{id: func, type: template, label: 'Symbolizer Dynamic Function Name', placeholder: 'function name', required: false, description: 'Symbolizer Dynamic Function Name', search: {local: {name: reflect, args: {locations: [dynamicStyleFn]}}}}]}}]}}]}
       -
         id: heatmap
         type: object
@@ -527,6 +561,7 @@ featurelayers:
               placeholder: 15
               required: false
               description: 'heatmap blur'
+              examples: [15]
             -
               id: radius
               type: int
@@ -534,6 +569,7 @@ featurelayers:
               placeholder: 5
               required: false
               description: 'heatmap radius'
+              examples: [5]
             -
               id: weight
               type: text
@@ -558,6 +594,7 @@ featurelayers:
               placeholder: 'popup title'
               required: false
               description: 'The title of the layer''s popup.  Can use angular variables and filters.'
+              examples: [Airport, 'Airport: {{ feature.attributes.name }}', '{{ feature.attributes.name }}']
             -
               id: maxWidth
               type: text
@@ -572,7 +609,7 @@ featurelayers:
               placeholder: Panes
               required: false
               description: Panes
-              schema: {verbose_singular: Pane, verbose_plural: Panes, fields: [{id: id, type: text, label: 'Pane ID', placeholder: id, required: true, description: 'The id of the pane.'}, {id: tab.label, type: text, label: 'Tab Label', placeholder: 'tab label', required: true, description: 'The label of the pane''s tab.'}, {id: fields, type: objectarray, label: Fields, placeholder: Fields, required: false, description: Fields, schema: {verbose_singular: Field, verbose_plural: Fields, fields: [{id: type, type: text, label: Type, placeholder: type, required: false, description: 'Type (text, link).', options: [text, template, link, date]}, {id: attribute, type: text, label: 'Field Attribute', placeholder: 'Field Attribute', required: false, description: 'The attribute name (use when input & output are the same).'}, {id: inputs, type: stringarray, label: Inputs, placeholder: 'Input arributes', required: true, description: 'Will coalesce when provided with multiple attribute names.'}, {id: value, type: template, label: Value, placeholder: 'Value (eg., {{ feature.geometry.lat | number :4 }}, {{ feature.geometry.lng | number: 4}})', required: false, description: 'Custom value to show.'}, {id: url, type: template, label: URL, placeholder: URL, required: false, description: 'When you want to hyperlink the value field.'}, {id: label, type: template, label: 'Field Label', placeholder: 'Field label', required: false, description: 'The label of the field.'}, {id: when, type: text, label: 'Field When', placeholder: 'Field When', required: false, description: 'When to display the field (always, defined, etc.).', options: [always, defined]}]}}]}
+              schema: {verbose_singular: Pane, verbose_plural: Panes, fields: [{id: id, type: text, label: 'Pane ID', placeholder: id, required: true, description: 'The id of the pane.', examples: [overview, location, status]}, {id: tab.label, type: text, label: 'Tab Label', placeholder: 'tab label', required: true, description: 'The label of the pane''s tab.', examples: [Overview, Location, Status]}, {id: fields, type: objectarray, label: Fields, placeholder: Fields, required: false, description: Fields, schema: {verbose_singular: Field, verbose_plural: Fields, fields: [{id: type, type: text, label: Type, placeholder: type, required: false, description: 'Type (text, link).', options: [text, template, link, date]}, {id: attribute, type: text, label: 'Field Attribute', placeholder: 'Field Attribute', required: false, description: 'The attribute name.  Used for testing defined and requesting attributes for WFS layers.  When no value property is set, then shows raw value in popup.', examples: [name, status, location, owner]}, {id: inputs, type: stringarray, label: Inputs, placeholder: 'Input attributes', required: true, description: 'Will coalesce when provided with multiple attribute names.', examples: [[namelong, nameshrt, name, id]]}, {id: value, type: template, label: Value, placeholder: 'Value (eg., {{ feature.geometry.lat | number :4 }}, {{ feature.geometry.lon | number: 4}})', required: false, description: 'Custom value to show.'}, {id: url, type: template, label: URL, placeholder: URL, required: false, description: 'When you want to hyperlink the value field.', examples: ['https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lon }}']}, {id: label, type: template, label: 'Field Label', placeholder: 'Field label', required: false, description: 'The label of the field.'}, {id: when, type: text, label: 'Field When', placeholder: 'Field When', required: false, description: 'When to display the field (always, defined, etc.).', options: [always, defined]}]}}]}
       -
         id: metadata
         type: object
@@ -990,6 +1027,14 @@ overlays:
           verbose_singular: CSS
           fields:
             -
+              id: classes
+              type: stringarray
+              label: Classes
+              placeholder: classes
+              required: true
+              description: 'The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/).'
+              examples: [text-primary, text-danger, bg-inverse, pop]
+            -
               id: properties
               type: objectarray
               label: 'Intent Additional CSS Properties'
@@ -997,7 +1042,7 @@ overlays:
               required: false
               description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
-        description: 'Additional CSS for each tab.'
+        description: 'Additional CSS for each tab wrapper.'
       -
         id: tooltip
         type: object
@@ -1250,6 +1295,14 @@ navbars:
           verbose_singular: CSS
           fields:
             -
+              id: classes
+              type: stringarray
+              label: Classes
+              placeholder: classes
+              required: true
+              description: 'The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/).'
+              examples: [text-primary, text-danger, bg-inverse, pop]
+            -
               id: properties
               type: objectarray
               label: 'Intent Additional CSS Properties'
@@ -1257,7 +1310,7 @@ navbars:
               required: false
               description: 'The additional css properties of the intent, such as margin, padding, border, etc.'
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
-        description: 'Additional CSS for each tab.'
+        description: 'Additional CSS for each tab wrapper.'
       -
         id: tabs
         type: objectarray
@@ -1292,5 +1345,12 @@ navbars:
               id: css
               type: object
               label: CSS
-              schema: {verbose_singular: CSS, fields: [{id: properties, type: objectarray, label: 'Intent Additional CSS Properties', placeholder: properties, required: false, description: 'The additional css properties of the intent, such as margin, padding, border, etc.', schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}
-              description: 'Additional CSS for each tab.'
+              schema: {verbose_singular: CSS, fields: [{id: classes, type: stringarray, label: Classes, placeholder: classes, required: true, description: 'The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/).', examples: [text-primary, text-danger, bg-inverse, pop]}, {id: properties, type: objectarray, label: 'Intent Additional CSS Properties', placeholder: properties, required: false, description: 'The additional css properties of the intent, such as margin, padding, border, etc.', schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}
+              description: 'Additional CSS for each tab wrapper.'
+            -
+              id: wrapper
+              type: object
+              label: 'Tab Wrapper'
+              placeholder: ""
+              description: 'Tab wrapper'
+              schema: {verbose_singular: 'Tab wrapper', fields: [{id: css, type: object, label: CSS, schema: {verbose_singular: CSS, fields: [{id: classes, type: stringarray, label: Classes, placeholder: classes, required: true, description: 'The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/).', examples: [text-primary, text-danger, bg-inverse, pop]}, {id: properties, type: objectarray, label: 'Intent Additional CSS Properties', placeholder: properties, required: false, description: 'The additional css properties of the intent, such as margin, padding, border, etc.', schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}}]}, description: 'Additional CSS for each tab wrapper.'}]}

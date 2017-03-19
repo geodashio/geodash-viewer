@@ -92,6 +92,15 @@
 
 **Description:** _The id of your base layer._
 
+Examples:
+
+```
+osm
+```
+
+```
+world_blank_light
+```
 ## baselayers.title
 
 **Label:** Title
@@ -244,7 +253,7 @@
 
 **Description:** _Feature layers available._
 
-**Fields:** [id](#featurelayersid) , [title](#featurelayerstitle) , [description](#featurelayersdescription) , [auth](#featurelayersauth) , [type](#featurelayerstype) , [view.minZoom](#featurelayersviewminzoom) , [view.maxZoom](#featurelayersviewmaxzoom) , [source](#featurelayerssource) , [wms](#featurelayerswms) , [wmts.layers](#featurelayerswmtslayers) , [wmts.url](#featurelayerswmtsurl) , [wfs](#featurelayerswfs) , [geojson.url](#featurelayersgeojsonurl) , [tegola](#featurelayerstegola) , [carto](#featurelayerscarto) , [heatmap](#featurelayersheatmap) , [popup](#featurelayerspopup) , [metadata](#featurelayersmetadata)
+**Fields:** [id](#featurelayersid) , [title](#featurelayerstitle) , [description](#featurelayersdescription) , [auth](#featurelayersauth) , [type](#featurelayerstype) , [view.minZoom](#featurelayersviewminzoom) , [view.maxZoom](#featurelayersviewmaxzoom) , [source](#featurelayerssource) , [wms](#featurelayerswms) , [wmts.layers](#featurelayerswmtslayers) , [wmts.url](#featurelayerswmtsurl) , [wfs](#featurelayerswfs) , [geojson](#featurelayersgeojson) , [tegola](#featurelayerstegola) , [carto](#featurelayerscarto) , [heatmap](#featurelayersheatmap) , [popup](#featurelayerspopup) , [metadata](#featurelayersmetadata)
 
 ## featurelayers.id
 
@@ -422,6 +431,10 @@ http://geonode.state.gov/geoserver/wms
 ```
 
 ```
+http://secondarycities.geonode.state.gov/geoserver/wms
+```
+
+```
 http://mapstory.org/geoserver/wms
 ```
 ## featurelayers.wmts.layers
@@ -468,6 +481,16 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The url of the WFS server._
 
+## featurelayers.geojson
+
+**Label:** GeoJSON
+
+**Type:** object
+
+**Description:** _GeoJSON configuration._
+
+**Fields:** [url](#featurelayersgeojsonurl) , [strategy](#featurelayersgeojsonstrategy) , [refresh](#featurelayersgeojsonrefresh)
+
 ## featurelayers.geojson.url
 
 **Label:** GeoJSON URL
@@ -475,6 +498,29 @@ http://mapstory.org/geoserver/wms
 **Type:** text
 
 **Description:** _The url of the geojson service/file._
+
+Examples:
+
+```
+http://geonode.state.gov/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature
+```
+## featurelayers.geojson.strategy
+
+**Label:** GeoJSON Loading Strategy
+
+**Type:** text
+
+**Description:** _The loading strategy for the layer. For OL3, see [http://openlayers.org/en/latest/apidoc/ol.loadingstrategy.html](http://openlayers.org/en/latest/apidoc/ol.loadingstrategy.html)._
+
+**Options:** `all` , `bbox` , `tile`
+
+## featurelayers.geojson.refresh
+
+**Label:** GeoJSON Refresh
+
+**Type:** boolean
+
+**Description:** _Whether to refresh to layer on application-specific event (e.g., movend, redo search for area, etc.)_
 
 ## featurelayers.tegola
 
@@ -494,6 +540,11 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The tegola map to show._
 
+Examples:
+
+```
+zoning
+```
 ## featurelayers.tegola.url
 
 **Label:** Tegola Server URL
@@ -502,11 +553,16 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The url of the tegola server._
 
+Examples:
+
+```
+http://localhost:8080
+```
 ## featurelayers.tegola.debug
 
 **Label:** Debug
 
-**Type:** text
+**Type:** boolean
 
 **Description:** _Debug.  If yes, will return border of each tile as vectors._
 
@@ -582,7 +638,7 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _symbolizers_
 
-**Fields:** [id](#featurelayerscartostylessymbolizersid) , [title](#featurelayerscartostylessymbolizerstitle) , [type](#featurelayerscartostylessymbolizerstype) , [static](#featurelayerscartostylessymbolizersstatic) , [dynamic](#featurelayerscartostylessymbolizersdynamic)
+**Fields:** [id](#featurelayerscartostylessymbolizersid) , [title](#featurelayerscartostylessymbolizerstitle) , [type](#featurelayerscartostylessymbolizerstype) , [static](#featurelayerscartostylessymbolizersstatic) , [transform](#featurelayerscartostylessymbolizerstransform) , [dynamic](#featurelayerscartostylessymbolizersdynamic)
 
 ## featurelayers.carto.styles.symbolizers.id
 
@@ -648,6 +704,76 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The value of the property._
 
+## featurelayers.carto.styles.symbolizers.transform
+
+**Label:** Symbolizer Tranform
+
+**Type:** object
+
+**Description:** _Symbolizer Transform_
+
+**Fields:** [operations](#featurelayerscartostylessymbolizerstransformoperations)
+
+## featurelayers.carto.styles.symbolizers.transform.operations
+
+**Label:** Symbolizer Transform Operations
+
+**Type:** objectarray
+
+**Description:** _operations_
+
+**Fields:** [name](#featurelayerscartostylessymbolizerstransformoperationsname) , [properties](#featurelayerscartostylessymbolizerstransformoperationsproperties)
+
+## featurelayers.carto.styles.symbolizers.transform.operations.name
+
+**Label:** Operation Name
+
+**Type:** text
+
+**Description:** _The name of the operation._
+
+**Options:** `buffer`
+
+## featurelayers.carto.styles.symbolizers.transform.operations.properties
+
+**Label:** Operation Properties
+
+**Type:** objectarray
+
+**Description:** _properties_
+
+**Fields:** [name](#featurelayerscartostylessymbolizerstransformoperationspropertiesname) , [value](#featurelayerscartostylessymbolizerstransformoperationspropertiesvalue)
+
+## featurelayers.carto.styles.symbolizers.transform.operations.properties.name
+
+**Label:** Property Name
+
+**Type:** text
+
+**Description:** _The name of the property._
+
+Examples:
+
+```
+distance
+```
+## featurelayers.carto.styles.symbolizers.transform.operations.properties.value
+
+**Label:** Property value
+
+**Type:** text
+
+**Description:** _The value of the property.  If starts with $, then dereferences feature attribute by name, otherwise treated as a literal value._
+
+Examples:
+
+```
+1000
+```
+
+```
+$accuracy
+```
 ## featurelayers.carto.styles.symbolizers.dynamic
 
 **Label:** Symbolizer Dynamic
@@ -684,6 +810,11 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _heatmap blur_
 
+Examples:
+
+```
+15
+```
 ## featurelayers.heatmap.radius
 
 **Label:** Heatmap Radius
@@ -692,6 +823,11 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _heatmap radius_
 
+Examples:
+
+```
+5
+```
 ## featurelayers.heatmap.weight
 
 **Label:** Heatmap Weight Attribute
@@ -718,6 +854,19 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The title of the layer's popup.  Can use angular variables and filters._
 
+Examples:
+
+```
+Airport
+```
+
+```
+Airport: {{ feature.attributes.name }}
+```
+
+```
+{{ feature.attributes.name }}
+```
 ## featurelayers.popup.maxWidth
 
 **Label:** Popup Maximum Width
@@ -744,6 +893,19 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The id of the pane._
 
+Examples:
+
+```
+overview
+```
+
+```
+location
+```
+
+```
+status
+```
 ## featurelayers.popup.panes.tab.label
 
 **Label:** Tab Label
@@ -752,6 +914,19 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The label of the pane's tab._
 
+Examples:
+
+```
+Overview
+```
+
+```
+Location
+```
+
+```
+Status
+```
 ## featurelayers.popup.panes.fields
 
 **Label:** Fields
@@ -778,8 +953,25 @@ http://mapstory.org/geoserver/wms
 
 **Type:** text
 
-**Description:** _The attribute name (use when input & output are the same)._
+**Description:** _The attribute name.  Used for testing defined and requesting attributes for WFS layers.  When no value property is set, then shows raw value in popup._
 
+Examples:
+
+```
+name
+```
+
+```
+status
+```
+
+```
+location
+```
+
+```
+owner
+```
 ## featurelayers.popup.panes.fields.inputs
 
 **Label:** Inputs
@@ -788,6 +980,11 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _Will coalesce when provided with multiple attribute names._
 
+Examples:
+
+```
+namelong,nameshrt,name,id
+```
 ## featurelayers.popup.panes.fields.value
 
 **Label:** Value
@@ -804,6 +1001,11 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _When you want to hyperlink the value field._
 
+Examples:
+
+```
+https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lon }}
+```
 ## featurelayers.popup.panes.fields.label
 
 **Label:** Field Label
@@ -1198,10 +1400,35 @@ http://mapstory.org/geoserver/wms
 
 **Type:** object
 
-**Description:** _Additional CSS for each tab._
+**Description:** _Additional CSS for each tab wrapper._
 
-**Fields:** [properties](#overlayscssproperties)
+**Fields:** [classes](#overlayscssclasses) , [properties](#overlayscssproperties)
 
+## overlays.css.classes
+
+**Label:** Classes
+
+**Type:** stringarray
+
+**Description:** _The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/)._
+
+Examples:
+
+```
+text-primary
+```
+
+```
+text-danger
+```
+
+```
+bg-inverse
+```
+
+```
+pop
+```
 ## overlays.css.properties
 
 **Label:** Intent Additional CSS Properties
@@ -1522,10 +1749,35 @@ http://mapstory.org/geoserver/wms
 
 **Type:** object
 
-**Description:** _Additional CSS for each tab._
+**Description:** _Additional CSS for each tab wrapper._
 
-**Fields:** [properties](#navbarscssproperties)
+**Fields:** [classes](#navbarscssclasses) , [properties](#navbarscssproperties)
 
+## navbars.css.classes
+
+**Label:** Classes
+
+**Type:** stringarray
+
+**Description:** _The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/)._
+
+Examples:
+
+```
+text-primary
+```
+
+```
+text-danger
+```
+
+```
+bg-inverse
+```
+
+```
+pop
+```
 ## navbars.css.properties
 
 **Label:** Intent Additional CSS Properties
@@ -1560,7 +1812,7 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _The tabs to show in the navbar_
 
-**Fields:** [value](#navbarstabsvalue) , [title](#navbarstabstitle) , [tooltip](#navbarstabstooltip) , [css](#navbarstabscss)
+**Fields:** [value](#navbarstabsvalue) , [title](#navbarstabstitle) , [tooltip](#navbarstabstooltip) , [css](#navbarstabscss) , [wrapper](#navbarstabswrapper)
 
 ## navbars.tabs.value
 
@@ -1612,10 +1864,35 @@ http://mapstory.org/geoserver/wms
 
 **Type:** object
 
-**Description:** _Additional CSS for each tab._
+**Description:** _Additional CSS for each tab wrapper._
 
-**Fields:** [properties](#navbarstabscssproperties)
+**Fields:** [classes](#navbarstabscssclasses) , [properties](#navbarstabscssproperties)
 
+## navbars.tabs.css.classes
+
+**Label:** Classes
+
+**Type:** stringarray
+
+**Description:** _The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/)._
+
+Examples:
+
+```
+text-primary
+```
+
+```
+text-danger
+```
+
+```
+bg-inverse
+```
+
+```
+pop
+```
 ## navbars.tabs.css.properties
 
 **Label:** Intent Additional CSS Properties
@@ -1635,6 +1912,77 @@ http://mapstory.org/geoserver/wms
 **Description:** _The name of the property._
 
 ## navbars.tabs.css.properties.value
+
+**Label:** Property value
+
+**Type:** template
+
+**Description:** _The value of the property._
+
+## navbars.tabs.wrapper
+
+**Label:** Tab Wrapper
+
+**Type:** object
+
+**Description:** _Tab wrapper_
+
+**Fields:** [css](#navbarstabswrappercss)
+
+## navbars.tabs.wrapper.css
+
+**Label:** CSS
+
+**Type:** object
+
+**Description:** _Additional CSS for each tab wrapper._
+
+**Fields:** [classes](#navbarstabswrappercssclasses) , [properties](#navbarstabswrappercssproperties)
+
+## navbars.tabs.wrapper.css.classes
+
+**Label:** Classes
+
+**Type:** stringarray
+
+**Description:** _The additional css classes of the intent, such as text-primary, etc.  You can use Bootstrap 4 [color utility classes](https://v4-alpha.getbootstrap.com/utilities/colors/)._
+
+Examples:
+
+```
+text-primary
+```
+
+```
+text-danger
+```
+
+```
+bg-inverse
+```
+
+```
+pop
+```
+## navbars.tabs.wrapper.css.properties
+
+**Label:** Intent Additional CSS Properties
+
+**Type:** objectarray
+
+**Description:** _The additional css properties of the intent, such as margin, padding, border, etc._
+
+**Fields:** [name](#navbarstabswrappercsspropertiesname) , [value](#navbarstabswrappercsspropertiesvalue)
+
+## navbars.tabs.wrapper.css.properties.name
+
+**Label:** Property Name
+
+**Type:** text
+
+**Description:** _The name of the property._
+
+## navbars.tabs.wrapper.css.properties.value
 
 **Label:** Property value
 

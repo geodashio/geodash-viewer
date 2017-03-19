@@ -35,26 +35,26 @@
       media="all" />
     <style>.ol-control button { width: 2em; height: 2em; }</style>
     <!-- Font Awesome CSS -->
-    <!--<link href="lib/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>-->
+    <link href="lib/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- CSS / Internal -->
     <!-- Development -->
     <!-- <link href='build/css/geodashviewer.css' rel='stylesheet' /> -->
     <!-- Production -->
-    <link href='http://cdn.geodash.io/geodash-viewer/1485360070906/geodashviewer.css' rel='stylesheet' />
+    <link href='http://cdn.geodash.io/geodash-viewer/1489952394628/geodashviewer.css' rel='stylesheet' />
     <style type="text/css">[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}</style>
     <!-- JavaScript / Polyfill -->
     <!-- Development -->
     <!-- <script src="build/js/polyfill.min.js"></script> -->
     <!-- Production -->
-    <script src="http://cdn.geodash.io/geodash-viewer/1485360070906/polyfill.min.js"></script>
+    <script src="http://cdn.geodash.io/geodash-viewer/1489952394628/polyfill.min.js"></script>
     <!-- JavaScript / Font CDN-->
-    <script src="https://use.fontawesome.com/e18802c081.js"></script>
+    <!--<script src="https://use.fontawesome.com/e18802c081.js"></script>-->
     <!-- JavaScript / Monolith -->
     <!-- Development -->
     <!-- <script src="build/js/geodashviewer.full.js"></script> -->
     <!-- Production -->
     <!-- Can't used minified version, b/c it strips out something critical, but don't know what yet -->
-    <script src="http://cdn.geodash.io/geodash-viewer/1485360070906/geodashviewer.full.js"></script>
+    <script src="http://cdn.geodash.io/geodash-viewer/1489952394628/geodashviewer.full.js"></script>
     <script type="text/javascript" language="Javascript">
       geodash.mapping_library = "ol3";
       geodash.api.addHandler("GeoDashControllerMain", "geodash:maploaded", function($scope, $interpolate, $http, $q, event, args){
@@ -70,7 +70,7 @@
       id="geodash-main"
       data-geodash-controllers="GeoDashControllerMain"
       data-geodash-dashboard-name="main"
-      class="row geodash-row geodash-main geodash-controller geodash-dashboard"
+      class="container-fluid geodash-main geodash-controller geodash-dashboard"
       style="position:relative; width: 100%; height: 100%;"
       geodash-main>
     </div>

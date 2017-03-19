@@ -111,9 +111,6 @@
   padding-bottom: 0px;
   line-height: initial;
 }
-.geodash-row {
-  margin: 0;
-}
 .geodash-select-dropdown {
   width: 300px !important;
 }
@@ -404,8 +401,9 @@
   left: 0px;
   bottom: 0px;
   right: 0px;
-  margin-left: 15px;
-  margin-right: 15px;
+  /*margin-left: 15px;
+  margin-right: 15px;*/
+  margin: 0px;
 }
 .geodash-map-navbars .geodash-map-navbar {
   background: rgba(0, 0, 0, 0);
@@ -427,13 +425,13 @@
 .geodash-map-navbars .geodash-map-navbar div a.selected {
   background: #337ab7;
 }
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-top div a:hover,
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom div a:hover {
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top div a.pop:hover,
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom div a.pop:hover {
   height: 60px;
   line-height: 38px;
 }
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-top div a.selected,
-.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom div a.selected {
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-top div a.pop.selected,
+.geodash-map-navbars .geodash-map-navbar.geodash-placement-bottom div a.pop.selected {
   height: 60px;
   line-height: 38px;
 }

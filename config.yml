@@ -86,7 +86,8 @@ build:
       - { type: resource, name: geodash:bootstrap.js@4.0.0-alpha.6 }
       - { type: resource, name: geodash:d3.js@3.5.14 }
       - { type: resource, name: geodash:c3.js@0.4.10 }
-      - { type: resource, name: geodash:ol3.js@3.20.1 }
+      - { type: resource, name: geodash:ol3.js@3.20.1-bootstrap-v4 }
+      - { type: resource, name: geodash:jsts.js@1.3.0 }
       - { type: resource, name: geodash:showdown.js@1.3.0 }
       - { type: resource, name: geodash:geodash.js@0.0.1 }
       - { type: build, name: main.js }
