@@ -41,6 +41,16 @@
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>Base layers available.</em></p>
 <p><strong>Fields:</strong> <a href="#baselayersid">id</a> , <a href="#baselayerstitle">title</a> , <a href="#baselayersdescription">description</a> , <a href="#baselayerslegendlabel">legend.label</a> , <a href="#baselayerssource">source</a></p>
+<p>Examples:</p>
+<pre><code>id: osm
+title: OpenStreetMap
+description: 'OpenStreetMap Basemap, Standard Style'
+type: tiles
+source:
+  attribution: '&amp;copy; &lt;a href="https://www.openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt;'
+  name: OpenStreetMap
+tile:
+  url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'</code></pre>
 <h2 id="baselayersid">baselayers.id</h2>
 <p><strong>Label:</strong> ID</p>
 <p><strong>Type:</strong> text</p>
@@ -222,7 +232,13 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> WFS</p>
 <p><strong>Type:</strong> object</p>
 <p><strong>Description:</strong> <em>WFS configuration.</em></p>
-<p><strong>Fields:</strong> <a href="#featurelayerswfsversion">version</a> , <a href="#featurelayerswfsurl">url</a></p>
+<p><strong>Fields:</strong> <a href="#featurelayerswfslayers">layers</a> , <a href="#featurelayerswfsversion">version</a> , <a href="#featurelayerswfsurl">url</a></p>
+<h2 id="featurelayerswfslayers">featurelayers.wfs.layers</h2>
+<p><strong>Label:</strong> WFS Layers</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The wfs layers of the feature layer.</em></p>
+<p>Examples:</p>
+<pre><code>geonode:wld_poi_facilities_wfp</code></pre>
 <h2 id="featurelayerswfsversion">featurelayers.wfs.version</h2>
 <p><strong>Label:</strong> WFS Version</p>
 <p><strong>Type:</strong> text</p>
@@ -703,11 +719,18 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Tooltip</p>
 <p><strong>Type:</strong> object</p>
 <p><strong>Description:</strong> <em>Toolip for the navbar.</em></p>
-<p><strong>Fields:</strong> <a href="#overlaystooltipcontent">content</a> , <a href="#overlaystooltipplacement">placement</a></p>
+<p><strong>Fields:</strong> <a href="#overlaystooltipcontent">content</a> , <a href="#overlaystooltipcontainer">container</a> , <a href="#overlaystooltipplacement">placement</a></p>
 <h2 id="overlaystooltipcontent">overlays.tooltip.content</h2>
 <p><strong>Label:</strong> Tooltip / Content</p>
 <p><strong>Type:</strong> template</p>
 <p><strong>Description:</strong> <em>The content of the tooltip.</em></p>
+<h2 id="overlaystooltipcontainer">overlays.tooltip.container</h2>
+<p><strong>Label:</strong> Tooltip / Container</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The container of the tooltip.</em></p>
+<p>Examples:</p>
+<pre><code>body</code></pre>
+<pre><code>#geodash-map-navbars</code></pre>
 <h2 id="overlaystooltipplacement">overlays.tooltip.placement</h2>
 <p><strong>Label:</strong> Tooltip / Placement</p>
 <p><strong>Type:</strong> text</p>
@@ -793,7 +816,7 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Navbars</p>
 <p><strong>Type:</strong> objectarray</p>
 <p><strong>Description:</strong> <em>Navbars</em></p>
-<p><strong>Fields:</strong> <a href="#navbarsid">id</a> , <a href="#navbarsplacement">placement</a> , <a href="#navbarspage">page</a> , <a href="#navbarslink">link</a> , <a href="#navbarsintents">intents</a> , <a href="#navbarscss">css</a> , <a href="#navbarstabs">tabs</a></p>
+<p><strong>Fields:</strong> <a href="#navbarsid">id</a> , <a href="#navbarsplacement">placement</a> , <a href="#navbarspage">page</a> , <a href="#navbarslink">link</a> , <a href="#navbarsintents">intents</a> , <a href="#navbarscss">css</a> , <a href="#navbarsmarkdown">markdown</a> , <a href="#navbarstabs">tabs</a></p>
 <h2 id="navbarsid">navbars.id</h2>
 <p><strong>Label:</strong> ID</p>
 <p><strong>Type:</strong> text</p>
@@ -870,6 +893,10 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Property value</p>
 <p><strong>Type:</strong> template</p>
 <p><strong>Description:</strong> <em>The value of the property.</em></p>
+<h2 id="navbarsmarkdown">navbars.markdown</h2>
+<p><strong>Label:</strong> Markdown</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>Whether to treat tab titles as markdown.  Defaults to true.</em></p>
 <h2 id="navbarstabs">navbars.tabs</h2>
 <p><strong>Label:</strong> Tabs</p>
 <p><strong>Type:</strong> objectarray</p>
@@ -887,11 +914,18 @@ url: 'http://geonode.wfp.org/geoserver/wms'</code></pre>
 <p><strong>Label:</strong> Tooltip</p>
 <p><strong>Type:</strong> object</p>
 <p><strong>Description:</strong> <em>Toolip for the navbar.</em></p>
-<p><strong>Fields:</strong> <a href="#navbarstabstooltipcontent">content</a> , <a href="#navbarstabstooltipplacement">placement</a></p>
+<p><strong>Fields:</strong> <a href="#navbarstabstooltipcontent">content</a> , <a href="#navbarstabstooltipcontainer">container</a> , <a href="#navbarstabstooltipplacement">placement</a></p>
 <h2 id="navbarstabstooltipcontent">navbars.tabs.tooltip.content</h2>
 <p><strong>Label:</strong> Tooltip / Content</p>
 <p><strong>Type:</strong> template</p>
 <p><strong>Description:</strong> <em>The content of the tooltip.</em></p>
+<h2 id="navbarstabstooltipcontainer">navbars.tabs.tooltip.container</h2>
+<p><strong>Label:</strong> Tooltip / Container</p>
+<p><strong>Type:</strong> text</p>
+<p><strong>Description:</strong> <em>The container of the tooltip.</em></p>
+<p>Examples:</p>
+<pre><code>body</code></pre>
+<pre><code>#geodash-map-navbars</code></pre>
 <h2 id="navbarstabstooltipplacement">navbars.tabs.tooltip.placement</h2>
 <p><strong>Label:</strong> Tooltip / Placement</p>
 <p><strong>Type:</strong> text</p>

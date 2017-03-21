@@ -84,6 +84,19 @@
 
 **Fields:** [id](#baselayersid) , [title](#baselayerstitle) , [description](#baselayersdescription) , [legend.label](#baselayerslegendlabel) , [source](#baselayerssource)
 
+Examples:
+
+```
+id: osm
+title: OpenStreetMap
+description: 'OpenStreetMap Basemap, Standard Style'
+type: tiles
+source:
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  name: OpenStreetMap
+tile:
+  url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+```
 ## baselayers.id
 
 **Label:** ID
@@ -461,8 +474,21 @@ http://mapstory.org/geoserver/wms
 
 **Description:** _WFS configuration._
 
-**Fields:** [version](#featurelayerswfsversion) , [url](#featurelayerswfsurl)
+**Fields:** [layers](#featurelayerswfslayers) , [version](#featurelayerswfsversion) , [url](#featurelayerswfsurl)
 
+## featurelayers.wfs.layers
+
+**Label:** WFS Layers
+
+**Type:** text
+
+**Description:** _The wfs layers of the feature layer._
+
+Examples:
+
+```
+geonode:wld_poi_facilities_wfp
+```
 ## featurelayers.wfs.version
 
 **Label:** WFS Version
@@ -1463,7 +1489,7 @@ pop
 
 **Description:** _Toolip for the navbar._
 
-**Fields:** [content](#overlaystooltipcontent) , [placement](#overlaystooltipplacement)
+**Fields:** [content](#overlaystooltipcontent) , [container](#overlaystooltipcontainer) , [placement](#overlaystooltipplacement)
 
 ## overlays.tooltip.content
 
@@ -1473,6 +1499,23 @@ pop
 
 **Description:** _The content of the tooltip._
 
+## overlays.tooltip.container
+
+**Label:** Tooltip / Container
+
+**Type:** text
+
+**Description:** _The container of the tooltip._
+
+Examples:
+
+```
+body
+```
+
+```
+#geodash-map-navbars
+```
 ## overlays.tooltip.placement
 
 **Label:** Tooltip / Placement
@@ -1643,7 +1686,7 @@ pop
 
 **Description:** _Navbars_
 
-**Fields:** [id](#navbarsid) , [placement](#navbarsplacement) , [page](#navbarspage) , [link](#navbarslink) , [intents](#navbarsintents) , [css](#navbarscss) , [tabs](#navbarstabs)
+**Fields:** [id](#navbarsid) , [placement](#navbarsplacement) , [page](#navbarspage) , [link](#navbarslink) , [intents](#navbarsintents) , [css](#navbarscss) , [markdown](#navbarsmarkdown) , [tabs](#navbarstabs)
 
 ## navbars.id
 
@@ -1804,6 +1847,14 @@ pop
 
 **Description:** _The value of the property._
 
+## navbars.markdown
+
+**Label:** Markdown
+
+**Type:** text
+
+**Description:** _Whether to treat tab titles as markdown.  Defaults to true._
+
 ## navbars.tabs
 
 **Label:** Tabs
@@ -1838,7 +1889,7 @@ pop
 
 **Description:** _Toolip for the navbar._
 
-**Fields:** [content](#navbarstabstooltipcontent) , [placement](#navbarstabstooltipplacement)
+**Fields:** [content](#navbarstabstooltipcontent) , [container](#navbarstabstooltipcontainer) , [placement](#navbarstabstooltipplacement)
 
 ## navbars.tabs.tooltip.content
 
@@ -1848,6 +1899,23 @@ pop
 
 **Description:** _The content of the tooltip._
 
+## navbars.tabs.tooltip.container
+
+**Label:** Tooltip / Container
+
+**Type:** text
+
+**Description:** _The container of the tooltip._
+
+Examples:
+
+```
+body
+```
+
+```
+#geodash-map-navbars
+```
 ## navbars.tabs.tooltip.placement
 
 **Label:** Tooltip / Placement

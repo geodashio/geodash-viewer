@@ -681,9 +681,9 @@ gulp.task('publish:s3', ['compile:monolith.js'], function(){
 gulp.task('publish:patch', ['publish:s3'], function(){
   if(argv != undefined && (argv.publish == true || argv.publish == "true" || argv.publish == "t"))
   {
-    var prefix_regex = "http:\\/\\/cdn.geodash.io\\/geodash-viewer\\/";
-    var prefix_repl = "http://cdn.geodash.io/geodash-viewer/";
-    return gulp.src(["index.html"], {base: './'})
+    var prefix_regex = "https:\\/\\/d2xfobv47glk4v.cloudfront.net\\/geodash-viewer\\/";
+    var prefix_repl = "https://d2xfobv47glk4v.cloudfront.net/geodash-viewer/";
+    return gulp.src(["index.html", "dev.html"], {base: './'})
       .pipe(replace(
         new RegExp(prefix_regex+"(.+)\\/geodashviewer.css", "g"),
         prefix_repl+ts+"/geodashviewer.css"

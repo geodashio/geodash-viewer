@@ -181,6 +181,17 @@ baselayers:
               required: false
               description: 'GWC layers'
               when: {field: source.type, values: [gwc]}
+  examples:
+    -
+      id: osm
+      title: OpenStreetMap
+      description: 'OpenStreetMap Basemap, Standard Style'
+      type: tiles
+      source:
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        name: OpenStreetMap
+      tile:
+        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 assets:
   type: objectarray
   label: Assets
@@ -424,6 +435,14 @@ featurelayers:
         schema:
           verbose_singular: WFS
           fields:
+            -
+              id: layers
+              type: text
+              label: 'WFS Layers'
+              placeholder: layers
+              required: false
+              description: 'The wfs layers of the feature layer.'
+              examples: ['geonode:wld_poi_facilities_wfp']
             -
               id: version
               type: text
@@ -1061,6 +1080,14 @@ overlays:
               required: true
               description: 'The content of the tooltip.'
             -
+              id: container
+              type: text
+              label: 'Tooltip / Container'
+              placeholder: auto
+              required: true
+              description: 'The container of the tooltip.'
+              examples: [body, '#geodash-map-navbars']
+            -
               id: placement
               type: text
               label: 'Tooltip / Placement'
@@ -1312,6 +1339,13 @@ navbars:
               schema: {verbose_singular: Property, verbose_plural: Properties, fields: [{id: name, type: text, label: 'Property Name', placeholder: name, required: true, description: 'The name of the property.'}, {id: value, type: template, label: 'Property value', placeholder: value, required: true, description: 'The value of the property.'}]}
         description: 'Additional CSS for each tab wrapper.'
       -
+        id: markdown
+        type: text
+        label: Markdown
+        placeholder: markdown
+        required: true
+        description: 'Whether to treat tab titles as markdown.  Defaults to true.'
+      -
         id: tabs
         type: objectarray
         label: Tabs
@@ -1340,7 +1374,7 @@ navbars:
               placeholder: tooltip
               required: false
               description: 'Toolip for the navbar.'
-              schema: {verbose_singular: Tooltip, fields: [{id: content, type: template, label: 'Tooltip / Content', placeholder: auto, required: true, description: 'The content of the tooltip.'}, {id: placement, type: text, label: 'Tooltip / Placement', placeholder: auto, required: true, description: 'The placement of the tooltip.', options: [top, left, bottom, right]}]}
+              schema: {verbose_singular: Tooltip, fields: [{id: content, type: template, label: 'Tooltip / Content', placeholder: auto, required: true, description: 'The content of the tooltip.'}, {id: container, type: text, label: 'Tooltip / Container', placeholder: auto, required: true, description: 'The container of the tooltip.', examples: [body, '#geodash-map-navbars']}, {id: placement, type: text, label: 'Tooltip / Placement', placeholder: auto, required: true, description: 'The placement of the tooltip.', options: [top, left, bottom, right]}]}
             -
               id: css
               type: object
